@@ -1,0 +1,17 @@
+{
+  "variants":
+  {
+    "normal":
+    {
+      "model": "gunsofchickens:chicken_tnt"
+    },
+    "explode=false":
+    {
+      "model": "gunsofchickens:chicken_tnt"
+    },
+    "explode=true":
+    {
+      "model": "gunsofchickens:chicken_tnt"
+    }
+  }
+}

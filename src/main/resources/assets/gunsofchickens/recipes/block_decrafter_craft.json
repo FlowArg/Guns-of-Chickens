@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#A#",
+    "###"
+  ],
+  "key":
+  {
+    "A":
+    {
+      "item": "gunsofchickens:inverser"
+    },
+    "#":
+    {
+      "item": "minecraft:crafting_table"
+    }
+  },
+  "result": {
+    "item": "gunsofchickens:block_decrafter"
+  }
+}

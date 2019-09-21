@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#A#",
+    "###"
+  ],
+  "key":
+  {
+    "A":
+    {
+      "item" : "gunsofchickens:chicken_with_tnt"
+    },
+    "#":
+    {
+      "item": "gunsofchickens:orange_chicken_block"
+    }
+  },
+  "result": {
+    "item": "gunsofchickens:chicken_launcher_orange"
+  }
+}

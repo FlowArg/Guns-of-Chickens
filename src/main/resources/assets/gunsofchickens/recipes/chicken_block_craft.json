@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "###",
+    "###",
+    "###"
+  ],
+  "key":
+  {
+    "#":
+    {
+      "item": "gunsofchickens:chicken_ingot"
+    }
+  },
+  "result":
+  {
+    "item": "gunsofchickens:chicken_block"
+  }
+}

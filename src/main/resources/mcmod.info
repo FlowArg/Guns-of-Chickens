@@ -1,0 +1,16 @@
+[
+{
+  "modid": "gunsofchickens",
+  "name": "Guns Of Chickens",
+  "description": "Un mod pour se fight avec des poulets, pour s'amuser entre potes.",
+  "version": "3.0",
+  "mcversion": "1.12.2",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["FlowArg"],
+  "credits": "Zom's Discord's Members, Minecraft Forge France, Evengell...",
+  "logoFile": "chickenlogo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]

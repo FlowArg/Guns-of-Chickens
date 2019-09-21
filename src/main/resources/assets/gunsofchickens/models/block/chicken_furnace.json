@@ -1,0 +1,12 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "particle": "gunsofchickens:blocks/chicken_furnace_side",
+    "up": "gunsofchickens:blocks/chicken_furnace_top",
+    "down": "gunsofchickens:blocks/chicken_furnace_bottom",
+    "north": "gunsofchickens:blocks/chicken_furnace_front_off",
+    "east": "gunsofchickens:blocks/chicken_furnace_side",
+    "south": "gunsofchickens:blocks/chicken_furnace_side",
+    "west": "gunsofchickens:blocks/chicken_furnace_side"
+  }
+}

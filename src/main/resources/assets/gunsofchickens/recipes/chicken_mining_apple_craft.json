@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#B#",
+    "#A#",
+    "###"
+  ],
+  "key":
+  {
+    "A":
+    {
+      "item": "gunsofchickens:chicken_ingot"
+    },
+    "#":
+    {
+      "item": "minecraft:apple"
+    },
+    "B":
+    {
+      "item": "gunsofchickens:chicken_pickaxe"
+    }
+  },
+  "result":
+  {
+    "item": "gunsofchickens:chicken_mining_apple"
+  }
+}

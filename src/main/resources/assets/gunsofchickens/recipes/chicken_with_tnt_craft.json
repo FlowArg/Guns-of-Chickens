@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#A#",
+    "###"
+  ],
+  "key":
+  {
+    "A":
+    {
+      "item" : "minecraft:egg"
+    },
+    "#":
+    {
+      "item": "minecraft:tnt"
+    }
+  },
+  "result": {
+    "item": "gunsofchickens:chicken_with_tnt"
+  }
+}

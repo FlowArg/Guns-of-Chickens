@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "A# ",
+    "A #",
+    " A#"
+  ],
+  "key":
+  {
+    "A":
+    {
+      "item": "minecraft:concrete",
+      "data": 15
+    },
+    "#":
+    {
+      "item": "minecraft:concrete",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "gunsofchickens:inverser"
+  }
+}

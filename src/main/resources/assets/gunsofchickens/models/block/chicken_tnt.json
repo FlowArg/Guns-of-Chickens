@@ -1,0 +1,9 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures":
+  {
+    "bottom": "gunsofchickens:blocks/chicken_tnt_bottom",
+    "top": "gunsofchickens:blocks/chicken_tnt_top",
+    "side": "gunsofchickens:blocks/chicken_tnt_side"
+  }
+}

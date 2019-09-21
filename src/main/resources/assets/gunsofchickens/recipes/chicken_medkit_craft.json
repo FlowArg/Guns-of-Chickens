@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#A#",
+    "BBB"
+  ],
+  "key":
+  {
+    "A":
+    {
+      "item": "gunsofchickens:chicken_heart"
+    },
+    "#":
+    {
+      "item": "gunsofchickens:chicken_ingot"
+    },
+    "B":
+    {
+      "item": "gunsofchickens:chicken_block"
+    }
+  },
+  "result":
+  {
+    "item": "gunsofchickens:chicken_medkit"
+  }
+}

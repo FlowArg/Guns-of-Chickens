@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# #",
+    "###",
+    "# #"
+  ],
+  "key": {
+    "#": {
+      "item": "gunsofchickens:chicken_stick"
+    }
+  },
+  "result": {
+    "item": "gunsofchickens:chicken_ladder",
+    "count": 1
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " AA",
+    " #A",
+    " # "
+  ],
+  "key":
+  {
+    "A":
+    {
+      "item": "gunsofchickens:chicken_diamond"
+    },
+    "#":
+    {
+      "item": "gunsofchickens:chicken_stick"
+    }
+  },
+  "result":
+  {
+    "item": "gunsofchickens:chicken_diamond_axe"
+  }
+}

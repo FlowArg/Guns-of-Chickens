@@ -1,0 +1,13 @@
+{
+  "variants":
+  {
+    "burning=false,facing=north": { "model": "gunsofchickens:chicken_furnace" },
+    "burning=false,facing=east": { "model": "gunsofchickens:chicken_furnace", "y": 90 },
+    "burning=false,facing=south": { "model": "gunsofchickens:chicken_furnace", "y": 180 },
+    "burning=false,facing=west": { "model": "gunsofchickens:chicken_furnace", "y": 270 },
+    "burning=true,facing=north": { "model": "gunsofchickens:lit_chicken_furnace" },
+    "burning=true,facing=east": { "model": "gunsofchickens:lit_chicken_furnace", "y": 90 },
+    "burning=true,facing=south": { "model": "gunsofchickens:lit_chicken_furnace", "y": 180 },
+    "burning=true,facing=west": { "model": "gunsofchickens:lit_chicken_furnace", "y":270  }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures":
+  {
+    "all": "gunsofchickens:blocks/green_chicken_block"
+  }
+}

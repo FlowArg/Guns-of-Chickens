@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#A#",
+    "A#A",
+    "#A#"
+  ],
+  "key":
+  {
+    "A":
+    {
+      "item": "minecraft:sand",
+      "data": 0
+    },
+    "#":
+    {
+      "item": "gunsofchickens:chicken_gunpowder"
+    }
+  },
+  "result": {
+    "item": "gunsofchickens:chicken_tnt"
+  }
+}

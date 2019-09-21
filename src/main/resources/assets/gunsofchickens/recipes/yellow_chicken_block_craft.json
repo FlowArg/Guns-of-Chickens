@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients":
+  [
+    {
+      "item": "minecraft:concrete",
+      "data": 4
+    },
+    {
+      "item": "gunsofchickens:chicken_block"
+    }
+  ],
+  "result": {
+    "item": "gunsofchickens:yellow_chicken_block"
+  }
+}

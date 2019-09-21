@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "gunsofchickens:chicken_ladder" },
+    "facing=east":  { "model": "gunsofchickens:chicken_ladder", "y": 90 },
+    "facing=south": { "model": "gunsofchickens:chicken_ladder", "y": 180 },
+    "facing=west":  { "model": "gunsofchickens:chicken_ladder", "y": 270 }
+  }
+}
