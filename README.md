@@ -7,8 +7,5 @@ jar sources
 ### Directory src
 sources
 
-### LICENSE
-License
-
 ### Wiki
 Click [HERE](https://github.com/FlowArg/Guns-of-Chickens/wiki) to read the wiki :).
