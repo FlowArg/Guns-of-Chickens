@@ -3,6 +3,7 @@ package fr.flowarg.gunsofchickens.blocks;
 import fr.flowarg.gunsofchickens.commands.util.Teleport;
 import fr.flowarg.gunsofchickens.templates.BlockBase;
 import fr.flowarg.gunsofchickens.utils.util.UtilLocation;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,9 +14,9 @@ import net.minecraft.world.World;
 
 public class BlockTeleport extends BlockBase
 {
-    public BlockTeleport(String name)
+    public BlockTeleport(String name, SoundType soundType)
     {
-        super(name, Material.ROCK, 500f, 32f, "pickaxe", 1);
+        super(name, Material.ROCK, 500f, 32f, "pickaxe", 1, soundType);
     }
 
     @Override

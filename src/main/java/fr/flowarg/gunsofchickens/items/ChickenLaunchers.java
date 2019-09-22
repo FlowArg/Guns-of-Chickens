@@ -16,7 +16,6 @@ import java.util.Random;
 
 public class ChickenLaunchers extends ItemBase
 {
-
     public ChickenLaunchers(String name)
     {
         super(name);
@@ -31,9 +30,15 @@ public class ChickenLaunchers extends ItemBase
         {
             Random random = new Random();
             RayTraceResult rayTraceResult = playerIn.rayTrace(ConfigHandler.tntReachDistance + random.nextInt(ConfigHandler.tntReachDistancechDistancePlus), 1);
-
             EntityChickenTNTPrimed entityChickenTNTPrimed = new EntityChickenTNTPrimed(worldIn);
 
+            if(!playerIn.isCreative())
+            {
+                playerIn.getCooldownTracker().setCooldown(this, 100);
+            }
+            /*entityChickenTNTPrimed.motionX = entityChickenTNTPrimed.motionX + (playerIn.posX - rayTraceResult.getBlockPos().getX()) * 0.1d;
+            entityChickenTNTPrimed.motionY = entityChickenTNTPrimed.motionY + (playerIn.posY - rayTraceResult.getBlockPos().getY() + 1);
+            entityChickenTNTPrimed.motionZ = entityChickenTNTPrimed.motionZ + (playerIn.posZ - rayTraceResult.getBlockPos().getZ() * 0.1d);*/
             entityChickenTNTPrimed.setPosition(rayTraceResult.getBlockPos().getX(), rayTraceResult.getBlockPos().getY() + random.nextInt(5), rayTraceResult.getBlockPos().getZ());
             worldIn.spawnEntity(entityChickenTNTPrimed);
             worldIn.playSound(null, entityChickenTNTPrimed.posX, entityChickenTNTPrimed.posY, entityChickenTNTPrimed.posZ, SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 100, 1f);
@@ -42,6 +47,5 @@ public class ChickenLaunchers extends ItemBase
 
         return super.onItemRightClick(worldIn, playerIn, handIn);
     }
-
 
 }

@@ -1,8 +1,8 @@
 package fr.flowarg.gunsofchickens;
 
-import fr.flowarg.gunsofchickens.ct.ModTabBlocks;
-import fr.flowarg.gunsofchickens.ct.ModTabItems;
-import fr.flowarg.gunsofchickens.ct.ModTabUtils;
+import fr.flowarg.gunsofchickens.creativetabs.ModTabBlocks;
+import fr.flowarg.gunsofchickens.creativetabs.ModTabItems;
+import fr.flowarg.gunsofchickens.creativetabs.ModTabUtils;
 import fr.flowarg.gunsofchickens.proxy.CommonProxy;
 import fr.flowarg.gunsofchickens.utils.References;
 import fr.flowarg.gunsofchickens.utils.handlers.ConfigHandler;
@@ -70,7 +70,6 @@ public class Main
     public static void serverStopping(FMLServerStoppingEvent event)
     {
         LOGGER.info("Stopping server...");
-        ConfigHandler.getConfig().save();
     }
 
     @EventHandler

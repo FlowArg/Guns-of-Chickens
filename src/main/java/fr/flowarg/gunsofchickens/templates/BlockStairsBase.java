@@ -7,9 +7,10 @@ import net.minecraft.block.BlockStairs;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 
-public class BlockStairsBase extends BlockStairs implements IHasModel {
-
-    public BlockStairsBase(String name, IBlockState modelState) {
+public class BlockStairsBase extends BlockStairs implements IHasModel
+{
+    public BlockStairsBase(String name, IBlockState modelState)
+    {
         super(modelState);
         setRegistryName(name).setUnlocalizedName(name);
 

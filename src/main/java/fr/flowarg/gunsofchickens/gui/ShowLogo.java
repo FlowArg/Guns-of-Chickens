@@ -9,7 +9,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class  ShowLogo extends GuiScreen
 {
-    private static final ResourceLocation LOGO = new ResourceLocation(References.MODID + ":textures/gui/showlogo/mojang.png");
+    private static final ResourceLocation LOGO = new ResourceLocation(References.MODID + ":textures/gui/showlogo/chickenlogo.png");
 
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks)

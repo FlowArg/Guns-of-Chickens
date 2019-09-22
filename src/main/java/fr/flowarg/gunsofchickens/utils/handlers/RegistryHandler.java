@@ -79,15 +79,17 @@ public class RegistryHandler
     {
         Main.LOGGER.debug("Registering commands...");
         event.registerServerCommand(new CommandDimensionTeleport());
-        Main.LOGGER.debug("Registered command Dimension Teleport.");
+        Main.LOGGER.debug("Registering command Dimension Teleport.");
         event.registerServerCommand(new CommandGameMode());
-        Main.LOGGER.debug("Registered command GameMode...");
+        Main.LOGGER.debug("Registering command GameMode...");
         event.registerServerCommand(new CommandFlow());
-        Main.LOGGER.debug("Registered command Flow...");
+        Main.LOGGER.debug("Registering command Flow...");
         event.registerServerCommand(new CommandSpawn());
-        Main.LOGGER.debug("Registered command Spawn...");
+        Main.LOGGER.debug("Registering command Spawn...");
         event.registerServerCommand(new CommandRandomTP());
-        Main.LOGGER.debug("Registered command Random TP...");
+        Main.LOGGER.debug("Registering command Random TP...");
+        event.registerServerCommand(new CommandBreakChicken());
+        Main.LOGGER.debug("Registering command Break Chicken...");
     }
 
     @SubscribeEvent

@@ -50,8 +50,8 @@ public class ChunkGeneratorChickenDimension implements IChunkGenerator
     private NoiseGeneratorOctaves lperlinNoise1, lperlinNoise2, perlinNoise1, slowsandGravelNoiseGen, netherrackExculsivityNoiseGen, scaleNoise, depthNoise;
     double[] pnr, ar, br, dr, noiseData4;
 
-    private final WorldGenFire fireFeature = new WorldGenFire();
     /* Any Structures you want - These are all of the Nether Ones
+    private final WorldGenFire fireFeature = new WorldGenFire();
     private final WorldGenGlowStone1 lightGemGen = new WorldGenGlowStone1();
     private final WorldGenGlowStone2 hellPortalGen = new WorldGenGlowStone2();
     private final WorldGenerator quartzGen = new WorldGenMinable(Blocks.QUARTZ_ORE.getDefaultState(), 14, BlockMatcher.forBlock(Blocks.COPPER_BLOCK));
@@ -267,11 +267,6 @@ public class ChunkGeneratorChickenDimension implements IChunkGenerator
 
         //Keep this - This makes all the holes and stuff in the nether - IT IS NEEDED!
         this.genNetherCaves.generate(this.world, x, z, chunkprimer);
-        this.fireFeature.generate(this.world, rand, position);
-
-        if (this.generateStructures)
-        {
-        }
 
         Chunk chunk = new Chunk(this.world, chunkprimer, x, z);
         byte[] abyte = chunk.getBiomeArray();
