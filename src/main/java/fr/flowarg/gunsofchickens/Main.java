@@ -17,7 +17,7 @@ import org.apache.logging.log4j.Logger;
 import static net.minecraftforge.fml.common.Mod.EventHandler;
 import static net.minecraftforge.fml.common.Mod.Instance;
 
-@Mod(modid = References.MODID, name = References.NAME, version = References.VERSION, modLanguage = "java", serverSideOnly = false, updateJSON = "https://gist.githubusercontent.com/FlowArg/cf597ce990703151e2f580d59b4e26c2/raw/update.json", clientSideOnly = false, canBeDeactivated = false, guiFactory = "fr.flowarg.gunsofchickens.gui.GUIFactory")
+@Mod(modid = References.MODID, name = References.NAME, version = References.VERSION, modLanguage = "java", serverSideOnly = false, updateJSON = "https://raw.githubusercontent.com/FlowArg/Guns-of-Chickens/master/update.json", clientSideOnly = false, canBeDeactivated = false, guiFactory = "fr.flowarg.gunsofchickens.gui.GUIFactory")
 public class Main
 {
     public static final Logger LOGGER = LogManager.getLogger(References.MODID);
