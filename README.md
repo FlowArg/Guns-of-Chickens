@@ -10,4 +10,4 @@ sources
 License
 
 ### Wiki
-Click (https://github.com/FlowArg/Guns-of-Chickens/wiki)[HERE] to read the wiki :).
+Click [HERE](https://github.com/FlowArg/Guns-of-Chickens/wiki) to read the wiki :).
