@@ -5,7 +5,6 @@ import fr.flowarg.gunsofchickens.creativetabs.ModTabItems;
 import fr.flowarg.gunsofchickens.creativetabs.ModTabUtils;
 import fr.flowarg.gunsofchickens.proxy.CommonProxy;
 import fr.flowarg.gunsofchickens.utils.References;
-import fr.flowarg.gunsofchickens.utils.handlers.ConfigHandler;
 import fr.flowarg.gunsofchickens.utils.handlers.RegistryHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
