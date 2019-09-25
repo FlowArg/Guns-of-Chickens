@@ -5,6 +5,7 @@
                 "1.12.2-recommended": "release2.4"
         },
 	"1.12.2": {
+		"3.0": "Reconstructing the mod and add new features",
 		"release2.4": "Fix PVP Apple bug",
     		"release2.3": "Fix TNT and Chickens Launchers, Optimize code",
     		"release2.2": "Fix Kiki's textures",
