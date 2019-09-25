@@ -2,16 +2,20 @@ package fr.flowarg.gunsofchickens.blocks;
 
 import fr.flowarg.gunsofchickens.Main;
 import fr.flowarg.gunsofchickens.entity.EntityChickenTNTPrimed;
-import fr.flowarg.gunsofchickens.init.BlockInit;
 import fr.flowarg.gunsofchickens.init.ItemInit;
 import fr.flowarg.gunsofchickens.utils.IHasModel;
+import fr.flowarg.gunsofchickens.utils.util.UtilObjects;
 import net.minecraft.block.BlockTNT;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Explosion;
@@ -25,8 +29,7 @@ public class ChickenTNT extends BlockTNT implements IHasModel
 
         this.setCreativeTab(Main.modtabBlocks);
 
-        BlockInit.BLOCKS.add(this);
-        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+        UtilObjects.getInstance().registerBlock(this);
     }
 
     @Override
@@ -52,6 +55,27 @@ public class ChickenTNT extends BlockTNT implements IHasModel
                 worldIn.playSound((EntityPlayer)null, entityChickenTNTPrimed.posX, entityChickenTNTPrimed.posY, entityChickenTNTPrimed.posZ, SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 1.0F, 1.0F);
             }
         }
+    }
+
+    @Override
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+    {
+        ItemStack itemstack = playerIn.getHeldItem(hand);
+
+        if (!itemstack.isEmpty() && (itemstack.getItem() == Items.FLINT_AND_STEEL || itemstack.getItem() == Items.FIRE_CHARGE))
+        {
+            return false;
+        }
+        else if(!itemstack.isEmpty() && itemstack.getItem() == ItemInit.chicken_with_tnt)
+        {
+            this.explode(worldIn, pos, state.withProperty(EXPLODE, Boolean.valueOf(true)), playerIn);
+            worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 11);
+            if (!playerIn.isCreative())
+            {
+                itemstack.damageItem(1, playerIn);
+            }
+        }
+        return false;
     }
 
     @Override

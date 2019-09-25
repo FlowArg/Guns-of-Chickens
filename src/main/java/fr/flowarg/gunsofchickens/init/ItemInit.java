@@ -28,7 +28,7 @@ public class ItemInit
     public static final ToolMaterial ultimateToolMat = EnumHelper.addToolMaterial("ultimateToolMat", 6, Integer.MAX_VALUE, Float.MAX_VALUE, Float.MAX_VALUE, 100);
 
     public static final Item chicken_launcher_black = new ChickenLaunchers("chicken_launcher_black");
-    public static final Item chicken_with_tnt = new ItemBase("chicken_with_tnt").setCreativeTab(Main.modtabUtils).setMaxDamage(64).setMaxStackSize(1);
+    public static final Item chicken_with_tnt = new ItemBase.ChickenWithTNT("chicken_with_tnt");
     public static final Item chicken_launcher_blue = new ChickenLaunchers("chicken_launcher_blue");
     public static final Item chicken_launcher_brown = new ChickenLaunchers("chicken_launcher_brown");
     public static final Item chicken_launcher_gray = new ChickenLaunchers("chicken_launcher_gray");

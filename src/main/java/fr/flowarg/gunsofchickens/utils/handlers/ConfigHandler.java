@@ -30,10 +30,17 @@ public class ConfigHandler
     public static float strength = 5f;
     public static int money = 0;
 
-
     public static void registerConfig(FMLPreInitializationEvent event)
     {
         configFile = new File(event.getModConfigurationDirectory() + "/" + References.MODID);
+        if(!configFile.canWrite())
+        {
+            configFile.setWritable(true);
+        }
+        if (!configFile.canRead())
+        {
+            configFile.setReadable(true);
+        }
         configFile.mkdirs();
         syncConfig(new File(configFile.getPath(), References.MODID + ".cfg"));
     }
@@ -42,7 +49,6 @@ public class ConfigHandler
     {
         return config;
     }
-
     public static void syncConfig(File file)
     {
         config = new Configuration(file);

@@ -21,7 +21,7 @@ public class CommandRandomTP extends CommandBase
     @Override
     public String getUsage(ICommandSender iCommandSender)
     {
-        return "/rtp";
+        return "rtp";
     }
 
     @Override

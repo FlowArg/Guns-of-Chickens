@@ -4,6 +4,7 @@ import fr.flowarg.gunsofchickens.Main;
 import fr.flowarg.gunsofchickens.init.BlockInit;
 import fr.flowarg.gunsofchickens.init.ItemInit;
 import fr.flowarg.gunsofchickens.utils.IHasModel;
+import fr.flowarg.gunsofchickens.utils.util.UtilObjects;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -22,8 +23,7 @@ public class BlockBase extends Block implements IHasModel
 
         setCreativeTab(Main.modtabBlocks);
 
-        BlockInit.BLOCKS.add(this);
-        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+        UtilObjects.getInstance().registerBlock(this);
     }
 
     public BlockBase(String name, Material materialIn, float resistance, float hardness, String harvestType, int harvestLevel, SoundType soundType)

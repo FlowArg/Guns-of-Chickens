@@ -1,8 +1,12 @@
 package fr.flowarg.gunsofchickens.utils.util;
 
+import fr.flowarg.gunsofchickens.init.BlockInit;
+import fr.flowarg.gunsofchickens.init.ItemInit;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
 public class UtilObjects
@@ -44,5 +48,22 @@ public class UtilObjects
     public boolean isEntityEqualToAnotherEntity(Entity entity1, Entity entity2)
     {
         return entity1 == entity2;
+    }
+
+    public IBlockState getState(Block block)
+    {
+        return block.getDefaultState();
+    }
+
+
+    public void registerBlock(Block block)
+    {
+        BlockInit.BLOCKS.add(block);
+        ItemInit.ITEMS.add(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+    }
+
+    public void registerItem(Item item)
+    {
+        ItemInit.ITEMS.add(item);
     }
 }

@@ -14,13 +14,13 @@ public class CommandBreakChicken extends CommandBase
     @Override
     public String getName()
     {
-        return "Chicken Ores Mined";
+        return "com";
     }
 
     @Override
     public String getUsage(ICommandSender sender)
     {
-        return "/COM";
+        return "com";
     }
 
     @Override

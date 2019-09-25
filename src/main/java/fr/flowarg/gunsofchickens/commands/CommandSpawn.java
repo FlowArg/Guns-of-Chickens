@@ -19,7 +19,7 @@ public class CommandSpawn extends CommandBase
     @Override
     public String getUsage(ICommandSender iCommandSender)
     {
-        return "/spawn";
+        return "spawn";
     }
 
     @Override

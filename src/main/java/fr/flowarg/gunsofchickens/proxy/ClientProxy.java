@@ -18,6 +18,7 @@ import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.Display;
 
 import java.util.Date;
 
@@ -27,10 +28,12 @@ import static fr.flowarg.gunsofchickens.utils.References.VERSION;
 @SideOnly(Side.CLIENT)
 public class ClientProxy extends CommonProxy
 {
+    private static final Minecraft MC = Minecraft.getMinecraft();
     @Override
     public void preInit(FMLPreInitializationEvent event)
     {
         super.preInit(event);
+        Display.setTitle("Minecraft 1.12.2 " + NAME + "-" + VERSION);
     }
 
     @Override

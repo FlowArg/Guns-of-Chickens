@@ -1,15 +1,13 @@
 package fr.flowarg.gunsofchickens.blocks;
 
 import fr.flowarg.gunsofchickens.Main;
-import fr.flowarg.gunsofchickens.init.BlockInit;
-import fr.flowarg.gunsofchickens.init.ItemInit;
 import fr.flowarg.gunsofchickens.utils.IHasModel;
+import fr.flowarg.gunsofchickens.utils.util.UtilObjects;
 import net.minecraft.block.BlockLadder;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -25,8 +23,7 @@ public class ChickenLadder extends BlockLadder implements IHasModel
 
         this.setCreativeTab(Main.modtabBlocks);
 
-        BlockInit.BLOCKS.add(this);
-        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+        UtilObjects.getInstance().registerBlock(this);
     }
 
     @Override

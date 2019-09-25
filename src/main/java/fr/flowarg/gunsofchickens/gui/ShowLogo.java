@@ -17,8 +17,7 @@ public class  ShowLogo extends GuiScreen
         super.drawScreen(mouseX, mouseY, partialTicks);
         drawDefaultBackground();
         mc.getTextureManager().bindTexture(LOGO);
-        //drawModalRectWithCustomSizedTexture(210, 80, 0, 0, 190, 190, 190, 190);
-        drawModalRectWithCustomSizedTexture(210, 80, 0, 0, this.width / 2 , this.height / 2, 190, 190);
+        drawModalRectWithCustomSizedTexture(210, 80, 0, 0, 190, 190, 190, 190);
     }
 
 }

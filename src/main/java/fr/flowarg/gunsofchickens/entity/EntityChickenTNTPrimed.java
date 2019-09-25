@@ -1,12 +1,10 @@
 package fr.flowarg.gunsofchickens.entity;
 
 import fr.flowarg.gunsofchickens.utils.handlers.ConfigHandler;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.MoverType;
 import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class EntityChickenTNTPrimed extends EntityTNTPrimed

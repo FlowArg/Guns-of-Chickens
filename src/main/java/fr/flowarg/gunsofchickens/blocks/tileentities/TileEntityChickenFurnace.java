@@ -248,7 +248,7 @@ public class TileEntityChickenFurnace extends TileEntity implements IInventory,I
             else if(output.getItem() == result.getItem()) output.grow(result.getCount());
 
             input1.shrink(1);
-            input2.shrink(2);
+            input2.shrink(1);
         }
     }
 
@@ -273,7 +273,8 @@ public class TileEntityChickenFurnace extends TileEntity implements IInventory,I
     @Override
     public boolean isUsableByPlayer(EntityPlayer player)
     {
-        return this.world.getTileEntity(this.pos) != this ? false : player.getDistanceSq((double)this.pos.getX() + 0.5d, (double)this.pos.getY() + 0.5d, (double)this.pos.getZ() + 0.5d) <= 64;
+
+        return getWorld().getTileEntity(this.pos) != this ? false : player.getDistanceSq((double)getPos().getX() + 0.5d, (double)getPos().getY() + 0.5d, (double)getPos().getZ() + 0.5d) <= 64;
     }
 
     @Override

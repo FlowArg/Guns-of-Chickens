@@ -2,16 +2,14 @@ package fr.flowarg.gunsofchickens.blocks;
 
 import fr.flowarg.gunsofchickens.Main;
 import fr.flowarg.gunsofchickens.blocks.tileentities.TileEntityChickenChest;
-import fr.flowarg.gunsofchickens.init.BlockInit;
-import fr.flowarg.gunsofchickens.init.ItemInit;
 import fr.flowarg.gunsofchickens.utils.handlers.ConfigHandler;
+import fr.flowarg.gunsofchickens.utils.util.UtilObjects;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryHelper;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
@@ -31,8 +29,7 @@ public class ChickenChest extends BlockContainer
         setHardness(12f);
         setHarvestLevel("axe", 2);
 
-        BlockInit.BLOCKS.add(this);
-        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(name));
+        UtilObjects.getInstance().registerBlock(this);
     }
 
     @Override
@@ -94,5 +91,11 @@ public class ChickenChest extends BlockContainer
     public boolean isOpaqueCube(IBlockState state)
     {
         return false;
+    }
+
+    @Override
+    public boolean hasTileEntity(IBlockState state)
+    {
+        return true;
     }
 }

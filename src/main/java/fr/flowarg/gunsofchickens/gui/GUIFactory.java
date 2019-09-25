@@ -44,7 +44,7 @@ public class GUIFactory implements IModGuiFactory
     {
         public GUIConfig(GuiScreen parent)
         {
-            super(parent, getConfigElements(), References.MODID, false, true, "Guns of Chickens CONFIG");
+            super(parent, getConfigElements(), References.MODID, false, false, "Guns of Chickens CONFIG");
         }
 
         private static List <IConfigElement>getConfigElements()

@@ -34,10 +34,10 @@ public class ChickenFurnaceRecipes
 
     public ChickenFurnaceRecipes()
     {
-        addSmeltingRecipe(chicken_ingot, chicken_diamond, ultimate_ingot, 99999f);
-        addSmeltingRecipe(chicken_diamond, chicken_ingot, ultimate_ingot, 99999f);
-        addSmeltingRecipe(chicken_block, chicken_diamond_block, ultimate_block, 99999f);
-        addSmeltingRecipe(chicken_diamond_block, chicken_block, ultimate_block, 99999f);
+        addSmeltingRecipe(chicken_ingot, chicken_diamond, ultimate_ingot, 9999f);
+        addSmeltingRecipe(chicken_diamond, chicken_ingot, ultimate_ingot, 9999f);
+        addSmeltingRecipe(chicken_block, chicken_diamond_block, ultimate_block, 9999f);
+        addSmeltingRecipe(chicken_diamond_block, chicken_block, ultimate_block, 9999f);
     }
 
     private ItemStack getItemStack(Item item)

@@ -3,6 +3,7 @@ package fr.flowarg.gunsofchickens.items;
 import fr.flowarg.gunsofchickens.Main;
 import fr.flowarg.gunsofchickens.init.ItemInit;
 import fr.flowarg.gunsofchickens.utils.IHasModel;
+import fr.flowarg.gunsofchickens.utils.util.UtilObjects;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -22,7 +23,7 @@ public class ChickenBoots extends ItemArmor implements IHasModel
 
         setMaxStackSize(1);
 
-        ItemInit.ITEMS.add(this);
+        UtilObjects.getInstance().registerItem(this);
     }
 
     @Override

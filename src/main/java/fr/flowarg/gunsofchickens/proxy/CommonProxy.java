@@ -17,7 +17,7 @@ public class CommonProxy
 
     public void init(FMLInitializationEvent event)
     {
-        RegistryHandler.initRegistriesCOP(event);
+        RegistryHandler.initRegistriesCOP();
     }
 
     public void postInit(FMLPostInitializationEvent event)
