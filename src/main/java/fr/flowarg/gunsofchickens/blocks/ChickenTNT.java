@@ -66,7 +66,7 @@ public class ChickenTNT extends BlockTNT implements IHasModel
         {
             return false;
         }
-        else if(!itemstack.isEmpty() && itemstack.getItem() == ItemInit.chicken_with_tnt)
+        else if(!itemstack.isEmpty() && itemstack.getItem() == ItemInit.CHICKEN_WITH_TNT)
         {
             this.explode(worldIn, pos, state.withProperty(EXPLODE, Boolean.valueOf(true)), playerIn);
             worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 11);

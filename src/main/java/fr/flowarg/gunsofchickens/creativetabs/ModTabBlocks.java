@@ -14,6 +14,6 @@ public class ModTabBlocks extends CreativeTabs
     @Override
     public ItemStack getTabIconItem()
     {
-        return new ItemStack(BlockInit.multicolored_chicken_block);
+        return new ItemStack(BlockInit.MULTICOLORED_CHICKEN_BLOCK);
     }
 }

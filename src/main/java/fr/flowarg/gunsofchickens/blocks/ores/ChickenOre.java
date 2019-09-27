@@ -23,7 +23,7 @@ public class ChickenOre extends BlockBase
 
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return this == BlockInit.chicken_ore ? ItemInit.chicken_ingot : Item.getItemFromBlock(this);
+        return this == BlockInit.CHICKEN_ORE ? ItemInit.CHICKEN_INGOT : Item.getItemFromBlock(this);
     }
 
     public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune)
@@ -33,7 +33,7 @@ public class ChickenOre extends BlockBase
         {
             int i = 0;
 
-            if (this == BlockInit.chicken_ore)
+            if (this == BlockInit.CHICKEN_ORE)
             {
                 i = MathHelper.getInt(rand, 250, 500);
             }

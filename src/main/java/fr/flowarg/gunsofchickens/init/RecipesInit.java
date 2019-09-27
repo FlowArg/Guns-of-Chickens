@@ -16,21 +16,21 @@ public class RecipesInit
     public void initRecipes()
     {
         Main.LOGGER.debug("Registering recipes...");
-        addSmelt(chicken_with_tnt, chicken_tnt, 8, 3.75f);
-        addSmelt(chicken_helmet, chicken_ingot, 4, 4f);
-        addSmelt(chicken_chestplate, chicken_ingot, 7, 7f);
-        addSmelt(chicken_leggings, chicken_ingot, 6, 6f);
-        addSmelt(chicken_boots, chicken_ingot, 3, 3f);
-        addSmelt(chicken_ore, chicken_ingot, 1, 2f);
-        addSmelt(chicken_diamond_helmet, chicken_diamond, 4, 40f);
-        addSmelt(chicken_diamond_chestplate, chicken_diamond, 7, 70f);
-        addSmelt(chicken_diamond_leggings, chicken_diamond, 6, 60f);
-        addSmelt(chicken_diamond_boots, chicken_diamond, 3, 30f);
-        addSmelt(chicken_diamond_ore, chicken_diamond, 1, 20f);
-        addSmelt(ultimate_helmet, ultimate_ingot,4, 9999f);
-        addSmelt(ultimate_chestplate, ultimate_ingot, 7, 9999f);
-        addSmelt(ultimate_leggings, ultimate_ingot, 6, 9999f);
-        addSmelt(ultimate_boots, ultimate_ingot, 3, 9999f);
+        addSmelt(CHICKEN_WITH_TNT, CHICKEN_TNT, 8, 3.75f);
+        addSmelt(CHICKEN_HELMET, CHICKEN_INGOT, 4, 4f);
+        addSmelt(CHICKEN_CHESTPLATE, CHICKEN_INGOT, 7, 7f);
+        addSmelt(CHICKEN_LEGGINGS, CHICKEN_INGOT, 6, 6f);
+        addSmelt(CHICKEN_BOOTS, CHICKEN_INGOT, 3, 3f);
+        addSmelt(CHICKEN_ORE, CHICKEN_INGOT, 1, 2f);
+        addSmelt(CHICKEN_DIAMOND_HELMET, CHICKEN_DIAMOND, 4, 40f);
+        addSmelt(CHICKEN_DIAMOND_CHESTPLATE, CHICKEN_DIAMOND, 7, 70f);
+        addSmelt(CHICKEN_DIAMOND_LEGGINGS, CHICKEN_DIAMOND, 6, 60f);
+        addSmelt(CHICKEN_DIAMOND_BOOTS, CHICKEN_DIAMOND, 3, 30f);
+        addSmelt(CHICKEN_DIAMOND_ORE, CHICKEN_DIAMOND, 1, 20f);
+        addSmelt(ULTIMATE_HELMET, ULTIMATE_INGOT,4, 9999f);
+        addSmelt(ULTIMATE_CHESTPLATE, ULTIMATE_INGOT, 7, 9999f);
+        addSmelt(ULTIMATE_LEGGINGS, ULTIMATE_INGOT, 6, 9999f);
+        addSmelt(ULTIMATE_BOOTS, ULTIMATE_INGOT, 3, 9999f);
     }
 
     private void addSmelt(Item item, Item result, int amount, float xp)

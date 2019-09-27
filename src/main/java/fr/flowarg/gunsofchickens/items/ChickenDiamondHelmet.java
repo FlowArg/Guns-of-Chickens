@@ -14,9 +14,9 @@ import net.minecraft.world.World;
 
 public class ChickenDiamondHelmet extends ItemArmor implements IHasModel
 {
-    public ChickenDiamondHelmet(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn)
+    public ChickenDiamondHelmet(String name, ArmorMaterial materialIn, int renderIndexIn)
     {
-        super(materialIn, renderIndexIn, equipmentSlotIn);
+        super(materialIn, renderIndexIn, EntityEquipmentSlot.HEAD);
         this.setRegistryName(name).setUnlocalizedName(name);
 
         setCreativeTab(Main.modtabItems);
@@ -31,7 +31,7 @@ public class ChickenDiamondHelmet extends ItemArmor implements IHasModel
         if(player.inventory.armorInventory.get(3)!=null)
         {
             ItemStack helmet = player.inventory.armorInventory.get(3);
-            if(helmet.getItem()== ItemInit.chicken_diamond_helmet);
+            if(helmet.getItem()== ItemInit.CHICKEN_DIAMOND_HELMET);
             {
                 player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 5, 0));
                 player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 5, 0));

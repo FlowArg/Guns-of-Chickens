@@ -14,9 +14,9 @@ import net.minecraft.world.World;
 
 public class ChickenDiamondLeggings extends ItemArmor implements IHasModel
 {
-    public ChickenDiamondLeggings(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn)
+    public ChickenDiamondLeggings(String name, ArmorMaterial materialIn, int renderIndexIn)
     {
-        super(materialIn, renderIndexIn, equipmentSlotIn);
+        super(materialIn, renderIndexIn, EntityEquipmentSlot.LEGS);
         this.setRegistryName(name).setUnlocalizedName(name);
 
         setCreativeTab(Main.modtabItems);
@@ -32,7 +32,7 @@ public class ChickenDiamondLeggings extends ItemArmor implements IHasModel
         if(player.inventory.armorInventory.get(1)!=null)
         {
             ItemStack leggings = player.inventory.armorInventory.get(1);
-            if(leggings.getItem()== ItemInit.chicken_diamond_leggings);
+            if(leggings.getItem()== ItemInit.CHICKEN_DIAMOND_LEGGINGS);
             {
                 player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 5, 2));
                 player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 5, 1));

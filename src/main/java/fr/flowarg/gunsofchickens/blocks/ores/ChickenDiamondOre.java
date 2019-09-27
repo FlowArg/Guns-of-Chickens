@@ -22,7 +22,7 @@ public class ChickenDiamondOre extends BlockBase
 
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return this == BlockInit.chicken_diamond_ore ? ItemInit.chicken_diamond : Item.getItemFromBlock(this);
+        return this == BlockInit.CHICKEN_DIAMOND_ORE ? ItemInit.CHICKEN_DIAMOND : Item.getItemFromBlock(this);
     }
 
     public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune)
@@ -32,7 +32,7 @@ public class ChickenDiamondOre extends BlockBase
         {
             int i = 0;
 
-            if (this == BlockInit.chicken_diamond_ore)
+            if (this == BlockInit.CHICKEN_DIAMOND_ORE)
             {
                 i = MathHelper.getInt(rand, 500, 1000);
             }

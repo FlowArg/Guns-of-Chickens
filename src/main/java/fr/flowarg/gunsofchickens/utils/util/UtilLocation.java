@@ -26,6 +26,18 @@ public class UtilLocation
     {
         return player.getPosition().getZ();
     }
+    public double getPlayerMotionX(EntityPlayer player)
+    {
+        return player.motionX;
+    }
+    public double getPlayerMotionY(EntityPlayer player)
+    {
+        return player.motionY;
+    }
+    public double getPlayerMotionZ(EntityPlayer player)
+    {
+        return player.motionZ;
+    }
     public double getEntityX(Entity entity)
     {
         return entity.getPosition().getX();
@@ -38,17 +50,41 @@ public class UtilLocation
     {
         return entity.getPosition().getZ();
     }
-    public double getEntityX(EntityLiving entity)
+    public double getEntityMotionX(Entity entity)
+    {
+        return entity.motionX;
+    }
+    public double getEntityMotionY(Entity entity)
+    {
+        return entity.motionY;
+    }
+    public double getEntityMotionZ(Entity entity)
+    {
+        return entity.motionZ;
+    }
+    public double getEntityLivingX(EntityLiving entity)
     {
         return entity.getPosition().getX();
     }
-    public double getEntityY(EntityLiving entity)
+    public double getEntityLivingY(EntityLiving entity)
     {
         return entity.getPosition().getY();
     }
-    public double getEntityZ(EntityLiving entity)
+    public double getEntityLivingZ(EntityLiving entity)
     {
         return entity.getPosition().getZ();
+    }
+    public double getEntityLivingMotionX(EntityLiving entity)
+    {
+        return entity.motionX;
+    }
+    public double getEntityLivingMotionY(EntityLiving entity)
+    {
+        return entity.motionY;
+    }
+    public double getEntityLivingMotionZ(EntityLiving entity)
+    {
+        return entity.motionZ;
     }
 
     public double getMaxWorldX(MinecraftServer minecraftServer, EntityPlayer player)

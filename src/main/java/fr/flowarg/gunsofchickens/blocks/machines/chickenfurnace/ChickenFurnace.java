@@ -42,13 +42,13 @@ public class ChickenFurnace extends BlockBase implements ITileEntityProvider
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(BlockInit.chicken_furnace);
+        return Item.getItemFromBlock(BlockInit.CHICKEN_FURNACE);
     }
 
     @Override
     public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player)
     {
-        return new ItemStack(BlockInit.chicken_furnace);
+        return new ItemStack(BlockInit.CHICKEN_FURNACE);
     }
 
     @Override
@@ -86,8 +86,8 @@ public class ChickenFurnace extends BlockBase implements ITileEntityProvider
         IBlockState state = worldIn.getBlockState(pos);
         TileEntity tileentity = worldIn.getTileEntity(pos);
 
-        if(active) worldIn.setBlockState(pos, BlockInit.chicken_furnace.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(BURNING, true), 3);
-        else worldIn.setBlockState(pos, BlockInit.chicken_furnace.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(BURNING, false), 3);
+        if(active) worldIn.setBlockState(pos, BlockInit.CHICKEN_FURNACE.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(BURNING, true), 3);
+        else worldIn.setBlockState(pos, BlockInit.CHICKEN_FURNACE.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(BURNING, false), 3);
 
         if (tileentity != null)
         {

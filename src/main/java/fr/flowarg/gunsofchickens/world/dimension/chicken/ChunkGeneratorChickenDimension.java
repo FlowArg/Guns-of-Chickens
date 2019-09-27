@@ -34,11 +34,11 @@ public class ChunkGeneratorChickenDimension implements IChunkGenerator
     protected static final IBlockState BEDROCK = Blocks.BEDROCK.getDefaultState();
 
     //Block that is usually Netherrack
-    protected static final IBlockState MAIN_BLOCK = BlockInit.chicken_dirt.getDefaultState();
+    protected static final IBlockState MAIN_BLOCK = BlockInit.CHICKEN_DIRT.getDefaultState();
     //Block that is usally Lava
     protected static final IBlockState YOUR_LIQUID = Blocks.WATER.getDefaultState();
     //Blocks that are usally gravel and soul sand
-    protected static final IBlockState OTHER_BLOCK1 = BlockInit.chicken_diamond_ore.getDefaultState();
+    protected static final IBlockState OTHER_BLOCK1 = BlockInit.CHICKEN_DIAMOND_ORE.getDefaultState();
     protected static final IBlockState OTHER_BLOCK2 = Blocks.DIAMOND_ORE.getDefaultState();
 
     private final World world;

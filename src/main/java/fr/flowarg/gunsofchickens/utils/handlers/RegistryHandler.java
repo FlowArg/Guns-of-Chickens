@@ -128,7 +128,7 @@ public class RegistryHandler
 
     public static void initRegistriesCOP()
     {
-        BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(Item.getItemFromBlock(BlockInit.chicken_tnt), new BehaviorDefaultDispenseItem()
+        BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(Item.getItemFromBlock(BlockInit.CHICKEN_TNT), new BehaviorDefaultDispenseItem()
         {
             public ItemStack dispenseStack(IBlockSource source, ItemStack stack)
             {
@@ -153,11 +153,11 @@ public class RegistryHandler
     @SubscribeEvent
     public static void onModelRegister(ModelRegistryEvent event)
     {
-        Main.proxy.registerItemRenderer(Item.getItemFromBlock(BlockInit.chicken_chest), 0);
+        Main.proxy.registerItemRenderer(Item.getItemFromBlock(BlockInit.CHICKEN_CHEST), 0);
         Main.LOGGER.debug("Registering TileEntities rendered...");
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityChickenChest.class, new RenderChickenChest());
         Main.LOGGER.debug("Registered TileEntities rendered.");
-        Main.LOGGER.debug("Model registered for : " + BlockInit.chicken_chest.getLocalizedName());
+        Main.LOGGER.debug("Model registered for : " + BlockInit.CHICKEN_CHEST.getLocalizedName());
 
         for (Item item : ItemInit.ITEMS)
         {
@@ -198,11 +198,17 @@ public class RegistryHandler
         {
             EntityPlayer player = (EntityPlayer)event.getSource().getImmediateSource();
             World world = event.getEntityLiving().world;
-            if(player.inventory.getCurrentItem().getItem() == ItemInit.ultimate_sword || player.inventory.getCurrentItem().getItem() == ItemInit.chicken_diamond_sword || player.inventory.getCurrentItem().getItem() == ItemInit.chicken_sword)
+            if(player.inventory.getCurrentItem().getItem() == ItemInit.ULTIMATE_SWORD || player.inventory.getCurrentItem().getItem() == ItemInit.CHICKEN_DIAMOND_SWORD || player.inventory.getCurrentItem().getItem() == ItemInit.CHICKEN_SWORD)
             {
-                double x = UtilLocation.getInstance().getEntityX(event.getEntityLiving()) + 1d;
+                double mX = UtilLocation.getInstance().getPlayerMotionX(player);
+                double mY = UtilLocation.getInstance().getPlayerMotionY(player);
+                double mZ = UtilLocation.getInstance().getPlayerMotionZ(player);
+                double x = UtilLocation.getInstance().getEntityX(event.getEntityLiving());
                 double y = UtilLocation.getInstance().getEntityY(event.getEntityLiving());
-                double z = UtilLocation.getInstance().getEntityZ(event.getEntityLiving()) - 1d;
+                double z = UtilLocation.getInstance().getEntityZ(event.getEntityLiving());
+
+                player.motionX = mX - 1;
+                player.motionY = mY + 5;
 
                 EntityLightningBolt bolt = new EntityLightningBolt(world, x, y, z, false);
                 bolt.setPosition(x, y, z);

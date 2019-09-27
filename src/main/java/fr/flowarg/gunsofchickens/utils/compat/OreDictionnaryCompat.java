@@ -10,13 +10,13 @@ public class OreDictionnaryCompat
 {
     public static void registerOres()
     {
-        registerOre("oreChicken", BlockInit.chicken_ore);
-        registerOre("oreChickenDiamond", BlockInit.chicken_diamond_ore);
-        registerOre("ingotChicken", ItemInit.chicken_ingot);
-        registerOre("gemChickenDiamond", ItemInit.chicken_diamond);
-        registerOre("gemChickenCoal", ItemInit.chicken_coal);
-        registerOre("oreChickenCoal", BlockInit.chicken_coal_ore);
-        registerOre("ingotUltimate", ItemInit.ultimate_ingot);
+        registerOre("oreChicken", BlockInit.CHICKEN_ORE);
+        registerOre("oreChickenDiamond", BlockInit.CHICKEN_DIAMOND_ORE);
+        registerOre("ingotChicken", ItemInit.CHICKEN_COAL);
+        registerOre("gemChickenDiamond", ItemInit.CHICKEN_DIAMOND);
+        registerOre("gemChickenCoal", ItemInit.CHICKEN_COAL);
+        registerOre("oreChickenCoal", BlockInit.CHICKEN_COAL_ORE);
+        registerOre("ingotUltimate", ItemInit.ULTIMATE_INGOT);
     }
 
     private static void registerOre(String name, Block ore)

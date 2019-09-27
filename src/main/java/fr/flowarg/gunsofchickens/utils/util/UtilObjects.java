@@ -48,7 +48,6 @@ public class UtilObjects
         return item.getItem();
     }
 
-
     public boolean isEntityEqualToAnotherEntity(Entity entity1, Entity entity2)
     {
         return entity1 == entity2;
@@ -65,7 +64,6 @@ public class UtilObjects
         BlockInit.BLOCKS.add(block);
         ItemInit.ITEMS.add(new ItemBlock(block).setRegistryName(block.getRegistryName()));
     }
-
     public void registerItem(Item item)
     {
         ItemInit.ITEMS.add(item);

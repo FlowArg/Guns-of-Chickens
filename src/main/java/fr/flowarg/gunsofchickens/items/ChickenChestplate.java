@@ -14,9 +14,9 @@ import net.minecraft.world.World;
 
 public class ChickenChestplate extends ItemArmor implements IHasModel
 {
-    public ChickenChestplate(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn)
+    public ChickenChestplate(String name, ArmorMaterial materialIn, int renderIndexIn)
     {
-        super(materialIn, renderIndexIn, equipmentSlotIn);
+        super(materialIn, renderIndexIn, EntityEquipmentSlot.CHEST);
         this.setRegistryName(name).setUnlocalizedName(name);
 
         setCreativeTab(Main.modtabItems);
@@ -32,7 +32,7 @@ public class ChickenChestplate extends ItemArmor implements IHasModel
         if(player.inventory.armorInventory.get(2)!=null)
         {
             ItemStack chestplate = player.inventory.armorInventory.get(2);
-            if (chestplate.getItem() == ItemInit.chicken_chestplate) ;
+            if (chestplate.getItem() == ItemInit.CHICKEN_CHESTPLATE) ;
             {
                 player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 5, 0));
             }

@@ -20,12 +20,12 @@ public class ChickenFurnaceRecipes
     private final Table<ItemStack, ItemStack, ItemStack> smeltingList = HashBasedTable.<ItemStack, ItemStack, ItemStack>create();
     private final Map<ItemStack, Float> experienceList = Maps.<ItemStack, Float>newHashMap();
 
-    private ItemStack chicken_ingot = this.getItemStack(ItemInit.chicken_diamond);
-    private ItemStack chicken_diamond = this.getItemStack(ItemInit.chicken_diamond);
-    private ItemStack ultimate_ingot = this.getItemStack(ItemInit.ultimate_ingot);
-    private ItemStack chicken_block = this.getItemStack(BlockInit.chicken_block);
-    private ItemStack chicken_diamond_block = this.getItemStack(BlockInit.chicken_diamond_block);
-    private ItemStack ultimate_block = this.getItemStack(BlockInit.ultimate_block);
+    private ItemStack chicken_ingot = this.getItemStack(ItemInit.CHICKEN_DIAMOND);
+    private ItemStack chicken_diamond = this.getItemStack(ItemInit.CHICKEN_DIAMOND);
+    private ItemStack ultimate_ingot = this.getItemStack(ItemInit.ULTIMATE_INGOT);
+    private ItemStack chicken_block = this.getItemStack(BlockInit.CHICKEN_BLOCK);
+    private ItemStack chicken_diamond_block = this.getItemStack(BlockInit.CHICKEN_DIAMOND_BLOCK);
+    private ItemStack ultimate_block = this.getItemStack(BlockInit.ULTIMATE_BLOCK);
 
     public static ChickenFurnaceRecipes getInstance()
     {

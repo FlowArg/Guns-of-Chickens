@@ -22,7 +22,7 @@ public class ChickenCoalOre extends BlockBase
 
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return this == BlockInit.chicken_coal_ore ? ItemInit.chicken_coal : Item.getItemFromBlock(this);
+        return this == BlockInit.CHICKEN_COAL_ORE ? ItemInit.CHICKEN_COAL : Item.getItemFromBlock(this);
     }
 
     public int quantityDroppedWithBonus(int fortune, Random random)
@@ -51,7 +51,7 @@ public class ChickenCoalOre extends BlockBase
         {
             int i = 0;
 
-            if (this == BlockInit.chicken_coal_ore)
+            if (this == BlockInit.CHICKEN_COAL_ORE)
             {
                 i = MathHelper.getInt(rand, 1, 20);
             }

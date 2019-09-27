@@ -20,7 +20,7 @@ import java.util.Set;
 
 public class EntityKikiChicken extends EntityChicken
 {
-    private static final Set<Item> TEMPTATION_ITEMS = Sets.newHashSet(ItemInit.chicken_ingot, ItemInit.chicken_diamond, Item.getItemFromBlock(BlockInit.chicken_block), Item.getItemFromBlock(BlockInit.chicken_diamond_block), ItemInit.ultimate_ingot, Item.getItemFromBlock(BlockInit.ultimate_block));
+    private static final Set<Item> TEMPTATION_ITEMS = Sets.newHashSet(ItemInit.CHICKEN_INGOT, ItemInit.CHICKEN_DIAMOND, Item.getItemFromBlock(BlockInit.CHICKEN_BLOCK), Item.getItemFromBlock(BlockInit.CHICKEN_DIAMOND_BLOCK), ItemInit.ULTIMATE_INGOT, Item.getItemFromBlock(BlockInit.ULTIMATE_BLOCK));
 
     public EntityKikiChicken(World worldIn)
     {

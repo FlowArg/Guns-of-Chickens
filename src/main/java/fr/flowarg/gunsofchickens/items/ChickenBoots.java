@@ -14,9 +14,9 @@ import net.minecraft.world.World;
 
 public class ChickenBoots extends ItemArmor implements IHasModel
 {
-    public ChickenBoots(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn)
+    public ChickenBoots(String name, ArmorMaterial materialIn, int renderIndexIn)
     {
-        super(materialIn, renderIndexIn, equipmentSlotIn);
+        super(materialIn, renderIndexIn, EntityEquipmentSlot.FEET);
         this.setRegistryName(name).setUnlocalizedName(name);
 
         setCreativeTab(Main.modtabItems);
@@ -32,7 +32,7 @@ public class ChickenBoots extends ItemArmor implements IHasModel
         if(player.inventory.armorInventory.get(0)!=null)
         {
             ItemStack boots = player.inventory.armorInventory.get(0);
-            if(boots.getItem()== ItemInit.chicken_boots);
+            if(boots.getItem()== ItemInit.CHICKEN_BOOTS);
             {
                 player.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 5, 1));
             }
