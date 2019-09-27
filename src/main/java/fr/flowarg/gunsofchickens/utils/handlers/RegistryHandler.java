@@ -7,6 +7,7 @@ import fr.flowarg.gunsofchickens.commands.*;
 import fr.flowarg.gunsofchickens.entity.EntityChickenTNTPrimed;
 import fr.flowarg.gunsofchickens.entity.EntityKikiChicken;
 import fr.flowarg.gunsofchickens.init.*;
+import fr.flowarg.gunsofchickens.items.UltimateHelmet;
 import fr.flowarg.gunsofchickens.utils.IHasModel;
 import fr.flowarg.gunsofchickens.utils.References;
 import fr.flowarg.gunsofchickens.utils.compat.OreDictionnaryCompat;
@@ -19,9 +20,12 @@ import net.minecraft.dispenser.IBlockSource;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
@@ -37,6 +41,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -229,6 +234,20 @@ public class RegistryHandler
         if (event.getModID().equals(References.MODID))
         {
             ConfigHandler.syncConfig(ConfigHandler.configFile);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerTick(TickEvent.PlayerTickEvent event)
+    {
+        EntityPlayer player = (EntityPlayer) event.player;
+        ItemStack helmet = player.inventory.armorInventory.get(3);
+        ItemStack chestplate = player.inventory.armorInventory.get(2);
+        ItemStack leggings = player.inventory.armorInventory.get(1);
+        ItemStack boots = player.inventory.armorInventory.get(0);
+        if (helmet.getItem() == ItemInit.ULTIMATE_HELMET && chestplate.getItem() == ItemInit.ULTIMATE_CHESTPLATE && leggings.getItem() == ItemInit.ULTIMATE_LEGGINGS && boots.getItem() == ItemInit.ULTIMATE_BOOTS)
+        {
+            player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 5, 3));
         }
     }
 }

@@ -68,10 +68,10 @@ public class ItemInit
     public static final Item CHICKEN_DIAMOND = new ItemBase("chicken_diamond");
     public static final Item CHICKEN_STICK = new ItemBase("chicken_stick");
     public static final Item ULTIMATE_INGOT = new ItemBase("ultimate_ingot");
-    public static final ItemArmor ULTIMATE_HELMET = new ChickenDiamondHelmet("ultimate_helmet", ULTIMATE_ARMOR_MAT, 2);
-    public static final ItemArmor ULTIMATE_CHESTPLATE = new ChickenDiamondChestplate("ultimate_chestplate", ULTIMATE_ARMOR_MAT, 2);
-    public static final ItemArmor ULTIMATE_LEGGINGS = new ChickenDiamondLeggings("ultimate_leggings", ULTIMATE_ARMOR_MAT, 2);
-    public static final ItemArmor ULTIMATE_BOOTS = new ChickenDiamondBoots("ultimate_boots", ULTIMATE_ARMOR_MAT, 2);
+    public static final ItemArmor ULTIMATE_HELMET = new UltimateHelmet("ultimate_helmet", ULTIMATE_ARMOR_MAT, 2);
+    public static final ItemArmor ULTIMATE_CHESTPLATE = new UltimateChestplate("ultimate_chestplate", ULTIMATE_ARMOR_MAT, 2);
+    public static final ItemArmor ULTIMATE_LEGGINGS = new UltimateLeggings("ultimate_leggings", ULTIMATE_ARMOR_MAT, 2);
+    public static final ItemArmor ULTIMATE_BOOTS = new UltimateBoots("ultimate_boots", ULTIMATE_ARMOR_MAT, 2);
     public static final Item ULTIMATE_SWORD = new ChickenSword("ultimate_sword", ULTIMATE_TOOL_MAT);
     public static final Item ULTIMATE_PICKAXE = new ChickenPickaxe("ultimate_pickaxe", ULTIMATE_TOOL_MAT);
     public static final Item ULTIMATE_HOE = new ChickenHoe("ultimate_hoe", ULTIMATE_TOOL_MAT);

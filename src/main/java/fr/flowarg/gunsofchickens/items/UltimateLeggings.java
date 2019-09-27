@@ -1,7 +1,6 @@
 package fr.flowarg.gunsofchickens.items;
 
 import fr.flowarg.gunsofchickens.Main;
-import fr.flowarg.gunsofchickens.init.ItemInit;
 import fr.flowarg.gunsofchickens.utils.IHasModel;
 import fr.flowarg.gunsofchickens.utils.util.UtilObjects;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,15 +11,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class ChickenDiamondBoots extends ItemArmor implements IHasModel
+public class UltimateLeggings extends ItemArmor implements IHasModel
+
 {
-    public ChickenDiamondBoots(String name, ArmorMaterial materialIn, int renderIndexIn)
+    public UltimateLeggings(String name, ArmorMaterial materialIn, int renderIndexIn)
     {
-        super(materialIn, renderIndexIn, EntityEquipmentSlot.FEET);
-        this.setRegistryName(name).setUnlocalizedName(name);
-
+        super(materialIn, renderIndexIn, EntityEquipmentSlot.LEGS);
+        setRegistryName(name);
+        setUnlocalizedName(name);
         setCreativeTab(Main.modtabItems);
-
         setMaxStackSize(1);
 
         UtilObjects.getInstance().registerItem(this);
@@ -29,7 +28,8 @@ public class ChickenDiamondBoots extends ItemArmor implements IHasModel
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
     {
-        player.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 5, 1));
+        player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 5, 10));
+        player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 5, 10));
     }
 
     @Override

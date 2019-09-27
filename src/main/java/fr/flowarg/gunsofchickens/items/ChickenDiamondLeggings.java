@@ -29,15 +29,8 @@ public class ChickenDiamondLeggings extends ItemArmor implements IHasModel
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
     {
-        if(player.inventory.armorInventory.get(1)!=null)
-        {
-            ItemStack leggings = player.inventory.armorInventory.get(1);
-            if(leggings.getItem()== ItemInit.CHICKEN_DIAMOND_LEGGINGS);
-            {
-                player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 5, 2));
-                player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 5, 1));
-            }
-        }
+        player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 5, 2));
+        player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 5, 1));
     }
 
     @Override

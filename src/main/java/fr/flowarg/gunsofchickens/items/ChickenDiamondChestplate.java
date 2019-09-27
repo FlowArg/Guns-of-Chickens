@@ -29,15 +29,8 @@ public class ChickenDiamondChestplate extends ItemArmor implements IHasModel
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
     {
-        if(player.inventory.armorInventory.get(2)!=null)
-        {
-            ItemStack chestplate = player.inventory.armorInventory.get(2);
-            if(chestplate.getItem() == ItemInit.CHICKEN_DIAMOND_CHESTPLATE);
-            {
-                player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 5, 1));
-                player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 5, 1));
-            }
-        }
+        player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 5, 1));
+        player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 5, 1));
     }
 
     @Override
