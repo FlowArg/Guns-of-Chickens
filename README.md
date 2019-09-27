@@ -2,7 +2,7 @@
 A Minecraft mod created by FlowArg in 1.12.2 Minecraft Forge Version
 The mod is based on chickens ^^. Check WIKI for more Informations !!
 
-### Directory libs
+### Directory sources
 jar sources
 ### Directory src
 sources
