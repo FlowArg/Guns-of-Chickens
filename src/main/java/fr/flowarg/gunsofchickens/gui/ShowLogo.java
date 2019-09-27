@@ -7,7 +7,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class  ShowLogo extends GuiScreen
+public class ShowLogo extends GuiScreen
 {
     private static final ResourceLocation LOGO = new ResourceLocation(References.MODID + ":textures/gui/showlogo/chickenlogo.png");
 

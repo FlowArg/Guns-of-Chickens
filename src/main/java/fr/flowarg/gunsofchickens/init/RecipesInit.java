@@ -27,6 +27,10 @@ public class RecipesInit
         addSmelt(chicken_diamond_leggings, chicken_diamond, 6, 60f);
         addSmelt(chicken_diamond_boots, chicken_diamond, 3, 30f);
         addSmelt(chicken_diamond_ore, chicken_diamond, 1, 20f);
+        addSmelt(ultimate_helmet, ultimate_ingot,4, 9999f);
+        addSmelt(ultimate_chestplate, ultimate_ingot, 7, 9999f);
+        addSmelt(ultimate_leggings, ultimate_ingot, 6, 9999f);
+        addSmelt(ultimate_boots, ultimate_ingot, 3, 9999f);
     }
 
     private void addSmelt(Item item, Item result, int amount, float xp)

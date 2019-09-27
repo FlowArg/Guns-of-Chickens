@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import fr.flowarg.gunsofchickens.commands.util.Teleport;
 import fr.flowarg.gunsofchickens.utils.References;
 import fr.flowarg.gunsofchickens.utils.handlers.ConfigHandler;
+import fr.flowarg.gunsofchickens.utils.util.UtilObjects;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
@@ -81,6 +82,10 @@ public class CommandDimensionTeleport extends CommandBase
             {
                 Teleport.teleportDimension(player, dimID, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ());
             }
+        }
+        else
+        {
+            UtilObjects.getInstance().sendYouMustToBeAPlayerToUseThisCommandToSender(sender);
         }
     }
 

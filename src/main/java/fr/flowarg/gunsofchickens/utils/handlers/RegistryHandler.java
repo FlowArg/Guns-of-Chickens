@@ -10,12 +10,15 @@ import fr.flowarg.gunsofchickens.init.*;
 import fr.flowarg.gunsofchickens.utils.IHasModel;
 import fr.flowarg.gunsofchickens.utils.References;
 import fr.flowarg.gunsofchickens.utils.compat.OreDictionnaryCompat;
+import fr.flowarg.gunsofchickens.utils.util.UtilLocation;
 import fr.flowarg.gunsofchickens.world.biomes.BiomeChicken;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.dispenser.BehaviorDefaultDispenseItem;
 import net.minecraft.dispenser.IBlockSource;
 import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.effect.EntityLightningBolt;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -26,6 +29,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -46,6 +50,8 @@ import static net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 @EventBusSubscriber(modid = References.MODID)
 public class RegistryHandler
 {
+    private static int i = 0;
+
     public static void preInitRegistriesCOP(FMLPreInitializationEvent event)
     {
         EntityInit.registerEntities();
@@ -182,6 +188,32 @@ public class RegistryHandler
         if(ConfigHandler.showWelcomeMessage)
         {
             event.player.sendMessage(new TextComponentString("§e[Guns of Chickens] " +"§2" + ConfigHandler.welcomeMessage.replaceAll("%player%", event.player.getName())));
+        }
+    }
+
+    @SubscribeEvent
+    public static void onEntityHurt(LivingHurtEvent event)
+    {
+        if(event.getSource().getImmediateSource() instanceof EntityPlayer)
+        {
+            EntityPlayer player = (EntityPlayer)event.getSource().getImmediateSource();
+            World world = event.getEntityLiving().world;
+            if(player.inventory.getCurrentItem().getItem() == ItemInit.ultimate_sword || player.inventory.getCurrentItem().getItem() == ItemInit.chicken_diamond_sword || player.inventory.getCurrentItem().getItem() == ItemInit.chicken_sword)
+            {
+                double x = UtilLocation.getInstance().getEntityX(event.getEntityLiving()) + 1d;
+                double y = UtilLocation.getInstance().getEntityY(event.getEntityLiving());
+                double z = UtilLocation.getInstance().getEntityZ(event.getEntityLiving()) - 1d;
+
+                EntityLightningBolt bolt = new EntityLightningBolt(world, x, y, z, false);
+                bolt.setPosition(x, y, z);
+                world.spawnEntity(bolt);
+                world.playSound(player, x, y, z, SoundEvents.ENTITY_LIGHTNING_THUNDER, SoundCategory.WEATHER, 20f, 1f);
+                if (event.getEntityLiving() instanceof EntityPlayer)
+                {
+                    EntityPlayer playerHurted = (EntityPlayer)event.getEntityLiving();
+                    world.playSound(playerHurted, x, y, z, SoundEvents.ENTITY_LIGHTNING_IMPACT, SoundCategory.WEATHER, 20f, 1f);
+                }
+            }
         }
     }
 

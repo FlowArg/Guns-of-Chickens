@@ -1,12 +1,12 @@
 package fr.flowarg.gunsofchickens.commands;
 
 import fr.flowarg.gunsofchickens.utils.handlers.ConfigHandler;
+import fr.flowarg.gunsofchickens.utils.util.UtilObjects;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 
 public class CommandBreakChicken extends CommandBase
@@ -29,7 +29,11 @@ public class CommandBreakChicken extends CommandBase
         if (sender instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer)sender;
-            player.sendMessage(new TextComponentString(TextFormatting.GREEN + "You have : " + ConfigHandler.money));
+            UtilObjects.getInstance().sendMessageToPlayer(player, TextFormatting.GREEN + "You have : " + ConfigHandler.money);
+        }
+        else
+        {
+            UtilObjects.getInstance().sendYouMustToBeAPlayerToUseThisCommandToSender(sender);
         }
     }
 }

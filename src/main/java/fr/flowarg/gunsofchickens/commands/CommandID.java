@@ -8,7 +8,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 
 public class CommandID extends CommandBase
@@ -36,16 +35,16 @@ public class CommandID extends CommandBase
             {
                 Item item = UtilObjects.getInstance().getItemFromItemStack(player.inventory.getCurrentItem());
                 int itemID = Item.getIdFromItem(item);
-                player.sendMessage(new TextComponentString(TextFormatting.GREEN + "Id of " + item.getItemStackDisplayName(new ItemStack(item)) + " is : " + itemID));
+                UtilObjects.getInstance().sendMessageToPlayer(player, TextFormatting.DARK_GREEN + "Id of " + item.getItemStackDisplayName(new ItemStack(item)) + " is : " + itemID);
             }
             else
             {
-                player.sendMessage(new TextComponentString(TextFormatting.GOLD + "Id of Air is : 0 !"));
+                UtilObjects.getInstance().sendMessageToPlayer(player, TextFormatting.DARK_GREEN + "Id of Air is : 0 !");
             }
         }
         else
         {
-            sender.sendMessage(new TextComponentString(TextFormatting.DARK_RED + "You must to be a player to use this command !"));
+            UtilObjects.getInstance().sendYouMustToBeAPlayerToUseThisCommandToSender(sender);
         }
     }
 }

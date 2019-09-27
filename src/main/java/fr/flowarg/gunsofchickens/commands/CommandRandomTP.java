@@ -1,12 +1,12 @@
 package fr.flowarg.gunsofchickens.commands;
 
 import fr.flowarg.gunsofchickens.utils.util.UtilLocation;
+import fr.flowarg.gunsofchickens.utils.util.UtilObjects;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.text.TextComponentString;
 
 import java.util.Random;
 
@@ -25,11 +25,11 @@ public class CommandRandomTP extends CommandBase
     }
 
     @Override
-    public void execute(MinecraftServer minecraftServer, ICommandSender commandSender, String[] args) throws CommandException
+    public void execute(MinecraftServer minecraftServer, ICommandSender sender, String[] args) throws CommandException
     {
-        if (commandSender instanceof EntityPlayer)
+        if (sender instanceof EntityPlayer)
         {
-            EntityPlayer player = (EntityPlayer)commandSender;
+            EntityPlayer player = (EntityPlayer)sender;
             Random random = new Random();
             UtilLocation utils = UtilLocation.getInstance();
 
@@ -41,7 +41,7 @@ public class CommandRandomTP extends CommandBase
         }
         else
         {
-            commandSender.sendMessage(new TextComponentString("You must to be a player to use this command."));
+            UtilObjects.getInstance().sendYouMustToBeAPlayerToUseThisCommandToSender(sender);
         }
     }
 }

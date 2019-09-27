@@ -4,10 +4,14 @@ import fr.flowarg.gunsofchickens.init.BlockInit;
 import fr.flowarg.gunsofchickens.init.ItemInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 
 public class UtilObjects
 {
@@ -65,5 +69,18 @@ public class UtilObjects
     public void registerItem(Item item)
     {
         ItemInit.ITEMS.add(item);
+    }
+
+    public void sendMessageToPlayer(EntityPlayer player, String msg)
+    {
+        player.sendMessage(new TextComponentString(msg));
+    }
+    public void sendMessageToSender(ICommandSender sender, String msg)
+    {
+        sender.sendMessage(new TextComponentString(msg));
+    }
+    public void sendYouMustToBeAPlayerToUseThisCommandToSender(ICommandSender sender)
+    {
+        sender.sendMessage(new TextComponentString(TextFormatting.DARK_RED + "You must to be a player to use this command."));
     }
 }

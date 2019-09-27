@@ -1,6 +1,7 @@
 package fr.flowarg.gunsofchickens.utils.util;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
 
@@ -34,6 +35,18 @@ public class UtilLocation
         return entity.getPosition().getY();
     }
     public double getEntityZ(Entity entity)
+    {
+        return entity.getPosition().getZ();
+    }
+    public double getEntityX(EntityLiving entity)
+    {
+        return entity.getPosition().getX();
+    }
+    public double getEntityY(EntityLiving entity)
+    {
+        return entity.getPosition().getY();
+    }
+    public double getEntityZ(EntityLiving entity)
     {
         return entity.getPosition().getZ();
     }

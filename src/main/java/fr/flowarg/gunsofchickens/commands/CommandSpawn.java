@@ -1,12 +1,13 @@
 package fr.flowarg.gunsofchickens.commands;
 
 import fr.flowarg.gunsofchickens.utils.handlers.ConfigHandler;
+import fr.flowarg.gunsofchickens.utils.util.UtilObjects;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 
 public class CommandSpawn extends CommandBase
 {
@@ -29,15 +30,10 @@ public class CommandSpawn extends CommandBase
         {
             EntityPlayer player = (EntityPlayer)sender;
             player.setPositionAndUpdate(ConfigHandler.spawnX, ConfigHandler.spawnY, ConfigHandler.spawnZ);
-            sendMessageToPlayer(player, "Successfully teleport to the spawn.");
+            UtilObjects.getInstance().sendMessageToPlayer(player, TextFormatting.DARK_GREEN + "Successfully teleport to the spawn.");
         }
         else{
-            sender.sendMessage(new TextComponentString("You must to be a player to use this command."));
+            UtilObjects.getInstance().sendYouMustToBeAPlayerToUseThisCommandToSender(sender);
         }
-    }
-
-    private void sendMessageToPlayer(EntityPlayer player, String msg)
-    {
-        player.sendMessage(new TextComponentString(msg));
     }
 }
