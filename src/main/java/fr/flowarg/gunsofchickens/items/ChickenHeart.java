@@ -13,7 +13,7 @@ public class ChickenHeart extends ItemBase
     public ChickenHeart(String name)
     {
         super(name);
-        setCreativeTab(Main.modtabUtils);
+        setCreativeTab(Main.MOD_TAB_UTILS);
         setMaxStackSize(20);
         setMaxDamage(0);
     }

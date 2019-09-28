@@ -19,7 +19,7 @@ public class ChickenDiamondLeggings extends ItemArmor implements IHasModel
         super(materialIn, renderIndexIn, EntityEquipmentSlot.LEGS);
         this.setRegistryName(name).setUnlocalizedName(name);
 
-        setCreativeTab(Main.modtabItems);
+        setCreativeTab(Main.MOD_TAB_ITEMS);
 
         setMaxStackSize(1);
 

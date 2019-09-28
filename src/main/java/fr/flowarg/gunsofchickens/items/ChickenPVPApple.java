@@ -23,7 +23,7 @@ public class ChickenPVPApple extends ItemFood implements IHasModel
 
         setMaxStackSize(16);
 
-        setCreativeTab(Main.modtabItems);
+        setCreativeTab(Main.MOD_TAB_ITEMS);
 
         UtilObjects.getInstance().registerItem(this);
     }

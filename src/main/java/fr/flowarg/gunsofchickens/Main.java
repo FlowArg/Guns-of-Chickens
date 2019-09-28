@@ -27,9 +27,9 @@ public class Main
     @SidedProxy(modId = References.MODID, clientSide = References.CLIENTPROXY, serverSide = References.COMMON)
     public static CommonProxy proxy;
 
-    public static final CreativeTabs modtabItems = new ModTabItems("modtabitems");
-    public static final CreativeTabs modtabBlocks = new ModTabBlocks("modtabblocks");
-    public static final CreativeTabs modtabUtils = new ModTabUtils("modtabutils");
+    public static final CreativeTabs MOD_TAB_ITEMS = new ModTabItems("modtabitems");
+    public static final CreativeTabs MOD_TAB_BLOCKS = new ModTabBlocks("modtabblocks");
+    public static final CreativeTabs MOD_TAB_UTILS = new ModTabUtils("modtabutils");
 
     @EventHandler
     public static void preInit(FMLPreInitializationEvent event)

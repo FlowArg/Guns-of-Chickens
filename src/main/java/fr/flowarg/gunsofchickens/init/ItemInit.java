@@ -51,7 +51,7 @@ public class ItemInit
     public static final Item CHICKEN_GUNPOWDER = new ItemBase("chicken_gunpowder");
     public static final ItemFood CHICKEN_MINING_APPLE = new ChickenMiningApple("chicken_mining_apple", 15, 5);
     public static final Item BLOCK_DRECRAFTER = new BlockDecrafter("block_decrafter");
-    public static final Item INVERSER = new ItemBase("inverser").setCreativeTab(Main.modtabUtils).setMaxStackSize(3);
+    public static final Item INVERSER = new ItemBase("inverser").setCreativeTab(Main.MOD_TAB_UTILS).setMaxStackSize(3);
     public static final ItemFood CHICKEN_PVP_APPLE = new ChickenPVPApple("chicken_pvp_apple", 20, 41, false);
     public static final Item CHICKEN_MEDKIT = new ChickenMedkit("chicken_medkit");
     public static final Item CHICKEN_HEART = new ChickenHeart("chicken_heart");

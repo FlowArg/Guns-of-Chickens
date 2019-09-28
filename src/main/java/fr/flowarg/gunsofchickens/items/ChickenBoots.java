@@ -19,7 +19,7 @@ public class ChickenBoots extends ItemArmor implements IHasModel
         super(materialIn, renderIndexIn, EntityEquipmentSlot.FEET);
         this.setRegistryName(name).setUnlocalizedName(name);
 
-        setCreativeTab(Main.modtabItems);
+        setCreativeTab(Main.MOD_TAB_ITEMS);
 
         setMaxStackSize(1);
 

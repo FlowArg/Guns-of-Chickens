@@ -28,7 +28,7 @@ public class BlockDecrafter extends ItemBase
         super(name);
         setMaxStackSize(1);
         setMaxDamage(64);
-        setCreativeTab(Main.modtabUtils);
+        setCreativeTab(Main.MOD_TAB_UTILS);
     }
 
     @Override

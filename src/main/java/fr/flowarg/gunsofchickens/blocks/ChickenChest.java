@@ -24,7 +24,7 @@ public class ChickenChest extends BlockContainer
     {
         super(Material.IRON);
         setRegistryName(name).setUnlocalizedName(name);
-        setCreativeTab(Main.modtabBlocks);
+        setCreativeTab(Main.MOD_TAB_BLOCKS);
         setResistance(10f);
         setHardness(12f);
         setHarvestLevel("axe", 2);

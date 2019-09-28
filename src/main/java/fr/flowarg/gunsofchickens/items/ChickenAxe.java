@@ -12,7 +12,7 @@ public class ChickenAxe extends ItemAxe implements IHasModel
         super(material, damage, speed);
         setRegistryName(name).setUnlocalizedName(name);
         setMaxStackSize(1);
-        setCreativeTab(Main.modtabItems);
+        setCreativeTab(Main.MOD_TAB_ITEMS);
 
         UtilObjects.getInstance().registerItem(this);
     }

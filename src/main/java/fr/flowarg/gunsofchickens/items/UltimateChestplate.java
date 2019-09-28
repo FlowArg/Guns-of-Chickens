@@ -18,7 +18,7 @@ public class UltimateChestplate extends ItemArmor implements IHasModel
         super(materialIn, renderIndexIn, EntityEquipmentSlot.CHEST);
         setRegistryName(name);
         setUnlocalizedName(name);
-        setCreativeTab(Main.modtabItems);
+        setCreativeTab(Main.MOD_TAB_ITEMS);
         setMaxStackSize(1);
 
         UtilObjects.getInstance().registerItem(this);

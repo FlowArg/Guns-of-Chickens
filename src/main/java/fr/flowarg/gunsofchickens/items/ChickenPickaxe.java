@@ -15,7 +15,7 @@ public class ChickenPickaxe extends ItemPickaxe implements IHasModel
 
         setMaxStackSize(1);
 
-        setCreativeTab(Main.modtabItems);
+        setCreativeTab(Main.MOD_TAB_ITEMS);
 
         UtilObjects.getInstance().registerItem(this);
     }

@@ -15,7 +15,7 @@ public class ChickenMedkit extends ItemBase
         super(name);
         setMaxDamage(9);
         setMaxStackSize(1);
-        setCreativeTab(Main.modtabUtils);
+        setCreativeTab(Main.MOD_TAB_UTILS);
     }
 
     @Override

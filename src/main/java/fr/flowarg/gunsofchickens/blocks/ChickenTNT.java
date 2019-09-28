@@ -27,7 +27,7 @@ public class ChickenTNT extends BlockTNT implements IHasModel
     {
         this.setRegistryName(name).setUnlocalizedName(name);
 
-        this.setCreativeTab(Main.modtabBlocks);
+        this.setCreativeTab(Main.MOD_TAB_BLOCKS);
 
         UtilObjects.getInstance().registerBlock(this);
     }

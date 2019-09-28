@@ -21,7 +21,7 @@ public class BlockBase extends Block implements IHasModel
         setResistance(resistance);
         setHarvestLevel(harvestType, harvestLevel);
 
-        setCreativeTab(Main.modtabBlocks);
+        setCreativeTab(Main.MOD_TAB_BLOCKS);
 
         UtilObjects.getInstance().registerBlock(this);
     }
@@ -35,7 +35,7 @@ public class BlockBase extends Block implements IHasModel
         setHarvestLevel(harvestType, harvestLevel);
         setSoundType(soundType);
 
-        setCreativeTab(Main.modtabBlocks);
+        setCreativeTab(Main.MOD_TAB_BLOCKS);
 
         BlockInit.BLOCKS.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));

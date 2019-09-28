@@ -14,7 +14,7 @@ public class ChickenShovel extends ItemSpade implements IHasModel
         setRegistryName(name).setUnlocalizedName(name);
 
         setMaxStackSize(1);
-        setCreativeTab(Main.modtabItems);
+        setCreativeTab(Main.MOD_TAB_ITEMS);
 
         UtilObjects.getInstance().registerItem(this);
     }
