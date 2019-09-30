@@ -16,7 +16,7 @@ public class ChickenShovel extends ItemSpade implements IHasModel
         setMaxStackSize(1);
         setCreativeTab(Main.MOD_TAB_ITEMS);
 
-        UtilObjects.getInstance().registerItem(this);
+        UtilObjects.registerItem(this);
     }
 
     @Override

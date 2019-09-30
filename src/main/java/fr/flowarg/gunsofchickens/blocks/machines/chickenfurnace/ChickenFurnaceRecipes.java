@@ -42,12 +42,12 @@ public class ChickenFurnaceRecipes
 
     private ItemStack getItemStack(Item item)
     {
-        return UtilObjects.getInstance().getItemStackFromItem(item);
+        return UtilObjects.getItemStackFromItem(item);
     }
 
     private ItemStack getItemStack(Block block)
     {
-        return UtilObjects.getInstance().getItemStackFromBlock(block);
+        return UtilObjects.getItemStackFromBlock(block);
     }
 
     public void addSmeltingRecipe(ItemStack input1, ItemStack input2, ItemStack result, float experience)

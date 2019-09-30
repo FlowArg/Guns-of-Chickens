@@ -30,23 +30,16 @@ public class BlockTeleport extends BlockBase
         return false;
     }
 
-    private static UtilLocation getInstance()
-    {
-        return UtilLocation.getInstance();
-    }
-
     private double getX(EntityPlayer playerIn)
     {
-        return getInstance().getPlayerX(playerIn);
+        return UtilLocation.getPlayerX(playerIn);
     }
-
     private double getY(EntityPlayer playerIn)
     {
-        return getInstance().getPlayerY(playerIn);
+        return UtilLocation.getPlayerY(playerIn);
     }
-
     private double getZ(EntityPlayer playerIn)
     {
-        return getInstance().getPlayerZ(playerIn);
+        return UtilLocation.getPlayerZ(playerIn);
     }
 }

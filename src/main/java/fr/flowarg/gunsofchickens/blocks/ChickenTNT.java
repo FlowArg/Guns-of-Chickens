@@ -29,7 +29,7 @@ public class ChickenTNT extends BlockTNT implements IHasModel
 
         this.setCreativeTab(Main.MOD_TAB_BLOCKS);
 
-        UtilObjects.getInstance().registerBlock(this);
+        UtilObjects.registerBlock(this);
     }
 
     @Override

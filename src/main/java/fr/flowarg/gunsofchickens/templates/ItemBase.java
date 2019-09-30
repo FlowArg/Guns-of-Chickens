@@ -12,7 +12,7 @@ public class ItemBase extends Item implements IHasModel
         setRegistryName(name).setUnlocalizedName(name);
         setCreativeTab(Main.MOD_TAB_ITEMS);
 
-        UtilObjects.getInstance().registerItem(this);
+        UtilObjects.registerItem(this);
     }
 
     @Override
@@ -25,7 +25,7 @@ public class ItemBase extends Item implements IHasModel
         public ChickenWithTNT(String name)
         {
             super(name);
-            setCreativeTab(Main.modtabUtils);
+            setCreativeTab(Main.MOD_TAB_UTILS);
             setMaxDamage(64);
             setMaxStackSize(1);
         }

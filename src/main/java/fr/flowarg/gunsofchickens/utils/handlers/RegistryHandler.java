@@ -7,7 +7,6 @@ import fr.flowarg.gunsofchickens.commands.*;
 import fr.flowarg.gunsofchickens.entity.EntityChickenTNTPrimed;
 import fr.flowarg.gunsofchickens.entity.EntityKikiChicken;
 import fr.flowarg.gunsofchickens.init.*;
-import fr.flowarg.gunsofchickens.items.UltimateHelmet;
 import fr.flowarg.gunsofchickens.utils.IHasModel;
 import fr.flowarg.gunsofchickens.utils.References;
 import fr.flowarg.gunsofchickens.utils.compat.OreDictionnaryCompat;
@@ -22,7 +21,6 @@ import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
@@ -98,7 +96,7 @@ public class RegistryHandler
         Main.LOGGER.debug("Registering commands...");
         event.registerServerCommand(new CommandDimensionTeleport());
         Main.LOGGER.debug("Registering command Dimension Teleport.");
-        event.registerServerCommand(new CommandGameMode());
+        event.registerServerCommand(new CommandGamemode());
         Main.LOGGER.debug("Registering command GameMode...");
         event.registerServerCommand(new CommandFlow());
         Main.LOGGER.debug("Registering command Flow...");
@@ -205,12 +203,12 @@ public class RegistryHandler
             World world = event.getEntityLiving().world;
             if(player.inventory.getCurrentItem().getItem() == ItemInit.ULTIMATE_SWORD || player.inventory.getCurrentItem().getItem() == ItemInit.CHICKEN_DIAMOND_SWORD || player.inventory.getCurrentItem().getItem() == ItemInit.CHICKEN_SWORD)
             {
-                double mX = UtilLocation.getInstance().getPlayerMotionX(player);
-                double mY = UtilLocation.getInstance().getPlayerMotionY(player);
-                double mZ = UtilLocation.getInstance().getPlayerMotionZ(player);
-                double x = UtilLocation.getInstance().getEntityX(event.getEntityLiving());
-                double y = UtilLocation.getInstance().getEntityY(event.getEntityLiving());
-                double z = UtilLocation.getInstance().getEntityZ(event.getEntityLiving());
+                double mX = UtilLocation.getPlayerMotionX(player);
+                double mY = UtilLocation.getPlayerMotionY(player);
+                double mZ = UtilLocation.getPlayerMotionZ(player);
+                double x = UtilLocation.getEntityX(event.getEntityLiving());
+                double y = UtilLocation.getEntityY(event.getEntityLiving());
+                double z = UtilLocation.getEntityZ(event.getEntityLiving());
 
                 player.motionX = mX - 1;
                 player.motionY = mY + 5;

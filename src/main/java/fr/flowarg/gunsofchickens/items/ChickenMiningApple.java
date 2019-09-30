@@ -22,7 +22,7 @@ public class ChickenMiningApple extends ItemFood implements IHasModel
 
         setCreativeTab(Main.MOD_TAB_ITEMS);
 
-        UtilObjects.getInstance().registerItem(this);
+        UtilObjects.registerItem(this);
     }
 
     @Override

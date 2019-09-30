@@ -29,11 +29,11 @@ public class CommandBreakChicken extends CommandBase
         if (sender instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer)sender;
-            UtilObjects.getInstance().sendMessageToPlayer(player, TextFormatting.GREEN + "You have : " + ConfigHandler.money);
+            UtilObjects.sendMessageToPlayer(player, TextFormatting.GREEN + "You have : " + ConfigHandler.money);
         }
         else
         {
-            UtilObjects.getInstance().sendYouMustToBeAPlayerToUseThisCommandToSender(sender);
+            UtilObjects.sendYouMustToBeAPlayerToUseThisCommandToSender(sender);
         }
     }
 }

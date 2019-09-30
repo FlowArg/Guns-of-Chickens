@@ -16,7 +16,7 @@ public class ChickenSword extends ItemSword implements IHasModel
 
         setCreativeTab(Main.MOD_TAB_ITEMS);
 
-        UtilObjects.getInstance().registerItem(this);
+        UtilObjects.registerItem(this);
     }
 
     @Override

@@ -10,8 +10,8 @@ import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.server.permission.PermissionAPI;
 
 import java.util.List;
 
@@ -40,6 +40,10 @@ public class CommandDimensionTeleport extends CommandBase
     @Override
     public boolean checkPermission(MinecraftServer server, ICommandSender sender)
     {
+        if (sender instanceof EntityPlayer)
+        {
+            return PermissionAPI.hasPermission((EntityPlayer)sender, References.MODID + ".command." + this.getName());
+        }
         return true;
     }
 
@@ -56,7 +60,7 @@ public class CommandDimensionTeleport extends CommandBase
             dimID = Integer.parseInt(s);
         } catch (NumberFormatException e)
         {
-            sender.sendMessage(new TextComponentString(TextFormatting.RED + "Dimension ID Invalid"));
+            UtilObjects.sendMessageToSender(sender, TextFormatting.DARK_RED + "Dimension ID Invalid");
             return;
         }
 
@@ -69,13 +73,13 @@ public class CommandDimensionTeleport extends CommandBase
             }
             else if(dimID == 2)
             {
-                if (ConfigHandler.money >= 1000)
+                if (ConfigHandler.money < 250)
                 {
                     Teleport.teleportDimension(player, dimID, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ());
                 }
                 else
                 {
-                    player.sendMessage(new TextComponentString(TextFormatting.GOLD + "You must to mine 1000 chickens ores !"));
+                    UtilObjects.sendMessageToPlayer(player, TextFormatting.GOLD + "You must to mine 1000 chickens ores !");
                 }
             }
             else
@@ -85,7 +89,7 @@ public class CommandDimensionTeleport extends CommandBase
         }
         else
         {
-            UtilObjects.getInstance().sendYouMustToBeAPlayerToUseThisCommandToSender(sender);
+            UtilObjects.sendYouMustToBeAPlayerToUseThisCommandToSender(sender);
         }
     }
 

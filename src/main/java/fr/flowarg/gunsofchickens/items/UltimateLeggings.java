@@ -22,7 +22,7 @@ public class UltimateLeggings extends ItemArmor implements IHasModel
         setCreativeTab(Main.MOD_TAB_ITEMS);
         setMaxStackSize(1);
 
-        UtilObjects.getInstance().registerItem(this);
+        UtilObjects.registerItem(this);
     }
 
     @Override

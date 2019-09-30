@@ -7,112 +7,105 @@ import net.minecraft.server.MinecraftServer;
 
 public class UtilLocation
 {
-    private static final UtilLocation INSTANCE = new UtilLocation();
-
-    public static UtilLocation getInstance()
-    {
-        return INSTANCE;
-    }
-
-    public double getPlayerX(EntityPlayer player)
+    public static double getPlayerX(EntityPlayer player)
     {
         return player.getPosition().getX();
     }
-    public double getPlayerY(EntityPlayer player)
+    public static double getPlayerY(EntityPlayer player)
     {
         return player.getPosition().getY();
     }
-    public double getPlayerZ(EntityPlayer player)
+    public static double getPlayerZ(EntityPlayer player)
     {
         return player.getPosition().getZ();
     }
-    public double getPlayerMotionX(EntityPlayer player)
+    public static double getPlayerMotionX(EntityPlayer player)
     {
         return player.motionX;
     }
-    public double getPlayerMotionY(EntityPlayer player)
+    public static double getPlayerMotionY(EntityPlayer player)
     {
         return player.motionY;
     }
-    public double getPlayerMotionZ(EntityPlayer player)
+    public static double getPlayerMotionZ(EntityPlayer player)
     {
         return player.motionZ;
     }
-    public double getEntityX(Entity entity)
+    public static double getEntityX(Entity entity)
     {
         return entity.getPosition().getX();
     }
-    public double getEntityY(Entity entity)
+    public static double getEntityY(Entity entity)
     {
         return entity.getPosition().getY();
     }
-    public double getEntityZ(Entity entity)
+    public static double getEntityZ(Entity entity)
     {
         return entity.getPosition().getZ();
     }
-    public double getEntityMotionX(Entity entity)
+    public static double getEntityMotionX(Entity entity)
     {
         return entity.motionX;
     }
-    public double getEntityMotionY(Entity entity)
+    public static double getEntityMotionY(Entity entity)
     {
         return entity.motionY;
     }
-    public double getEntityMotionZ(Entity entity)
+    public static double getEntityMotionZ(Entity entity)
     {
         return entity.motionZ;
     }
-    public double getEntityLivingX(EntityLiving entity)
+    public static double getEntityLivingX(EntityLiving entity)
     {
         return entity.getPosition().getX();
     }
-    public double getEntityLivingY(EntityLiving entity)
+    public static double getEntityLivingY(EntityLiving entity)
     {
         return entity.getPosition().getY();
     }
-    public double getEntityLivingZ(EntityLiving entity)
+    public static double getEntityLivingZ(EntityLiving entity)
     {
         return entity.getPosition().getZ();
     }
-    public double getEntityLivingMotionX(EntityLiving entity)
+    public static double getEntityLivingMotionX(EntityLiving entity)
     {
         return entity.motionX;
     }
-    public double getEntityLivingMotionY(EntityLiving entity)
+    public static double getEntityLivingMotionY(EntityLiving entity)
     {
         return entity.motionY;
     }
-    public double getEntityLivingMotionZ(EntityLiving entity)
+    public static double getEntityLivingMotionZ(EntityLiving entity)
     {
         return entity.motionZ;
     }
 
-    public double getMaxWorldX(MinecraftServer minecraftServer, EntityPlayer player)
+    public static double getMaxWorldX(MinecraftServer minecraftServer, EntityPlayer player)
     {
         return minecraftServer.getWorld(getDimension(player)).getWorldBorder().maxX();
     }
-    public double getMaxWorldY()
+    public static double getMaxWorldY()
     {
         return 256d;
     }
-    public double getMaxWorldZ(MinecraftServer minecraftServer, EntityPlayer player)
+    public static double getMaxWorldZ(MinecraftServer minecraftServer, EntityPlayer player)
     {
         return minecraftServer.getWorld(getDimension(player)).getWorldBorder().maxZ();
     }
-    public double getMinWorldX(MinecraftServer minecraftServer, EntityPlayer player)
+    public static double getMinWorldX(MinecraftServer minecraftServer, EntityPlayer player)
     {
         return minecraftServer.getWorld(getDimension(player)).getWorldBorder().minX();
     }
-    public double getMinWorldY()
+    public static double getMinWorldY()
     {
         return 2d;
     }
-    public double getMinWorldZ(MinecraftServer minecraftServer, EntityPlayer player)
+    public static double getMinWorldZ(MinecraftServer minecraftServer, EntityPlayer player)
     {
         return minecraftServer.getWorld(getDimension(player)).getWorldBorder().minZ();
     }
 
-    private int getDimension(EntityPlayer player)
+    public static int getDimension(EntityPlayer player)
     {
         return player.dimension;
     }

@@ -29,7 +29,7 @@ public class ChickenChest extends BlockContainer
         setHardness(12f);
         setHarvestLevel("axe", 2);
 
-        UtilObjects.getInstance().registerBlock(this);
+        UtilObjects.registerBlock(this);
     }
 
     @Override

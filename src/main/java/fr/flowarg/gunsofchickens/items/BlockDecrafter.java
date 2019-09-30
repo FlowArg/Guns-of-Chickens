@@ -234,7 +234,7 @@ public class BlockDecrafter extends ItemBase
     private void messageRIP(EntityPlayer player, World world, BlockPos pos, boolean isBlockDrop, String message)
     {
         world.destroyBlock(pos, isBlockDrop);
-        UtilObjects.getInstance().sendMessageToPlayer(player, message);
+        UtilObjects.sendMessageToPlayer(player, message);
     }
 
 }

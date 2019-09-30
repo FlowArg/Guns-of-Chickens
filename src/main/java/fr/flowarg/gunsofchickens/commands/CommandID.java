@@ -33,18 +33,18 @@ public class CommandID extends CommandBase
 
             if (player.inventory.hasItemStack(player.inventory.getCurrentItem()))
             {
-                Item item = UtilObjects.getInstance().getItemFromItemStack(player.inventory.getCurrentItem());
+                Item item = UtilObjects.getItemFromItemStack(player.inventory.getCurrentItem());
                 int itemID = Item.getIdFromItem(item);
-                UtilObjects.getInstance().sendMessageToPlayer(player, TextFormatting.DARK_GREEN + "Id of " + item.getItemStackDisplayName(new ItemStack(item)) + " is : " + itemID);
+                UtilObjects.sendMessageToPlayer(player, TextFormatting.DARK_GREEN + "Id of " + item.getItemStackDisplayName(new ItemStack(item)) + " is : " + itemID);
             }
             else
             {
-                UtilObjects.getInstance().sendMessageToPlayer(player, TextFormatting.DARK_GREEN + "Id of Air is : 0 !");
+                UtilObjects.sendMessageToPlayer(player, TextFormatting.DARK_GREEN + "Id of Air is : 0 !");
             }
         }
         else
         {
-            UtilObjects.getInstance().sendYouMustToBeAPlayerToUseThisCommandToSender(sender);
+            UtilObjects.sendYouMustToBeAPlayerToUseThisCommandToSender(sender);
         }
     }
 }

@@ -10,6 +10,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
+import net.minecraftforge.server.permission.DefaultPermissionLevel;
+import net.minecraftforge.server.permission.PermissionAPI;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -41,6 +43,7 @@ public class Main
     @EventHandler
     public static void init(FMLInitializationEvent event)
     {
+        PermissionAPI.registerNode(References.MODID + ".command.tpdimension", DefaultPermissionLevel.NONE, "Only players with 250 mined chicken can be use command");
         proxy.init(event);
         LOGGER.info("Mod Initialization complete !");
     }

@@ -31,17 +31,16 @@ public class CommandRandomTP extends CommandBase
         {
             EntityPlayer player = (EntityPlayer)sender;
             Random random = new Random();
-            UtilLocation utils = UtilLocation.getInstance();
 
-            double randomX = random.nextInt((int)utils.getMaxWorldX(minecraftServer, player)) + (int)utils.getMinWorldX(minecraftServer, player);
-            double randomY = random.nextInt((int)utils.getMaxWorldY()) + (int)utils.getMinWorldY();
-            double randomZ = random.nextInt((int)utils.getMaxWorldZ(minecraftServer, player)) + (int)utils.getMinWorldZ(minecraftServer, player);
+            double randomX = random.nextInt((int)UtilLocation.getMaxWorldX(minecraftServer, player)) + (int)UtilLocation.getMinWorldX(minecraftServer, player);
+            double randomY = random.nextInt((int)UtilLocation.getMaxWorldY()) + (int)UtilLocation.getMinWorldY();
+            double randomZ = random.nextInt((int)UtilLocation.getMaxWorldZ(minecraftServer, player)) + (int)UtilLocation.getMinWorldZ(minecraftServer, player);
 
             player.setPositionAndUpdate(randomX, randomY, randomZ);
         }
         else
         {
-            UtilObjects.getInstance().sendYouMustToBeAPlayerToUseThisCommandToSender(sender);
+            UtilObjects.sendYouMustToBeAPlayerToUseThisCommandToSender(sender);
         }
     }
 }

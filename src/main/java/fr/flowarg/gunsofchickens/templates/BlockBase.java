@@ -23,7 +23,7 @@ public class BlockBase extends Block implements IHasModel
 
         setCreativeTab(Main.MOD_TAB_BLOCKS);
 
-        UtilObjects.getInstance().registerBlock(this);
+        UtilObjects.registerBlock(this);
     }
 
     public BlockBase(String name, Material materialIn, float resistance, float hardness, String harvestType, int harvestLevel, SoundType soundType)

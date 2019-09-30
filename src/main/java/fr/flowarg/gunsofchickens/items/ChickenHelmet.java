@@ -23,7 +23,7 @@ public class ChickenHelmet extends ItemArmor implements IHasModel
 
         setMaxStackSize(1);
 
-        UtilObjects.getInstance().registerItem(this);
+        UtilObjects.registerItem(this);
     }
 
     @Override

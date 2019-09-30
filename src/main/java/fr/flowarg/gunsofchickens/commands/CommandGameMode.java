@@ -1,15 +1,10 @@
 package fr.flowarg.gunsofchickens.commands;
 
-import com.google.common.collect.Lists;
-import fr.flowarg.gunsofchickens.utils.References;
+import net.minecraft.command.CommandGameMode;
 import net.minecraft.command.ICommandSender;
 
-import java.util.List;
-
-public class CommandGameMode extends net.minecraft.command.CommandGameMode
+public class CommandGamemode extends CommandGameMode
 {
-    private final List<String> aliases = Lists.newArrayList(References.MODID + "gmode" + "gmod");
-
     @Override
     public String getName() {
         return "gm";
@@ -23,11 +18,5 @@ public class CommandGameMode extends net.minecraft.command.CommandGameMode
     @Override
     public String getUsage(ICommandSender sender) {
         return "gm";
-    }
-
-    @Override
-    public List<String> getAliases()
-    {
-        return this.aliases;
     }
 }

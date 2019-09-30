@@ -30,10 +30,10 @@ public class CommandSpawn extends CommandBase
         {
             EntityPlayer player = (EntityPlayer)sender;
             player.setPositionAndUpdate(ConfigHandler.spawnX, ConfigHandler.spawnY, ConfigHandler.spawnZ);
-            UtilObjects.getInstance().sendMessageToPlayer(player, TextFormatting.DARK_GREEN + "Successfully teleport to the spawn.");
+            UtilObjects.sendMessageToPlayer(player, TextFormatting.DARK_GREEN + "Successfully teleport to the spawn.");
         }
         else{
-            UtilObjects.getInstance().sendYouMustToBeAPlayerToUseThisCommandToSender(sender);
+            UtilObjects.sendYouMustToBeAPlayerToUseThisCommandToSender(sender);
         }
     }
 }

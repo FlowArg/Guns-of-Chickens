@@ -23,7 +23,7 @@ public class ChickenLadder extends BlockLadder implements IHasModel
 
         this.setCreativeTab(Main.MOD_TAB_BLOCKS);
 
-        UtilObjects.getInstance().registerBlock(this);
+        UtilObjects.registerBlock(this);
     }
 
     @Override
