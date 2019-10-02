@@ -1,5 +1,6 @@
 package fr.flowarg.gunsofchickens.utils.util;
 
+import fr.flowarg.gunsofchickens.blocks.itemblocks.ItemBlockVariants;
 import fr.flowarg.gunsofchickens.init.BlockInit;
 import fr.flowarg.gunsofchickens.init.ItemInit;
 import net.minecraft.block.Block;
@@ -56,6 +57,11 @@ public class UtilObjects
     {
         BlockInit.BLOCKS.add(block);
         ItemInit.ITEMS.add(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+    }
+    public static void registerBlockWithMetadata(Block block)
+    {
+        BlockInit.BLOCKS.add(block);
+        ItemInit.ITEMS.add(new ItemBlockVariants(block).setRegistryName(block.getRegistryName()));
     }
     public static void registerItem(Item item)
     {

@@ -11,7 +11,6 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraftforge.server.permission.PermissionAPI;
 
 import java.util.List;
 
@@ -35,16 +34,6 @@ public class CommandDimensionTeleport extends CommandBase
     public List<String> getAliases()
     {
         return aliases;
-    }
-
-    @Override
-    public boolean checkPermission(MinecraftServer server, ICommandSender sender)
-    {
-        if (sender instanceof EntityPlayer)
-        {
-            return PermissionAPI.hasPermission((EntityPlayer)sender, References.MODID + ".command." + this.getName());
-        }
-        return true;
     }
 
     @Override
@@ -79,7 +68,7 @@ public class CommandDimensionTeleport extends CommandBase
                 }
                 else
                 {
-                    UtilObjects.sendMessageToPlayer(player, TextFormatting.GOLD + "You must to mine 1000 chickens ores !");
+                    UtilObjects.sendMessageToPlayer(player, TextFormatting.GOLD + "You must to mine 250 chickens ores !");
                 }
             }
             else

@@ -153,7 +153,7 @@ public class TileEntityChickenFurnace extends TileEntity implements IInventory,I
         boolean flag = this.isBurning();
         boolean flag1 = false;
 
-        if (this.isBurning()) -- this.burnTime;
+        if (this.isBurning()) --this.burnTime;
 
         if (!this.world.isRemote)
         {

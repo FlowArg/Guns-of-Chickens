@@ -12,6 +12,7 @@ import fr.flowarg.gunsofchickens.utils.References;
 import fr.flowarg.gunsofchickens.utils.compat.OreDictionnaryCompat;
 import fr.flowarg.gunsofchickens.utils.util.UtilLocation;
 import fr.flowarg.gunsofchickens.world.biomes.BiomeChicken;
+import fr.flowarg.gunsofchickens.world.gen.GenOres;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.dispenser.BehaviorDefaultDispenseItem;
@@ -42,6 +43,7 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -131,6 +133,7 @@ public class RegistryHandler
 
     public static void initRegistriesCOP()
     {
+        Main.LOGGER.debug("Registering TNT in Dispenser...");
         BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(Item.getItemFromBlock(BlockInit.CHICKEN_TNT), new BehaviorDefaultDispenseItem()
         {
             public ItemStack dispenseStack(IBlockSource source, ItemStack stack)
@@ -144,6 +147,7 @@ public class RegistryHandler
                 return stack;
             }
         });
+        Main.LOGGER.debug("Registered TNT in Dispenser.");
         RecipesInit.instance.initRecipes();
         Main.LOGGER.debug("Recipes registered.");
         NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GUIHandler());
@@ -231,7 +235,10 @@ public class RegistryHandler
     {
         if (event.getModID().equals(References.MODID))
         {
-            ConfigHandler.syncConfig(ConfigHandler.configFile);
+            if (ConfigHandler.config.hasChanged())
+            {
+                ConfigHandler.config.save();
+            }
         }
     }
 
@@ -245,7 +252,12 @@ public class RegistryHandler
         ItemStack boots = player.inventory.armorInventory.get(0);
         if (helmet.getItem() == ItemInit.ULTIMATE_HELMET && chestplate.getItem() == ItemInit.ULTIMATE_CHESTPLATE && leggings.getItem() == ItemInit.ULTIMATE_LEGGINGS && boots.getItem() == ItemInit.ULTIMATE_BOOTS)
         {
-            player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 5, 3));
+            player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 5, 3, false, false));
         }
+    }
+
+    public static void otherRegistries()
+    {
+        GameRegistry.registerWorldGenerator(new GenOres(), 0);
     }
 }

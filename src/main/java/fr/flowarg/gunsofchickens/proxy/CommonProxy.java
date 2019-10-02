@@ -13,6 +13,7 @@ public class CommonProxy
     public void preInit(FMLPreInitializationEvent event)
     {
         RegistryHandler.preInitRegistriesCOP(event);
+        RegistryHandler.otherRegistries();
     }
 
     public void init(FMLInitializationEvent event)
@@ -26,8 +27,8 @@ public class CommonProxy
     }
 
     @SideOnly(Side.CLIENT)
-    public void registerItemRenderer(Item item, int meta)
-    {
+    public void registerItemRenderer(Item item, int meta) {}
 
-    }
+    @SideOnly(Side.CLIENT)
+    public void registerVariantRenderer(Item item, int meta, String fileName, String id) {}
 }

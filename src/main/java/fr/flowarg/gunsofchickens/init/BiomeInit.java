@@ -23,15 +23,15 @@ public class BiomeInit
 
     private static Biome initBiome(Biome biome, String name, BiomeManager.BiomeType biomeType, BiomeDictionary.Type... types)
     {
-        Main.LOGGER.debug("Initializing" + name + "Biome...");
+        Main.LOGGER.debug("Initializing " + name + " Biome...");
         biome.setRegistryName(name);
         ForgeRegistries.BIOMES.register(biome);
-        Main.LOGGER.debug("Initialized" + name + "Biome.");
-        Main.LOGGER.debug("Adding" + name + "Biome...");
+        Main.LOGGER.debug("Initialized " + name + " Biome.");
+        Main.LOGGER.debug("Adding " + name + " Biome...");
         BiomeDictionary.addTypes(biome, types);
         BiomeManager.addBiome(biomeType, new BiomeManager.BiomeEntry(biome, 10));
         BiomeManager.addSpawnBiome(biome);
-        Main.LOGGER.debug("name" + name + "added.");
+        Main.LOGGER.debug("Biome " + name + " added.");
         return biome;
     }
 }

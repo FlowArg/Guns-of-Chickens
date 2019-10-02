@@ -1,5 +1,6 @@
 package fr.flowarg.gunsofchickens.utils.handlers;
 
+import fr.flowarg.gunsofchickens.Main;
 import fr.flowarg.gunsofchickens.utils.References;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -13,7 +14,7 @@ import java.io.File;
 public class ConfigHandler
 {
     public static File configFile;
-    private static Configuration config;
+    static Configuration config;
 
     public static int GUI_CHICKEN_FURNACE = 5;
     public static int GUI_CHICKEN_CHEST = 1;
@@ -25,24 +26,31 @@ public class ConfigHandler
     public static double spawnZ = 0;
     public static int tntReachDistance = 25;
     public static int tntReachDistancechDistancePlus = 25;
-    static String welcomeMessage = "";
-    static boolean showWelcomeMessage = true;
+    public static String welcomeMessage = "";
+    public static boolean showWelcomeMessage = true;
     public static float strength = 5f;
     public static int money = 0;
 
     public static void registerConfig(FMLPreInitializationEvent event)
     {
+        Main.LOGGER.debug("Registering config...");
+        Main.LOGGER.debug("Creating config directory...");
         configFile = new File(event.getModConfigurationDirectory() + "/" + References.MODID);
-        if(!configFile.canWrite())
-        {
-            configFile.setWritable(true);
-        }
         if (!configFile.canRead())
         {
             configFile.setReadable(true);
         }
+        if (!configFile.canWrite())
+        {
+            configFile.setWritable(true);
+        }
         configFile.mkdirs();
+        Main.LOGGER.debug("Created config directory.");
+        Main.LOGGER.debug("Creating config file...");
+        //config = new Configuration(event.getSuggestedConfigurationFile());
+        Main.LOGGER.debug("Created config file.");
         syncConfig(new File(configFile.getPath(), References.MODID + ".cfg"));
+        Main.LOGGER.debug("Registered config.");
     }
 
     public static Configuration getConfig()
@@ -52,7 +60,8 @@ public class ConfigHandler
     public static void syncConfig(File file)
     {
         config = new Configuration(file);
-
+        config.load();
+        Main.LOGGER.debug("Synchronising config...");
         String category;
 
         category = "Locations";

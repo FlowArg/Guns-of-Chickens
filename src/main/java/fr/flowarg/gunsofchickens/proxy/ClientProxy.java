@@ -6,6 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
@@ -22,18 +23,22 @@ import org.lwjgl.opengl.Display;
 
 import java.util.Date;
 
-import static fr.flowarg.gunsofchickens.utils.References.NAME;
-import static fr.flowarg.gunsofchickens.utils.References.VERSION;
+import static fr.flowarg.gunsofchickens.utils.References.*;
 
 @SideOnly(Side.CLIENT)
 public class ClientProxy extends CommonProxy
 {
-    private static final Minecraft MC = Minecraft.getMinecraft();
+    private static String cdc = " ";
+
+    private static KeyBinding keyBindLogo;
+    private static KeyBinding keyBindModVersion;
+    private static KeyBinding keyBindHour;
+
     @Override
     public void preInit(FMLPreInitializationEvent event)
     {
         super.preInit(event);
-        Display.setTitle("Minecraft 1.12.2 " + NAME + "-" + VERSION);
+        Display.setTitle(DISPLAY_TITLE);
     }
 
     @Override
@@ -55,11 +60,11 @@ public class ClientProxy extends CommonProxy
         ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(),"inventory"));
     }
 
-    private static String cdc = " ";
-
-    private static KeyBinding keyBindLogo;
-    private static KeyBinding keyBindModVersion;
-    private static KeyBinding keyBindHour;
+    @Override
+    public void registerVariantRenderer(Item item, int meta, String fileName, String id)
+    {
+        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(new ResourceLocation(MODID, fileName), id));
+    }
 
     public ClientProxy()
     {

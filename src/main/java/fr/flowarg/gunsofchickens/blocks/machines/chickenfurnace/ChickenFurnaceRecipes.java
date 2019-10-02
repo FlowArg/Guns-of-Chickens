@@ -5,9 +5,6 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Table;
 import fr.flowarg.gunsofchickens.init.BlockInit;
 import fr.flowarg.gunsofchickens.init.ItemInit;
-import fr.flowarg.gunsofchickens.utils.util.UtilObjects;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import java.util.Map;
@@ -17,42 +14,24 @@ import static java.util.Map.Entry;
 public class ChickenFurnaceRecipes
 {
     private static final ChickenFurnaceRecipes INSTANCE = new ChickenFurnaceRecipes();
-    private final Table<ItemStack, ItemStack, ItemStack> smeltingList = HashBasedTable.<ItemStack, ItemStack, ItemStack>create();
-    private final Map<ItemStack, Float> experienceList = Maps.<ItemStack, Float>newHashMap();
-
-    private ItemStack chicken_ingot = this.getItemStack(ItemInit.CHICKEN_DIAMOND);
-    private ItemStack chicken_diamond = this.getItemStack(ItemInit.CHICKEN_DIAMOND);
-    private ItemStack ultimate_ingot = this.getItemStack(ItemInit.ULTIMATE_INGOT);
-    private ItemStack chicken_block = this.getItemStack(BlockInit.CHICKEN_BLOCK);
-    private ItemStack chicken_diamond_block = this.getItemStack(BlockInit.CHICKEN_DIAMOND_BLOCK);
-    private ItemStack ultimate_block = this.getItemStack(BlockInit.ULTIMATE_BLOCK);
-
     public static ChickenFurnaceRecipes getInstance()
     {
         return INSTANCE;
     }
+    private final Table<ItemStack, ItemStack, ItemStack> smeltingList = HashBasedTable.<ItemStack, ItemStack, ItemStack>create();
+    private final Map<ItemStack, Float> experienceList = Maps.<ItemStack, Float>newHashMap();
 
     public ChickenFurnaceRecipes()
     {
-        addSmeltingRecipe(chicken_ingot, chicken_diamond, ultimate_ingot, 9999f);
-        addSmeltingRecipe(chicken_diamond, chicken_ingot, ultimate_ingot, 9999f);
-        addSmeltingRecipe(chicken_block, chicken_diamond_block, ultimate_block, 9999f);
-        addSmeltingRecipe(chicken_diamond_block, chicken_block, ultimate_block, 9999f);
-    }
-
-    private ItemStack getItemStack(Item item)
-    {
-        return UtilObjects.getItemStackFromItem(item);
-    }
-
-    private ItemStack getItemStack(Block block)
-    {
-        return UtilObjects.getItemStackFromBlock(block);
+        addSmeltingRecipe(new ItemStack(ItemInit.CHICKEN_DIAMOND), new ItemStack(ItemInit.CHICKEN_INGOT), new ItemStack(ItemInit.ULTIMATE_INGOT), 999f);
+        addSmeltingRecipe(new ItemStack(ItemInit.CHICKEN_INGOT), new ItemStack(ItemInit.CHICKEN_DIAMOND), new ItemStack(ItemInit.ULTIMATE_INGOT), 999f);
+        addSmeltingRecipe(new ItemStack(BlockInit.CHICKEN_DIAMOND_BLOCK), new ItemStack(BlockInit.CHICKEN_BLOCK), new ItemStack(BlockInit.ULTIMATE_BLOCK), 999f);
+        addSmeltingRecipe(new ItemStack(BlockInit.CHICKEN_BLOCK), new ItemStack(BlockInit.CHICKEN_DIAMOND_BLOCK), new ItemStack(BlockInit.ULTIMATE_BLOCK), 999f);
     }
 
     public void addSmeltingRecipe(ItemStack input1, ItemStack input2, ItemStack result, float experience)
     {
-        if (getSmeltingResult(input1, input2) != ItemStack.EMPTY) return;
+        if (this.getSmeltingResult(input1, input2) != ItemStack.EMPTY) return;
         this.smeltingList.put(input1, input2, result);
         this.experienceList.put(result, Float.valueOf(experience));
     }
