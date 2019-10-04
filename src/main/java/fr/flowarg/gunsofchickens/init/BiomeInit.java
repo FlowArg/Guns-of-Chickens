@@ -18,7 +18,11 @@ public class BiomeInit
         Main.LOGGER.debug("Registering biomes...");
         Main.LOGGER.debug("Registering ChickenDimension biome...");
         initBiome(CHICKEN_DIMENSION, "ChickenDimension", BiomeManager.BiomeType.WARM, BiomeDictionary.Type.HILLS, BiomeDictionary.Type.MOUNTAIN);
+        Main.LOGGER.debug("Registered ChickenDimension biome.");
+        Main.LOGGER.debug("Registering Chicken biome...");
         initBiome(CHICKEN, "Chicken", BiomeManager.BiomeType.WARM, BiomeDictionary.Type.HILLS, BiomeDictionary.Type.MOUNTAIN);
+        Main.LOGGER.debug("Registered Chicken biome.");
+        Main.LOGGER.debug("Registered biomes.");
     }
 
     private static Biome initBiome(Biome biome, String name, BiomeManager.BiomeType biomeType, BiomeDictionary.Type... types)

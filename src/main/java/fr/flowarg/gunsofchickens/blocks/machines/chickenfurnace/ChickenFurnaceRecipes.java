@@ -18,8 +18,8 @@ public class ChickenFurnaceRecipes
     {
         return INSTANCE;
     }
-    private final Table<ItemStack, ItemStack, ItemStack> smeltingList = HashBasedTable.<ItemStack, ItemStack, ItemStack>create();
-    private final Map<ItemStack, Float> experienceList = Maps.<ItemStack, Float>newHashMap();
+    private final Table<ItemStack, ItemStack, ItemStack> smeltingList = HashBasedTable.create();
+    private final Map<ItemStack, Float> experienceList = Maps.newHashMap();
 
     public ChickenFurnaceRecipes()
     {
@@ -40,13 +40,13 @@ public class ChickenFurnaceRecipes
     {
         for (Entry<ItemStack, Map<ItemStack, ItemStack>> entry : this.smeltingList.columnMap().entrySet())
         {
-            if (this.compareItemStacks(input1, (ItemStack) entry.getKey()))
+            if (this.compareItemStacks(input1, entry.getKey()))
             {
                 for (Entry<ItemStack, ItemStack> ent : entry.getValue().entrySet())
                 {
-                    if (this.compareItemStacks(input2, (ItemStack)entry.getKey()))
+                    if (this.compareItemStacks(input2, entry.getKey()))
                     {
-                        return (ItemStack)ent.getValue();
+                        return ent.getValue();
                     }
                 }
             }
@@ -68,9 +68,9 @@ public class ChickenFurnaceRecipes
     {
         for (Entry<ItemStack, Float> entry : this.experienceList.entrySet())
         {
-            if (this.compareItemStacks(stack, (ItemStack)entry.getKey()))
+            if (this.compareItemStacks(stack, entry.getKey()))
             {
-                return ((Float)entry.getValue()).floatValue();
+                return entry.getValue().floatValue();
             }
         }
         return 0.0f;

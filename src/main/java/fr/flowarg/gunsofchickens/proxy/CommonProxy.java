@@ -28,7 +28,4 @@ public class CommonProxy
 
     @SideOnly(Side.CLIENT)
     public void registerItemRenderer(Item item, int meta) {}
-
-    @SideOnly(Side.CLIENT)
-    public void registerVariantRenderer(Item item, int meta, String fileName, String id) {}
 }

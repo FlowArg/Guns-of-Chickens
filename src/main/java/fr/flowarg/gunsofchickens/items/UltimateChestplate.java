@@ -29,8 +29,8 @@ public class UltimateChestplate extends ItemArmor implements IHasModel
     {
         player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 5, 10));
         player.addPotionEffect(new PotionEffect(MobEffects.LUCK, 5, 10));
-        //player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 5, 1));
-        player.addPotionEffect(new PotionEffect(MobEffects.HEALTH_BOOST, 5, 2));
+        player.addPotionEffect(new PotionEffect(MobEffects.SATURATION, 5, 1));
+        player.addPotionEffect(new PotionEffect(MobEffects.HEALTH_BOOST, 20, 10));
     }
 
     @Override

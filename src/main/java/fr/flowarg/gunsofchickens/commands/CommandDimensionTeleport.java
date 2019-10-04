@@ -71,7 +71,7 @@ public class CommandDimensionTeleport extends CommandBase
                     UtilObjects.sendMessageToPlayer(player, TextFormatting.GOLD + "You must to mine 250 chickens ores !");
                 }
             }
-            else
+            if (dimID == -1 || dimID == 0)
             {
                 Teleport.teleportDimension(player, dimID, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ());
             }

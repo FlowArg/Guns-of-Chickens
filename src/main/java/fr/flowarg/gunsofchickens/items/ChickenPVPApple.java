@@ -2,6 +2,7 @@ package fr.flowarg.gunsofchickens.items;
 
 import fr.flowarg.gunsofchickens.Main;
 import fr.flowarg.gunsofchickens.utils.IHasModel;
+import fr.flowarg.gunsofchickens.utils.References;
 import fr.flowarg.gunsofchickens.utils.util.UtilObjects;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -41,30 +42,29 @@ public class ChickenPVPApple extends ItemFood implements IHasModel
             if(!worldIn.isRemote)
             {
                 player.clearActivePotions();
+                player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 60*60, 1));
+                player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 60*60, 1));
+                player.addPotionEffect(new PotionEffect(MobEffects.INSTANT_HEALTH, 1, 2));
+                player.addPotionEffect(new PotionEffect(MobEffects.HUNGER, 20*60, 250));
             }
-            player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 60*60, 1));
-            player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 60*60, 1));
-            player.addPotionEffect(new PotionEffect(MobEffects.INSTANT_HEALTH, 1, 2));
-            player.addPotionEffect(new PotionEffect(MobEffects.HUNGER, 20*60, 250));
         }
         else if(randomNumber == 1)
         {
-
             if(!worldIn.isRemote)
             {
                 player.clearActivePotions();
+                player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 60*60, 1));
+                player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 60*60, 1));
+                player.addPotionEffect(new PotionEffect(MobEffects.INSTANT_HEALTH, 1, 2));
+                player.addPotionEffect(new PotionEffect(MobEffects.SATURATION, 20*60, 1));
             }
-            player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 60*60, 1));
-            player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 60*60, 1));
-            player.addPotionEffect(new PotionEffect(MobEffects.INSTANT_HEALTH, 1, 2));
-            player.addPotionEffect(new PotionEffect(MobEffects.SATURATION, 20*60, 1));
         }
         else if(randomNumber == 2)
         {
             if(!worldIn.isRemote)
             {
                 player.clearActivePotions();
-                player.sendMessage(new TextComponentString("[GOCMOD] Effect cleared !"));
+                player.sendMessage(new TextComponentString(References.CHAT_REF + "§eEffect cleared !"));
             }
         }
 

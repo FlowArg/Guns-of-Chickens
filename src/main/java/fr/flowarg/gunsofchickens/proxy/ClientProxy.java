@@ -6,7 +6,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
@@ -51,19 +50,13 @@ public class ClientProxy extends CommonProxy
     public void postInit(FMLPostInitializationEvent event)
     {
         super.postInit(event);
-        RegistryHandler.postInitRegistriesCLP(event);
+        RegistryHandler.postInitRegistriesCLP();
     }
 
     @Override
     public void registerItemRenderer(Item item, int meta)
     {
         ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(),"inventory"));
-    }
-
-    @Override
-    public void registerVariantRenderer(Item item, int meta, String fileName, String id)
-    {
-        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(new ResourceLocation(MODID, fileName), id));
     }
 
     public ClientProxy()

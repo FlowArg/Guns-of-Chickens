@@ -16,6 +16,7 @@ import java.util.Random;
 
 public class ChickenOre extends BlockBase
 {
+    private int money = ConfigHandler.money;
     public ChickenOre(String name)
     {
         super(name, Material.IRON, 35.7f, 25.0f, "pickaxe", 3);
@@ -47,8 +48,7 @@ public class ChickenOre extends BlockBase
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
     {
         super.breakBlock(worldIn, pos, state);
-        int money = ConfigHandler.money;
-        ++money;
-        ConfigHandler.money = money;
+        ++this.money;
+        ConfigHandler.money = this.money;
     }
 }

@@ -414,7 +414,7 @@ public class ChunkGeneratorChickenDimension implements IChunkGenerator
     @Override
     public boolean isInsideStructure(World worldIn, String structureName, BlockPos pos)
     {
-        return false;
+        return true;
     }
 
     @Override

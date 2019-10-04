@@ -11,7 +11,6 @@ import fr.flowarg.gunsofchickens.utils.IHasModel;
 import fr.flowarg.gunsofchickens.utils.References;
 import fr.flowarg.gunsofchickens.utils.compat.OreDictionnaryCompat;
 import fr.flowarg.gunsofchickens.utils.util.UtilLocation;
-import fr.flowarg.gunsofchickens.world.biomes.BiomeChicken;
 import fr.flowarg.gunsofchickens.world.gen.GenOres;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDispenser;
@@ -29,13 +28,12 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -47,16 +45,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import static net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 @EventBusSubscriber(modid = References.MODID)
 public class RegistryHandler
 {
-    private static int i = 0;
-
     public static void preInitRegistriesCOP(FMLPreInitializationEvent event)
     {
         EntityInit.registerEntities();
@@ -75,12 +68,10 @@ public class RegistryHandler
     private static void addSpawnOfEntity()
     {
         Main.LOGGER.debug("Adding spawn of entities in world...");
-        Set<Biome> validBiomes = new HashSet<>();
-        validBiomes.add(new BiomeChicken());
-        EntityRegistry.addSpawn(EntityKikiChicken.class, 10, 2, 5, EnumCreatureType.AMBIENT, validBiomes.toArray(new Biome[validBiomes.size()]));
+        EntityRegistry.addSpawn(EntityKikiChicken.class, 10, 2, 5, EnumCreatureType.AMBIENT);
     }
 
-    public static void postInitRegistriesCLP(FMLPostInitializationEvent event)
+    public static void postInitRegistriesCLP()
     {
         //RenderHandler.registerEntitiesRenders();
         EntityInit.registerEntitiesRender();
@@ -166,6 +157,7 @@ public class RegistryHandler
         Main.LOGGER.debug("Registered TileEntities rendered.");
         Main.LOGGER.debug("Model registered for : " + BlockInit.CHICKEN_CHEST.getLocalizedName());
 
+
         for (Item item : ItemInit.ITEMS)
         {
             if (item instanceof IHasModel)
@@ -194,7 +186,7 @@ public class RegistryHandler
     {
         if(ConfigHandler.showWelcomeMessage)
         {
-            event.player.sendMessage(new TextComponentString("§e[Guns of Chickens] " +"§2" + ConfigHandler.welcomeMessage.replaceAll("%player%", event.player.getName())));
+            event.player.sendMessage(new TextComponentString(References.CHAT_REF +"§2" + ConfigHandler.welcomeMessage.replaceAll("%player%", event.player.getName())));
         }
     }
 
@@ -253,6 +245,7 @@ public class RegistryHandler
         if (helmet.getItem() == ItemInit.ULTIMATE_HELMET && chestplate.getItem() == ItemInit.ULTIMATE_CHESTPLATE && leggings.getItem() == ItemInit.ULTIMATE_LEGGINGS && boots.getItem() == ItemInit.ULTIMATE_BOOTS)
         {
             player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 5, 3, false, false));
+            player.capabilities.allowFlying = true;
         }
     }
 

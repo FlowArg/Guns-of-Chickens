@@ -94,7 +94,8 @@ public class TileEntityChickenFurnace extends TileEntity implements IInventory,I
         this.inventory.set(index, stack);
 
         if (stack.getCount() > this.getInventoryStackLimit()) stack.setCount(this.getInventoryStackLimit());
-        if (index == 0 && index + 1 == 1 && !flag)
+
+        if (index == 0 && !flag)
         {
             ItemStack stack1 = (ItemStack)this.inventory.get(index + 1);
             this.totalCookTime = this.getCookTime(stack, stack1);
@@ -127,6 +128,7 @@ public class TileEntityChickenFurnace extends TileEntity implements IInventory,I
         ItemStackHelper.saveAllItems(compound, this.inventory);
 
         if (this.hasCustomName()) compound.setString("CustomChickenFurnaceName", this.customName);
+
         return compound;
     }
 
@@ -200,7 +202,6 @@ public class TileEntityChickenFurnace extends TileEntity implements IInventory,I
             else if (!this.isBurning() && this.cookTime > 0)
             {
                 this.cookTime = MathHelper.clamp(this.cookTime - 2, 0, this.totalCookTime);
-
             }
             if (flag != this.isBurning())
             {
@@ -208,7 +209,9 @@ public class TileEntityChickenFurnace extends TileEntity implements IInventory,I
                 ChickenFurnace.setState(this.isBurning(), this.world, this.pos);
             }
             if (flag1)
+            {
                 this.markDirty();
+            }
         }
     }
 
@@ -255,14 +258,7 @@ public class TileEntityChickenFurnace extends TileEntity implements IInventory,I
     public static int getItemBurnTime(ItemStack fuel)
     {
         if (fuel.isEmpty()) return 0;
-        else
-        {
-            Item item = fuel.getItem();
-
-            if (item instanceof ChickenCoal) return 200 * 10;
-
-            return ForgeEventFactory.getItemBurnTime(fuel);
-        }
+        else return ForgeEventFactory.getItemBurnTime(fuel);
     }
 
     public static boolean isItemFuel(ItemStack fuel)
