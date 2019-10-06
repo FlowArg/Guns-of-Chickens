@@ -36,11 +36,6 @@ public class BlockInit
     public static final Block CHICKEN_ORE = new ChickenOre("chicken_ore");
     public static final Block CHICKEN_COAL_ORE = new ChickenCoalOre("chicken_coal_ore");
     public static final Block CHICKEN_DIAMOND_ORE = new ChickenDiamondOre("chicken_diamond_ore");
-    /*
-    public static final Block CHICKEN_ORE = new ChickenOres("chicken_ore", "overworld", 25f, 3, 35.7f);
-    public static final Block CHICKEN_COAL_ORE = new ChickenOres("chicken_coal_ore", "nether", 4, 18, 30.7f);
-    public static final Block CHICKEN_DIAMOND_ORE = new ChickenOres("chicken_diamond_ore", "chicken", 90f, 4, 5000f);
-      */
     public static final Block CHICKEN_LADDER = new ChickenLadder("chicken_ladder");
     public static final Block CHICKEN_DIAMOND_BLOCK = new BlockBase("chicken_diamond_block", Material.ROCK, 2000.0f, 100f, "pickaxe", 2);
     public static final Block CHICKEN_WOOD = new BlockBase("chicken_wood", Material.WOOD, 10.0f, 5.0f, "axe", 1);
