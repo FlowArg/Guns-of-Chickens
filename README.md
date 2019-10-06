@@ -6,6 +6,8 @@ The mod is based on chickens ^^. Check WIKI for more Informations !!
 jar sources
 ### Directory src
 sources
+### Directory javadoc
+JavaDoc
 
 ### Install the mod
 You must to install forge (1.12.2) before install the mod.
