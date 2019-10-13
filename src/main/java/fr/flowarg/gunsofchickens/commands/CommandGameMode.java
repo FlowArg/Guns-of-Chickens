@@ -12,7 +12,7 @@ public class CommandGamemode extends CommandGameMode
 
     @Override
     public int getRequiredPermissionLevel() {
-        return 2;
+        return super.getRequiredPermissionLevel();
     }
 
     @Override

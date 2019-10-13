@@ -3,7 +3,6 @@ package fr.flowarg.gunsofchickens.commands;
 import com.google.common.collect.Lists;
 import fr.flowarg.gunsofchickens.commands.util.Teleport;
 import fr.flowarg.gunsofchickens.utils.References;
-import fr.flowarg.gunsofchickens.utils.handlers.ConfigHandler;
 import fr.flowarg.gunsofchickens.utils.util.UtilObjects;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
@@ -16,7 +15,7 @@ import java.util.List;
 
 public class CommandDimensionTeleport extends CommandBase
 {
-    private final List<String> aliases = Lists.newArrayList(References.MODID, "tpdim", "teleportdim", "tpdimension", "teleportdimension");
+    private static final List<String> ALIASES = Lists.newArrayList(References.MODID, "tpdim", "teleportdim", "tpdimension", "teleportdimension");
 
     @Override
     public String getName()
@@ -33,7 +32,7 @@ public class CommandDimensionTeleport extends CommandBase
     @Override
     public List<String> getAliases()
     {
-        return aliases;
+        return ALIASES;
     }
 
     @Override
@@ -62,16 +61,16 @@ public class CommandDimensionTeleport extends CommandBase
             }
             else if(dimID == 2)
             {
-                if (ConfigHandler.money < 250)
+                if (player.experienceLevel < 25)
                 {
-                    Teleport.teleportDimension(player, dimID, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ());
+                    UtilObjects.sendMessageToPlayer(player, TextFormatting.GOLD + "You must to have 25 levels !");
                 }
                 else
                 {
-                    UtilObjects.sendMessageToPlayer(player, TextFormatting.GOLD + "You must to mine 250 chickens ores !");
+                    Teleport.teleportDimension(player, dimID, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ());
                 }
             }
-            if (dimID == -1 || dimID == 0)
+            else if (dimID == -1 || dimID == 0)
             {
                 Teleport.teleportDimension(player, dimID, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ());
             }

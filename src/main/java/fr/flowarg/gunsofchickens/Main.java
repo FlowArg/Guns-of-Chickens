@@ -16,6 +16,12 @@ import org.apache.logging.log4j.Logger;
 import static net.minecraftforge.fml.common.Mod.EventHandler;
 import static net.minecraftforge.fml.common.Mod.Instance;
 
+/**
+ * @author FlowArg
+ * @since alpha1.0
+ * @see Mod
+ */
+// TEST : @Mod(modid = References.MODID, name = References.NAME, version = References.VERSION, modLanguage = "java", serverSideOnly = false, updateJSON = "https://raw.githubusercontent.com/FlowArg/Guns-of-Chickens/master/update.json", clientSideOnly = false, canBeDeactivated = false, guiFactory = "fr.flowarg.gunsofchickens.gui.GUIFactory", dependencies = "required-after:redstoneflux@[1.0.6,2.2.0)")
 @Mod(modid = References.MODID, name = References.NAME, version = References.VERSION, modLanguage = "java", serverSideOnly = false, updateJSON = "https://raw.githubusercontent.com/FlowArg/Guns-of-Chickens/master/update.json", clientSideOnly = false, canBeDeactivated = false, guiFactory = "fr.flowarg.gunsofchickens.gui.GUIFactory")
 public class Main
 {
@@ -55,8 +61,8 @@ public class Main
     @EventHandler
     public static void serverStarting(FMLServerStartingEvent e)
     {
-        RegistryHandler.serverRegistries(e);
         LOGGER.info("Starting server...");
+        RegistryHandler.serverRegistries(e);
     }
 
     @EventHandler

@@ -20,4 +20,9 @@ public class ShowLogo extends GuiScreen
         drawModalRectWithCustomSizedTexture(210, 80, 0, 0, 190, 190, 190, 190);
     }
 
+    @Override
+    public boolean doesGuiPauseGame()
+    {
+        return false;
+    }
 }

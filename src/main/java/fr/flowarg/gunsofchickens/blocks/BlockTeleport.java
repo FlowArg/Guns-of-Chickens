@@ -2,6 +2,7 @@ package fr.flowarg.gunsofchickens.blocks;
 
 import fr.flowarg.gunsofchickens.commands.util.Teleport;
 import fr.flowarg.gunsofchickens.templates.BlockBase;
+import fr.flowarg.gunsofchickens.utils.handlers.ConfigHandler;
 import fr.flowarg.gunsofchickens.utils.util.UtilLocation;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -14,9 +15,9 @@ import net.minecraft.world.World;
 
 public class BlockTeleport extends BlockBase
 {
-    public BlockTeleport(String name, SoundType soundType)
+    public BlockTeleport(String name)
     {
-        super(name, Material.ROCK, 500f, 32f, "pickaxe", 1, soundType);
+        super(name, Material.ROCK, 500f, 32f, "pickaxe", 1, SoundType.METAL);
     }
 
     @Override
@@ -24,22 +25,9 @@ public class BlockTeleport extends BlockBase
     {
         if (!worldIn.isRemote)
         {
-            Teleport.teleportDimension(playerIn, 2, getX(playerIn), getY(playerIn) + 5, getZ(playerIn));
+            Teleport.teleportDimension(playerIn, ConfigHandler.CHICKEN_DIM, UtilLocation.getPlayerX(playerIn), UtilLocation.getPlayerY(playerIn) + 5, UtilLocation.getPlayerZ(playerIn));
             return true;
         }
         return false;
-    }
-
-    private double getX(EntityPlayer playerIn)
-    {
-        return UtilLocation.getPlayerX(playerIn);
-    }
-    private double getY(EntityPlayer playerIn)
-    {
-        return UtilLocation.getPlayerY(playerIn);
-    }
-    private double getZ(EntityPlayer playerIn)
-    {
-        return UtilLocation.getPlayerZ(playerIn);
     }
 }

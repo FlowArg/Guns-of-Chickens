@@ -10,7 +10,6 @@ import fr.flowarg.gunsofchickens.blocks.ores.ChickenDiamondOre;
 import fr.flowarg.gunsofchickens.blocks.ores.ChickenOre;
 import fr.flowarg.gunsofchickens.templates.BlockBase;
 import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 
 import java.util.ArrayList;
@@ -41,7 +40,7 @@ public class BlockInit
     public static final Block CHICKEN_WOOD = new BlockBase("chicken_wood", Material.WOOD, 10.0f, 5.0f, "axe", 1);
     public static final Block CHICKEN_FURNACE = new ChickenFurnace("chicken_furnace");
     public static final Block ULTIMATE_BLOCK = new BlockBase("ultimate_block", Material.ROCK, Float.MAX_VALUE, Float.MAX_VALUE, "pickaxe", 6);
-    public static final Block DIMENSION_CHANGER = new BlockTeleport("dimension_changer", SoundType.METAL);
+    public static final Block DIMENSION_CHANGER = new BlockTeleport("dimension_changer");
     public static final Block CHICKEN_CHEST = new ChickenChest("chicken_chest");
     public static final Block CHICKEN_DIRT = new BlockBase("chicken_dirt", Material.CLAY, 5f, 2f, "shovel", 1);
 }

@@ -29,7 +29,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
@@ -97,8 +96,6 @@ public class RegistryHandler
         Main.LOGGER.debug("Registering command Spawn...");
         event.registerServerCommand(new CommandRandomTP());
         Main.LOGGER.debug("Registering command Random TP...");
-        event.registerServerCommand(new CommandBreakChicken());
-        Main.LOGGER.debug("Registering command Break Chicken...");
         event.registerServerCommand(new CommandID());
         Main.LOGGER.debug("Registering command ID...");
     }

@@ -29,7 +29,6 @@ public class ConfigHandler
     public static String welcomeMessage = "";
     public static boolean showWelcomeMessage = true;
     public static float strength = 5f;
-    public static int money = 0;
 
     public static void registerConfig(FMLPreInitializationEvent event)
     {
@@ -47,9 +46,8 @@ public class ConfigHandler
         configFile.mkdirs();
         Main.LOGGER.debug("Created config directory.");
         Main.LOGGER.debug("Creating config file...");
-        //config = new Configuration(event.getSuggestedConfigurationFile());
-        Main.LOGGER.debug("Created config file.");
         syncConfig(new File(configFile.getPath(), References.MODID + ".cfg"));
+        Main.LOGGER.debug("Created config file.");
         Main.LOGGER.debug("Registered config.");
     }
 
@@ -85,12 +83,8 @@ public class ConfigHandler
         welcomeMessage = config.getString("Welcome Message", category, "Welcome %player%", "The code %player% will be replaced by player's name");
         showWelcomeMessage = config.getBoolean("Enable/Disable the Welcome Message", category, true, "Set false to disable this");
         strength = config.getFloat("Chicken TNT strength", category, 15f, 1f, Float.MAX_VALUE, "Set the tnt strength when it explode");
-        money = config.getInt("DON'T TOUCH !!!!!", category, 0, 0, Integer.MAX_VALUE, "DON'T TOUCH PLEASE !!!");
 
-        if (config.hasChanged())
-        {
-            config.save();
-        }
+        if (config.hasChanged()) config.save();
     }
 
 }

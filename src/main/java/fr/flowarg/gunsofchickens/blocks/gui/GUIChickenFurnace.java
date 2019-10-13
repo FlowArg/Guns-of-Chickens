@@ -7,7 +7,10 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
+@SideOnly(Side.CLIENT)
 public class GUIChickenFurnace extends GuiContainer
 {
     private static final ResourceLocation TEXTURES = new ResourceLocation(References.MODID + ":textures/gui/container/chicken_furnace.png");
@@ -58,5 +61,11 @@ public class GUIChickenFurnace extends GuiContainer
         int i = this.tileentity.getField(2);
         int j = this.tileentity.getField(3);
         return j != 0 && i != 0 ? i * pixels / j : 0;
+    }
+
+    @Override
+    public boolean doesGuiPauseGame()
+    {
+        return false;
     }
 }

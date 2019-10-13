@@ -26,14 +26,13 @@ public class BlockBase extends Block implements IHasModel
     public BlockBase(String name, Material materialIn, float resistance, float hardness, String harvestType, int harvestLevel, SoundType soundType)
     {
         super(materialIn);
-        setRegistryName(name).setUnlocalizedName(name);
-        setHardness(hardness);
-        setResistance(resistance);
-        setHarvestLevel(harvestType, harvestLevel);
-        setSoundType(soundType);
+        this.setRegistryName(name).setUnlocalizedName(name);
+        this.setHardness(hardness);
+        this.setResistance(resistance);
+        this.setHarvestLevel(harvestType, harvestLevel);
 
-        setCreativeTab(Main.MOD_TAB_BLOCKS);
-
+        this.setCreativeTab(Main.MOD_TAB_BLOCKS);
+        this.setSoundType(soundType);
         UtilObjects.registerBlock(this);
     }
 

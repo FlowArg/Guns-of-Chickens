@@ -23,6 +23,6 @@ public class CommandFlow extends CommandBase
     @Override
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException
     {
-        UtilObjects.sendMessageToSender(sender,"Hour : " + new Date().toString());
+        UtilObjects.sendMessageToSender(sender,"It is : " + new Date().toString());
     }
 }

@@ -3,7 +3,6 @@ package fr.flowarg.gunsofchickens.blocks.ores;
 import fr.flowarg.gunsofchickens.init.BlockInit;
 import fr.flowarg.gunsofchickens.init.ItemInit;
 import fr.flowarg.gunsofchickens.templates.BlockBase;
-import fr.flowarg.gunsofchickens.utils.handlers.ConfigHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
@@ -16,7 +15,6 @@ import java.util.Random;
 
 public class ChickenOre extends BlockBase
 {
-    private int money = ConfigHandler.money;
     public ChickenOre(String name)
     {
         super(name, Material.IRON, 35.7f, 25.0f, "pickaxe", 3);
@@ -42,13 +40,5 @@ public class ChickenOre extends BlockBase
             return i;
         }
         return 0;
-    }
-
-    @Override
-    public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
-    {
-        super.breakBlock(worldIn, pos, state);
-        ++this.money;
-        ConfigHandler.money = this.money;
     }
 }
