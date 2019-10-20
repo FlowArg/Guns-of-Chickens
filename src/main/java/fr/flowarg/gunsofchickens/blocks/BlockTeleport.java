@@ -1,9 +1,9 @@
 package fr.flowarg.gunsofchickens.blocks;
 
+import fr.flowarg.flowutils.UtilLocation;
 import fr.flowarg.gunsofchickens.commands.util.Teleport;
 import fr.flowarg.gunsofchickens.templates.BlockBase;
 import fr.flowarg.gunsofchickens.utils.handlers.ConfigHandler;
-import fr.flowarg.gunsofchickens.utils.util.UtilLocation;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

@@ -1,8 +1,8 @@
 package fr.flowarg.gunsofchickens.items;
 
+import fr.flowarg.flowutils.UtilObjects;
 import fr.flowarg.gunsofchickens.Main;
 import fr.flowarg.gunsofchickens.templates.ItemBase;
-import fr.flowarg.gunsofchickens.utils.util.UtilObjects;
 import net.minecraft.block.Block;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -236,5 +236,4 @@ public class BlockDecrafter extends ItemBase
         world.destroyBlock(pos, isBlockDrop);
         UtilObjects.sendMessageToPlayer(player, message);
     }
-
 }

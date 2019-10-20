@@ -1,5 +1,6 @@
 package fr.flowarg.gunsofchickens.creativetabs;
 
+import fr.flowarg.flowutils.UtilObjects;
 import fr.flowarg.gunsofchickens.init.BlockInit;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -14,6 +15,6 @@ public class ModTabBlocks extends CreativeTabs
     @Override
     public ItemStack getTabIconItem()
     {
-        return new ItemStack(BlockInit.MULTICOLORED_CHICKEN_BLOCK);
+        return UtilObjects.getItemStackFromBlock(BlockInit.MULTICOLORED_CHICKEN_BLOCK);
     }
 }

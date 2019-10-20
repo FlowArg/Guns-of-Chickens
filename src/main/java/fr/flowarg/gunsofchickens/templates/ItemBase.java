@@ -1,8 +1,9 @@
 package fr.flowarg.gunsofchickens.templates;
 
+import fr.flowarg.flowutils.UtilObjects;
 import fr.flowarg.gunsofchickens.Main;
+import fr.flowarg.gunsofchickens.init.ItemInit;
 import fr.flowarg.gunsofchickens.utils.IHasModel;
-import fr.flowarg.gunsofchickens.utils.util.UtilObjects;
 import net.minecraft.item.Item;
 
 public class ItemBase extends Item implements IHasModel
@@ -12,7 +13,7 @@ public class ItemBase extends Item implements IHasModel
         setRegistryName(name).setUnlocalizedName(name);
         setCreativeTab(Main.MOD_TAB_ITEMS);
 
-        UtilObjects.registerItem(this);
+        UtilObjects.registerItem(ItemInit.ITEMS, this);
     }
 
     @Override

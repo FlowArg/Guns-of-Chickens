@@ -1,10 +1,11 @@
 package fr.flowarg.gunsofchickens.blocks;
 
+import fr.flowarg.flowutils.UtilObjects;
 import fr.flowarg.gunsofchickens.Main;
 import fr.flowarg.gunsofchickens.entity.EntityChickenTNTPrimed;
+import fr.flowarg.gunsofchickens.init.BlockInit;
 import fr.flowarg.gunsofchickens.init.ItemInit;
 import fr.flowarg.gunsofchickens.utils.IHasModel;
-import fr.flowarg.gunsofchickens.utils.util.UtilObjects;
 import net.minecraft.block.BlockTNT;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -26,10 +27,9 @@ public class ChickenTNT extends BlockTNT implements IHasModel
     public ChickenTNT(String name)
     {
         this.setRegistryName(name).setUnlocalizedName(name);
-
         this.setCreativeTab(Main.MOD_TAB_BLOCKS);
 
-        UtilObjects.registerBlock(this);
+        UtilObjects.registerBlock(BlockInit.BLOCKS, ItemInit.ITEMS, this);
     }
 
     @Override

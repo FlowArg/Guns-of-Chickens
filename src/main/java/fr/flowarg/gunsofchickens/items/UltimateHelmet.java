@@ -1,8 +1,9 @@
 package fr.flowarg.gunsofchickens.items;
 
+import fr.flowarg.flowutils.UtilObjects;
 import fr.flowarg.gunsofchickens.Main;
+import fr.flowarg.gunsofchickens.init.ItemInit;
 import fr.flowarg.gunsofchickens.utils.IHasModel;
-import fr.flowarg.gunsofchickens.utils.util.UtilObjects;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -12,17 +13,16 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
 public class UltimateHelmet extends ItemArmor implements IHasModel
-
 {
     public UltimateHelmet(String name, ArmorMaterial materialIn, int renderIndexIn)
     {
         super(materialIn, renderIndexIn, EntityEquipmentSlot.HEAD);
-        setRegistryName(name);
-        setUnlocalizedName(name);
-        setCreativeTab(Main.MOD_TAB_ITEMS);
-        setMaxStackSize(1);
+        this.setRegistryName(name);
+        this.setUnlocalizedName(name);
+        this.setCreativeTab(Main.MOD_TAB_ITEMS);
+        this.setMaxStackSize(1);
 
-        UtilObjects.registerItem(this);
+        UtilObjects.registerItem(ItemInit.ITEMS, this);
     }
 
     @Override

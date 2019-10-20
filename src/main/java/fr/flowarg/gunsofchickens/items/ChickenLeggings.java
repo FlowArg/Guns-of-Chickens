@@ -1,9 +1,9 @@
 package fr.flowarg.gunsofchickens.items;
 
+import fr.flowarg.flowutils.UtilObjects;
 import fr.flowarg.gunsofchickens.Main;
 import fr.flowarg.gunsofchickens.init.ItemInit;
 import fr.flowarg.gunsofchickens.utils.IHasModel;
-import fr.flowarg.gunsofchickens.utils.util.UtilObjects;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -23,7 +23,7 @@ public class ChickenLeggings extends ItemArmor implements IHasModel
 
         setMaxStackSize(1);
 
-        UtilObjects.registerItem(this);
+        UtilObjects.registerItem(ItemInit.ITEMS, this);
     }
 
     @Override

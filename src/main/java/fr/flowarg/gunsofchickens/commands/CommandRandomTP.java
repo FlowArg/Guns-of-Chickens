@@ -1,7 +1,7 @@
 package fr.flowarg.gunsofchickens.commands;
 
-import fr.flowarg.gunsofchickens.utils.util.UtilLocation;
-import fr.flowarg.gunsofchickens.utils.util.UtilObjects;
+import fr.flowarg.flowutils.UtilLocation;
+import fr.flowarg.flowutils.UtilObjects;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;

@@ -22,7 +22,7 @@ import static net.minecraftforge.fml.common.Mod.Instance;
  * @see Mod
  */
 // TEST : @Mod(modid = References.MODID, name = References.NAME, version = References.VERSION, modLanguage = "java", serverSideOnly = false, updateJSON = "https://raw.githubusercontent.com/FlowArg/Guns-of-Chickens/master/update.json", clientSideOnly = false, canBeDeactivated = false, guiFactory = "fr.flowarg.gunsofchickens.gui.GUIFactory", dependencies = "required-after:redstoneflux@[1.0.6,2.2.0)")
-@Mod(modid = References.MODID, name = References.NAME, version = References.VERSION, modLanguage = "java", serverSideOnly = false, updateJSON = "https://raw.githubusercontent.com/FlowArg/Guns-of-Chickens/master/update.json", clientSideOnly = false, canBeDeactivated = false, guiFactory = "fr.flowarg.gunsofchickens.gui.GUIFactory")
+@Mod(modid = References.MODID, name = References.NAME, version = References.VERSION, modLanguage = "java", serverSideOnly = false, updateJSON = "https://raw.githubusercontent.com/FlowArg/Guns-of-Chickens/master/update.json", clientSideOnly = false, canBeDeactivated = false, guiFactory = "fr.flowarg.gunsofchickens.gui.GUIFactory", dependencies = "required-before:flowutils@[0.1.0,1.0.0)")
 public class Main
 {
     public static final Logger LOGGER = LogManager.getLogger(References.MODID);

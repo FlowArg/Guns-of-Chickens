@@ -1,5 +1,6 @@
 package fr.flowarg.gunsofchickens.utils.handlers;
 
+import fr.flowarg.flowutils.UtilLocation;
 import fr.flowarg.gunsofchickens.Main;
 import fr.flowarg.gunsofchickens.blocks.animation.chickenchest.RenderChickenChest;
 import fr.flowarg.gunsofchickens.blocks.tileentities.TileEntityChickenChest;
@@ -10,7 +11,6 @@ import fr.flowarg.gunsofchickens.init.*;
 import fr.flowarg.gunsofchickens.utils.IHasModel;
 import fr.flowarg.gunsofchickens.utils.References;
 import fr.flowarg.gunsofchickens.utils.compat.OreDictionnaryCompat;
-import fr.flowarg.gunsofchickens.utils.util.UtilLocation;
 import fr.flowarg.gunsofchickens.world.gen.GenOres;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDispenser;
@@ -136,7 +136,7 @@ public class RegistryHandler
             }
         });
         Main.LOGGER.debug("Registered TNT in Dispenser.");
-        RecipesInit.instance.initRecipes();
+        RecipesInit.initRecipes();
         Main.LOGGER.debug("Recipes registered.");
         NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GUIHandler());
         Main.LOGGER.debug("GUIs registered.");

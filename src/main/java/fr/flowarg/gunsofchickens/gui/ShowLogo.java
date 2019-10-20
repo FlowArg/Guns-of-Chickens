@@ -2,6 +2,7 @@ package fr.flowarg.gunsofchickens.gui;
 
 import fr.flowarg.gunsofchickens.utils.References;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -18,6 +19,14 @@ public class ShowLogo extends GuiScreen
         drawDefaultBackground();
         mc.getTextureManager().bindTexture(LOGO);
         drawModalRectWithCustomSizedTexture(210, 80, 0, 0, 190, 190, 190, 190);
+    }
+
+    @Override
+    public void updateScreen()
+    {
+        GlStateManager.pushMatrix();
+        GlStateManager.scale((this.isFocused() ? 1.5f : 1f), (this.isFocused() ? 1.5f : 1f), (this.isFocused() ? 1.5f : 1f));
+        GlStateManager.popMatrix();
     }
 
     @Override

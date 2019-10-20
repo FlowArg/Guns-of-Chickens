@@ -11,9 +11,7 @@ import static fr.flowarg.gunsofchickens.init.ItemInit.*;
 
 public class RecipesInit
 {
-    public static RecipesInit instance = new RecipesInit();
-
-    public void initRecipes()
+    public static void initRecipes()
     {
         Main.LOGGER.debug("Registering recipes...");
         addSmelt(CHICKEN_WITH_TNT, CHICKEN_TNT, 8, 3.75f);
@@ -33,24 +31,23 @@ public class RecipesInit
         addSmelt(ULTIMATE_BOOTS, ULTIMATE_INGOT, 3, 9999f);
     }
 
-    private void addSmelt(Item item, Item result, int amount, float xp)
+    private static void addSmelt(Item item, Item result, int amount, float xp)
     {
         GameRegistry.addSmelting(item, new ItemStack(result, amount), xp);
     }
 
-    private void addSmelt(Block block, Item result, int amount, float xp)
+    private static void addSmelt(Block block, Item result, int amount, float xp)
     {
         GameRegistry.addSmelting(block, new ItemStack(result, amount), xp);
     }
 
-    private void addSmelt(Item item, Block result, int amount, float xp)
+    private static void addSmelt(Item item, Block result, int amount, float xp)
     {
         GameRegistry.addSmelting(item, new ItemStack(result, amount), xp);
     }
 
-    private void addSmelt(Block block, Block result, int amount, float xp)
+    private static void addSmelt(Block block, Block result, int amount, float xp)
     {
         GameRegistry.addSmelting(block, new ItemStack(result, amount), xp);
     }
-
 }

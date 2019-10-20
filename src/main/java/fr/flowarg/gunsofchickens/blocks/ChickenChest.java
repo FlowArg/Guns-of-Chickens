@@ -1,9 +1,11 @@
 package fr.flowarg.gunsofchickens.blocks;
 
+import fr.flowarg.flowutils.UtilObjects;
 import fr.flowarg.gunsofchickens.Main;
 import fr.flowarg.gunsofchickens.blocks.tileentities.TileEntityChickenChest;
+import fr.flowarg.gunsofchickens.init.BlockInit;
+import fr.flowarg.gunsofchickens.init.ItemInit;
 import fr.flowarg.gunsofchickens.utils.handlers.ConfigHandler;
-import fr.flowarg.gunsofchickens.utils.util.UtilObjects;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -29,7 +31,7 @@ public class ChickenChest extends BlockContainer
         setHardness(12f);
         setHarvestLevel("axe", 2);
 
-        UtilObjects.registerBlock(this);
+        UtilObjects.registerBlock(BlockInit.BLOCKS, ItemInit.ITEMS, this);
     }
 
     @Override
