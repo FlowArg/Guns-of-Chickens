@@ -5,8 +5,8 @@
                 "1.12.2-recommended": "release2.4"
         }, 
         "1.12.2": {
-		        "release2.0": "Edit and optimize Block decrafter, add a gui for show logo",
-		        "release2.1": "Fix bug texture of the show logo function, delete keybind Show Github, fix bugs with diamond tools recipes, fix a bug with the pvp apple, optimize the mod.",
+		"release2.0": "Edit and optimize Block decrafter, add a gui for show logo",
+		"release2.1": "Fix bugs textures, delete keybind Show Github, fix diamond tools recipes, fix pvp apple, optimize the mod.",
                 "release2.2": "Fix Kiki's textures",
                 "release2.3": "Fix TNT and Chickens Launchers, Optimize code",
                 "release2.4": "Fix PVP Apple bug",
