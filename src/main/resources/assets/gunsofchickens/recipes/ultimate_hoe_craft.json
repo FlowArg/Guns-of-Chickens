@@ -1,24 +1,22 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern":
-  [
+  "pattern": [
     "AA ",
-    "#A ",
+    "#  ",
     "#  "
   ],
   "key":
   {
     "A":
     {
-      "item": "gunsofchickens:chicken_diamond"
+      "item": "gunsofchickens:ultimate_ingot"
     },
     "#":
     {
       "item": "gunsofchickens:chicken_stick"
     }
   },
-  "result":
-  {
-    "item": "gunsofchickens:chicken_diamond_axe"
+  "result": {
+    "item": "gunsofchickens:ultimate_hoe"
   }
 }

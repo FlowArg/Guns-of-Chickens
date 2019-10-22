@@ -18,6 +18,7 @@ import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class ChickenChest extends BlockContainer
@@ -99,5 +100,29 @@ public class ChickenChest extends BlockContainer
     public boolean hasTileEntity(IBlockState state)
     {
         return true;
+    }
+
+    @Override
+    public boolean isLadder(IBlockState state, IBlockAccess world, BlockPos pos, EntityLivingBase entity)
+    {
+        return false;
+    }
+
+    @Override
+    public boolean isFlammable(IBlockAccess world, BlockPos pos, EnumFacing face)
+    {
+        return true;
+    }
+
+    @Override
+    public boolean isLeaves(IBlockState state, IBlockAccess world, BlockPos pos)
+    {
+        return false;
+    }
+
+    @Override
+    public boolean isBeaconBase(IBlockAccess worldObj, BlockPos pos, BlockPos beacon)
+    {
+        return false;
     }
 }

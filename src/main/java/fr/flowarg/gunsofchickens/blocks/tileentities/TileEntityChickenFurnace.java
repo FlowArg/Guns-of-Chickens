@@ -4,6 +4,7 @@ import fr.flowarg.gunsofchickens.blocks.machines.chickenfurnace.ChickenFurnace;
 import fr.flowarg.gunsofchickens.blocks.machines.chickenfurnace.ChickenFurnaceRecipes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -292,7 +293,7 @@ public class TileEntityChickenFurnace extends TileEntity implements IInventory,I
     @Override
     public void closeInventory(EntityPlayer player)
     {
-
+        InventoryHelper.dropInventoryItems(this.getWorld(), this.getPos(), this);
     }
 
     @Override

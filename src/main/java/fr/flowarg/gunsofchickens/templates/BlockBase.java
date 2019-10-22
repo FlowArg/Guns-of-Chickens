@@ -9,6 +9,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 
 public class BlockBase extends Block implements IHasModel
 {
@@ -41,5 +43,24 @@ public class BlockBase extends Block implements IHasModel
     @Override
     public void registerModels() {
         Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0);
+    }
+
+    public static class ChickenBlocks extends BlockBase
+    {
+        public ChickenBlocks(String name, Material materialIn, float resistance, float hardness, String harvestType, int harvestLevel)
+        {
+            super(name, materialIn, resistance, hardness, harvestType, harvestLevel);
+        }
+
+        public ChickenBlocks(String name, Material materialIn, float resistance, float hardness, String harvestType, int harvestLevel, SoundType soundType)
+        {
+            super(name, materialIn, resistance, hardness, harvestType, harvestLevel, soundType);
+        }
+
+        @Override
+        public boolean isBeaconBase(IBlockAccess worldObj, BlockPos pos, BlockPos beacon)
+        {
+            return true;
+        }
     }
 }

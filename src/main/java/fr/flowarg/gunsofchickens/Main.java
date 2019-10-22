@@ -7,6 +7,7 @@ import fr.flowarg.gunsofchickens.proxy.CommonProxy;
 import fr.flowarg.gunsofchickens.utils.References;
 import fr.flowarg.gunsofchickens.utils.handlers.RegistryHandler;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
@@ -37,6 +38,11 @@ public class Main
     public static final CreativeTabs MOD_TAB_BLOCKS = new ModTabBlocks("modtabblocks");
     public static final CreativeTabs MOD_TAB_UTILS = new ModTabUtils("modtabutils");
 
+    public Main()
+    {
+        LOGGER.info(Biome.getBiome(3));
+    }
+
     @EventHandler
     public static void preInit(FMLPreInitializationEvent event)
     {
@@ -57,28 +63,27 @@ public class Main
         proxy.postInit(event);
         LOGGER.info("Mod PostInitialization complete !");
     }
-
     @EventHandler
-    public static void serverStarting(FMLServerStartingEvent e)
+    public static void onServerStarting(FMLServerStartingEvent e)
     {
         LOGGER.info("Starting server...");
-        RegistryHandler.serverRegistries(e);
+        RegistryHandler.registerCommands(e);
     }
 
     @EventHandler
-    public static void serverStarted(FMLServerStartedEvent event)
+    public static void onServerStarted(FMLServerStartedEvent event)
     {
         LOGGER.info("Server started !");
     }
 
     @EventHandler
-    public static void serverStopping(FMLServerStoppingEvent event)
+    public static void onServerStopping(FMLServerStoppingEvent event)
     {
         LOGGER.info("Stopping server...");
     }
 
     @EventHandler
-    public static void serverStopped(FMLServerStoppedEvent event)
+    public static void onServerStopped(FMLServerStoppedEvent event)
     {
         LOGGER.info("Server stopped !");
     }

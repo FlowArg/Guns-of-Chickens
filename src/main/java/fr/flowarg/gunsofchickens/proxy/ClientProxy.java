@@ -27,11 +27,11 @@ import static fr.flowarg.gunsofchickens.utils.References.*;
 @SideOnly(Side.CLIENT)
 public class ClientProxy extends CommonProxy
 {
-    private static String cdc = " ";
+    private String cdc = null;
 
-    private static KeyBinding keyBindLogo;
-    private static KeyBinding keyBindModVersion;
-    private static KeyBinding keyBindHour;
+    private final KeyBinding keyBindLogo;
+    private final KeyBinding keyBindModVersion;
+    private final KeyBinding keyBindHour;
 
     @Override
     public void preInit(FMLPreInitializationEvent event)
@@ -63,41 +63,40 @@ public class ClientProxy extends CommonProxy
     {
         MinecraftForge.EVENT_BUS.register(this);
 
-        keyBindLogo = new KeyBinding("logo.key", Keyboard.KEY_K, "key.categories.gunsofchickens");
-        keyBindModVersion = new KeyBinding("modversion.key", Keyboard.KEY_M, "key.categories.gunsofchickens");
-        keyBindHour = new KeyBinding("hour.key", Keyboard.KEY_H, "key.categories.gunsofchickens");
+        this.keyBindLogo = new KeyBinding("logo.key", Keyboard.KEY_K, "key.categories.gunsofchickens");
+        this.keyBindModVersion = new KeyBinding("modversion.key", Keyboard.KEY_M, "key.categories.gunsofchickens");
+        this.keyBindHour = new KeyBinding("hour.key", Keyboard.KEY_H, "key.categories.gunsofchickens");
 
-        registerKeys(keyBindLogo);
-        registerKeys(keyBindModVersion);
-        registerKeys(keyBindHour);
+        this.registerKeys(keyBindLogo);
+        this.registerKeys(keyBindModVersion);
+        this.registerKeys(keyBindHour);
     }
 
     @SubscribeEvent
-    public void onEvent(InputEvent.KeyInputEvent event)
+    public void onKeyInputEvent(InputEvent.KeyInputEvent event)
     {
-        if (keyBindLogo.isKeyDown())
+        if (this.keyBindLogo.isKeyDown())
             Minecraft.getMinecraft().displayGuiScreen(new ShowLogo());
     }
 
     @SubscribeEvent
-    public void onOverlay(RenderGameOverlayEvent.Text e)
+    public void onOverlay(RenderGameOverlayEvent.Text event)
     {
-        if(keyBindHour.isKeyDown() && keyBindModVersion.isKeyDown()) return;
+        if(this.keyBindHour.isKeyDown() && this.keyBindModVersion.isKeyDown()) return;
 
-        if (keyBindModVersion.isKeyDown())
+        if (this.keyBindModVersion.isKeyDown())
         {
-            cdc = NAME + " : " + VERSION;
-            e.getLeft().add(cdc);
+            this.cdc = NAME + " : " + VERSION;
+            event.getLeft().add(cdc);
         }
-        else if(keyBindHour.isKeyDown())
+        else if(this.keyBindHour.isKeyDown())
         {
-            cdc = new Date().toString();
-            e.getLeft().add(cdc);
+            this.cdc = new Date().toString();
+            event.getRight().add(cdc);
         }
         else
         {
-            cdc = " ";
-            e.getLeft().clear();
+            this.cdc = null;
         }
     }
 

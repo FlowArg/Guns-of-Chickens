@@ -28,6 +28,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -67,7 +68,7 @@ public class RegistryHandler
     private static void addSpawnOfEntity()
     {
         Main.LOGGER.debug("Adding spawn of entities in world...");
-        EntityRegistry.addSpawn(EntityKikiChicken.class, 10, 2, 5, EnumCreatureType.AMBIENT);
+        EntityRegistry.addSpawn(EntityKikiChicken.class, 10, 2, 5, EnumCreatureType.AMBIENT, BiomeInit.CHICKEN, Biome.getBiome(3));
     }
 
     public static void postInitRegistriesCLP()
@@ -77,27 +78,24 @@ public class RegistryHandler
         Main.LOGGER.debug("Registered entities renders.");
     }
 
-    public static void serverRegistries(FMLServerStartingEvent event)
-    {
-        registerCommands(event);
-        Main.LOGGER.debug("Registered commands.");
-    }
-
-    private static void registerCommands(FMLServerStartingEvent event)
+    public static void registerCommands(FMLServerStartingEvent event)
     {
         Main.LOGGER.debug("Registering commands...");
-        event.registerServerCommand(new CommandDimensionTeleport());
         Main.LOGGER.debug("Registering command Dimension Teleport.");
-        event.registerServerCommand(new CommandGamemode());
+        event.registerServerCommand(new CommandDimensionTeleport());
         Main.LOGGER.debug("Registering command GameMode...");
-        event.registerServerCommand(new CommandFlow());
+        event.registerServerCommand(new CommandGamemode());
         Main.LOGGER.debug("Registering command Flow...");
-        event.registerServerCommand(new CommandSpawn());
+        event.registerServerCommand(new CommandFlow());
         Main.LOGGER.debug("Registering command Spawn...");
-        event.registerServerCommand(new CommandRandomTP());
+        event.registerServerCommand(new CommandSpawn());
         Main.LOGGER.debug("Registering command Random TP...");
-        event.registerServerCommand(new CommandID());
+        event.registerServerCommand(new CommandRandomTP());
         Main.LOGGER.debug("Registering command ID...");
+        event.registerServerCommand(new CommandID());
+        Main.LOGGER.debug("Registering command Teleport Biome...");
+        event.registerServerCommand(new CommandBiomeTeleport());
+        Main.LOGGER.debug("Registered commands.");
     }
 
     @SubscribeEvent
@@ -148,12 +146,11 @@ public class RegistryHandler
     @SubscribeEvent
     public static void onModelRegister(ModelRegistryEvent event)
     {
-        Main.proxy.registerItemRenderer(Item.getItemFromBlock(BlockInit.CHICKEN_CHEST), 0);
         Main.LOGGER.debug("Registering TileEntities rendered...");
+        Main.proxy.registerItemRenderer(Item.getItemFromBlock(BlockInit.CHICKEN_CHEST), 0);
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityChickenChest.class, new RenderChickenChest());
         Main.LOGGER.debug("Registered TileEntities rendered.");
         Main.LOGGER.debug("Model registered for : " + BlockInit.CHICKEN_CHEST.getLocalizedName());
-
 
         for (Item item : ItemInit.ITEMS)
         {

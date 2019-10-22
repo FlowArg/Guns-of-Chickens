@@ -10,7 +10,7 @@
   {
     "A":
     {
-      "item": "gunsofchickens:chicken_diamond"
+      "item": "gunsofchickens:ultimate_ingot"
     },
     "#":
     {
@@ -19,6 +19,6 @@
   },
   "result":
   {
-    "item": "gunsofchickens:chicken_diamond_axe"
+    "item": "gunsofchickens:ultimate_axe"
   }
 }

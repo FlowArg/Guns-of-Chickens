@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "###",
+    "###",
+    "###"
+  ],
+  "key":
+  {
+    "#":
+    {
+      "item": "gunsofchickens:ultimate_ingot"
+    }
+  },
+  "result":
+  {
+    "item": "gunsofchickens:ultimate_block"
+  }
+}

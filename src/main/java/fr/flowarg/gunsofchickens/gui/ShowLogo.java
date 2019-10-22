@@ -24,11 +24,8 @@ public class ShowLogo extends GuiScreen
     @Override
     public void updateScreen()
     {
-        GlStateManager.pushMatrix();
         GlStateManager.scale((this.isFocused() ? 1.5f : 1f), (this.isFocused() ? 1.5f : 1f), (this.isFocused() ? 1.5f : 1f));
-        GlStateManager.popMatrix();
     }
-
     @Override
     public boolean doesGuiPauseGame()
     {
