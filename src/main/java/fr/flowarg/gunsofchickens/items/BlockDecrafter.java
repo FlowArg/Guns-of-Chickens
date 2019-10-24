@@ -79,94 +79,93 @@ public class BlockDecrafter extends ItemBase
                         metaRandom = 15;
                         break;
                 }
-                createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7d, 0d, 1, metaRandom, 1);
+                this.createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7d, 0d, 1, metaRandom, 1);
             }
             else if (block == BLACK_CHICKEN_BLOCK)
             {
-                createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7d, 0d, 1, 15, 1);
+                this.createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7d, 0d, 1, 15, 1);
             }
             else if (block == BLUE_CHICKEN_BLOCK)
             {
-                createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7f, 0d, 1, 11, 1);
+                this.createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7f, 0d, 1, 11, 1);
             }
             else if (block == BROW_CHICKEN_BLOCK)
             {
-                createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7d, 0d, 1, 12, 1);
+                this.createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7d, 0d, 1, 12, 1);
             }
             else if (block == GRAY_CHICKEN_BLOCK)
             {
-                createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7d, 0d, 1, 7, 1);
+                this.createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7d, 0d, 1, 7, 1);
             }
             else if (block == GREEN_CHICKEN_BLOCK)
             {
-                createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7d, 0d, 1, 5, 1);
+                this.createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7d, 0d, 1, 5, 1);
             }
             else if (block == ORANGE_CHICKEN_BLOCK)
             {
-                createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7d, 0d, 1, 1, 1);
+                this.createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7d, 0d, 1, 1, 1);
             }
             else if (block == PINK_CHICKEN_BLOCK)
             {
-                createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7d, 0d, 1, 6, 1);
+                this.createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7d, 0d, 1, 6, 1);
             }
             else if (block == YELLOW_CHICKEN_BLOCK)
             {
-                createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7d, 0d, 1, 4, 1);
+                this.createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7d, 0d, 1, 4, 1);
             }
             else if (block == RED_CHICKEN_BLOCK)
             {
-                createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7d, 0d, 1, 14, 1);
+                this.createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7d, 0d, 1, 14, 1);
             }
             else if(block == WHITE_CHICKEN_BLOCK)
             {
-                createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7d, 0d, 1, 0, 1);
+                this.createSpawnEntityLoot(false, CONCRETE, worldIn, pos, player, 0d, 0.7d, 0d, 1, 0, 1);
             }
-
             else if(block == CHICKEN_TNT)
             {
-                createSpawnEntityLoot(false, CHICKEN_WITH_TNT, worldIn, pos, player, 0d, 0.7d, 0d, 1, 1);
+                this.createSpawnEntityLoot(false, CHICKEN_WITH_TNT, worldIn, pos, player, 0d, 0.7d, 0d, 1, 1);
             }
             else if(block == CHICKEN_ORE)
             {
-                messageRIP(player, worldIn, pos, false, "R.I.P ! Don't use the BlockDecrafter on Ore !!");
+                this.messageRIP(player, worldIn, pos, false, "R.I.P ! Don't use the BlockDecrafter on Ore !!");
             }
             else if(block == CHICKEN_COAL_ORE)
             {
-                messageRIP(player, worldIn, pos, false, "R.I.P ! Don't use the BlockDecrafter on Ore !!");
+                this.messageRIP(player, worldIn, pos, false, "R.I.P ! Don't use the BlockDecrafter on Ore !!");
             }
             else if(block == CHICKEN_DIAMOND_ORE)
             {
-                messageRIP(player, worldIn, pos, false, "R.I.P ! Don't use the BlockDecrafter on Ore !!");
+                this.messageRIP(player, worldIn, pos, false, "R.I.P ! Don't use the BlockDecrafter on Ore !!");
             }
             else if(block == CHICKEN_LADDER)
             {
-                createSpawnEntityLoot(false, CHICKEN_STICK, worldIn, pos, player, 0d, 0.7d, 0d, 3, 1);
+                this.createSpawnEntityLoot(false, CHICKEN_STICK, worldIn, pos, player, 0d, 0.7d, 0d, 3, 1);
             }
             else if(block == CHICKEN_BLOCK)
             {
-                createSpawnEntityLoot(false, CHICKEN_INGOT, worldIn, pos, player, 0d, 0.7d, 0d, 9, 1);
+                this.createSpawnEntityLoot(false, CHICKEN_INGOT, worldIn, pos, player, 0d, 0.7d, 0d, 9, 1);
             }
 
             else if(block == CHICKEN_DIAMOND_BLOCK)
             {
-                createSpawnEntityLoot(false, CHICKEN_DIAMOND, worldIn, pos, player, 0D, 1D, 0D, 9, 1);
+                this.createSpawnEntityLoot(false, CHICKEN_DIAMOND, worldIn, pos, player, 0D, 1D, 0D, 9, 1);
             }
 
             else if(block == PLANKS)
             {
-                createSpawnEntityLoot(false, CHICKEN_WOOD, worldIn, pos, player, 0D, 1D, 0D,1, 1);
+                this.createSpawnEntityLoot(false, CHICKEN_WOOD, worldIn, pos, player, 0D, 1D, 0D,1, 1);
             }
             else if (block == CHICKEN_WOOD)
             {
-                createSpawnEntityLoot(false, CHICKEN_STICK, worldIn, pos, player, 0d, 1D, 0D, 2, 1);
+                this.createSpawnEntityLoot(false, CHICKEN_STICK, worldIn, pos, player, 0d, 1D, 0D, 2, 1);
             }
             else if (block == CHICKEN_FURNACE)
             {
-                createSpawnEntityLoot(false, CHICKEN_BLOCK, worldIn, pos, player, 0d, 1d, 0d, 8, 1);
+                this.createSpawnEntityLoot(false, CHICKEN_BLOCK, worldIn, pos, player, 0d, 1d, 0d, 8, 1);
             }
             else if (block == ULTIMATE_BLOCK)
             {
-                createSpawnEntityLoot(false, ULTIMATE_INGOT, worldIn, pos, player, 0d, 1d, 0d, 9, 1);
+                this.createSpawnEntityLoot(false, ULTIMATE_INGOT, worldIn, pos, player, 0d, 1d, 0d, 9, 1);
             }
         }
         return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);

@@ -33,7 +33,7 @@ public class CommandID extends CommandBase
 
             if (player.inventory.hasItemStack(player.inventory.getCurrentItem()))
             {
-                Item item = UtilObjects.getItemFromItemStack(player.inventory.getCurrentItem());
+                Item item = UtilObjects.UtilItems.getItemFromItemStack(player.inventory.getCurrentItem());
                 int itemID = Item.getIdFromItem(item);
                 UtilObjects.sendMessageToPlayer(player, TextFormatting.DARK_GREEN + "Id of " + item.getItemStackDisplayName(new ItemStack(item)) + " is : " + itemID);
             }

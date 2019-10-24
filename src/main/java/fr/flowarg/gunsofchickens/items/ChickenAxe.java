@@ -15,7 +15,7 @@ public class ChickenAxe extends ItemAxe implements IHasModel
         setMaxStackSize(1);
         setCreativeTab(Main.MOD_TAB_ITEMS);
 
-        UtilObjects.registerItem(ItemInit.ITEMS, this);
+        UtilObjects.UtilItems.registerItem(ItemInit.ITEMS, this);
     }
 
     @Override

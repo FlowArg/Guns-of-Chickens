@@ -24,7 +24,7 @@ public class BlockBase extends Block implements IHasModel
 
         setCreativeTab(Main.MOD_TAB_BLOCKS);
 
-        UtilObjects.registerBlock(BlockInit.BLOCKS, ItemInit.ITEMS, this);
+        UtilObjects.UtilBlocks.registerBlock(BlockInit.BLOCKS, ItemInit.ITEMS, this);
     }
 
     public BlockBase(String name, Material materialIn, float resistance, float hardness, String harvestType, int harvestLevel, SoundType soundType)
@@ -37,7 +37,7 @@ public class BlockBase extends Block implements IHasModel
 
         this.setCreativeTab(Main.MOD_TAB_BLOCKS);
         this.setSoundType(soundType);
-        UtilObjects.registerBlock(BlockInit.BLOCKS, ItemInit.ITEMS, this);
+        UtilObjects.UtilBlocks.registerBlock(BlockInit.BLOCKS, ItemInit.ITEMS, this);
     }
 
     @Override

@@ -29,7 +29,7 @@ public class ChickenTNT extends BlockTNT implements IHasModel
         this.setRegistryName(name).setUnlocalizedName(name);
         this.setCreativeTab(Main.MOD_TAB_BLOCKS);
 
-        UtilObjects.registerBlock(BlockInit.BLOCKS, ItemInit.ITEMS, this);
+        UtilObjects.UtilBlocks.registerBlock(BlockInit.BLOCKS, ItemInit.ITEMS, this);
     }
 
     @Override

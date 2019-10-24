@@ -22,7 +22,7 @@ public class UltimateHelmet extends ItemArmor implements IHasModel
         this.setCreativeTab(Main.MOD_TAB_ITEMS);
         this.setMaxStackSize(1);
 
-        UtilObjects.registerItem(ItemInit.ITEMS, this);
+        UtilObjects.UtilItems.registerItem(ItemInit.ITEMS, this);
     }
 
     @Override

@@ -18,7 +18,7 @@ public class ChickenPickaxe extends ItemPickaxe implements IHasModel
 
         setCreativeTab(Main.MOD_TAB_ITEMS);
 
-        UtilObjects.registerItem(ItemInit.ITEMS, this);
+        UtilObjects.UtilItems.registerItem(ItemInit.ITEMS, this);
     }
 
     @Override

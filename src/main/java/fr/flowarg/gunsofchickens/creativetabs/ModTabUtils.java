@@ -15,6 +15,6 @@ public class ModTabUtils extends CreativeTabs
     @Override
     public ItemStack getTabIconItem()
     {
-        return UtilObjects.getItemStackFromItem(ItemInit.BLOCK_DRECRAFTER);
+        return UtilObjects.UtilItems.getItemStackFromItem(ItemInit.BLOCK_DRECRAFTER);
     }
 }

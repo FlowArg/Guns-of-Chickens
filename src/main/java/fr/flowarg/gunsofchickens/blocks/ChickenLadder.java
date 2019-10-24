@@ -24,7 +24,7 @@ public class ChickenLadder extends BlockLadder implements IHasModel
         this.setRegistryName(name).setUnlocalizedName(name);
         this.setCreativeTab(Main.MOD_TAB_BLOCKS);
 
-        UtilObjects.registerBlock(BlockInit.BLOCKS, ItemInit.ITEMS, this);
+        UtilObjects.UtilBlocks.registerBlock(BlockInit.BLOCKS, ItemInit.ITEMS, this);
     }
 
     @Override

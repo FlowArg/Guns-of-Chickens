@@ -13,7 +13,7 @@ public class ItemBase extends Item implements IHasModel
         setRegistryName(name).setUnlocalizedName(name);
         setCreativeTab(Main.MOD_TAB_ITEMS);
 
-        UtilObjects.registerItem(ItemInit.ITEMS, this);
+        UtilObjects.UtilItems.registerItem(ItemInit.ITEMS, this);
     }
 
     @Override
