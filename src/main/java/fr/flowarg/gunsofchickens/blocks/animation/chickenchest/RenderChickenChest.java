@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderChickenChest extends TileEntitySpecialRenderer<TileEntityChickenChest>
 {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(References.MODID + ":textures/blocks/chicken_chest.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(References.MODID, "textures/blocks/chicken_chest.png");
     private final ModelChickenChest MODEL = new ModelChickenChest();
 
     @Override

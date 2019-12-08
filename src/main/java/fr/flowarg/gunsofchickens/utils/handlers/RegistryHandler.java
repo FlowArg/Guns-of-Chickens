@@ -32,6 +32,8 @@ import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import net.minecraftforge.event.world.ExplosionEvent;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -44,6 +46,9 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.lwjgl.input.Keyboard;
+
+import java.util.Objects;
 
 import static net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
@@ -52,13 +57,13 @@ public class RegistryHandler
 {
     public static void preInitRegistriesCOP(FMLPreInitializationEvent event)
     {
+        Main.LOGGER.debug("Registering config...");
+        ConfigHandler.registerConfig(event);
+        Main.LOGGER.debug("Config registered.");
         EntityInit.registerEntities();
         Main.LOGGER.debug("Entities registered.");
         addSpawnOfEntity();
         Main.LOGGER.debug("Added spawn of entities in world.");
-        Main.LOGGER.debug("Registering config...");
-        ConfigHandler.registerConfig(event);
-        Main.LOGGER.debug("Config registered.");
         BiomeInit.registerBiomes();
         Main.LOGGER.debug("Registered biomes.");
         DimensionInit.registerDimensions();
@@ -71,6 +76,7 @@ public class RegistryHandler
         EntityRegistry.addSpawn(EntityKikiChicken.class, 10, 2, 5, EnumCreatureType.AMBIENT, BiomeInit.CHICKEN, Biome.getBiome(3));
     }
 
+    @SideOnly(Side.CLIENT)
     public static void postInitRegistriesCLP()
     {
         //RenderHandler.registerEntitiesRenders();
@@ -146,15 +152,13 @@ public class RegistryHandler
     @SubscribeEvent
     public static void onModelRegister(ModelRegistryEvent event)
     {
-        Main.LOGGER.debug("Registering TileEntities rendered...");
-        Main.proxy.registerItemRenderer(Item.getItemFromBlock(BlockInit.CHICKEN_CHEST), 0);
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityChickenChest.class, new RenderChickenChest());
-        Main.LOGGER.debug("Registered TileEntities rendered.");
-        Main.LOGGER.debug("Model registered for : " + BlockInit.CHICKEN_CHEST.getLocalizedName());
-
         for (Item item : ItemInit.ITEMS)
         {
-            if (item instanceof IHasModel)
+            if(item == Item.getItemFromBlock(BlockInit.CHICKEN_CHEST))
+            {
+                Main.proxy.registerItemRenderer(Item.getItemFromBlock(BlockInit.CHICKEN_CHEST), 0);
+            }
+            else if (item instanceof IHasModel)
             {
                 ((IHasModel)item).registerModels();
                 Main.LOGGER.debug("Model registered for : " + item.getItemStackDisplayName(new ItemStack(item)));
@@ -164,7 +168,14 @@ public class RegistryHandler
 
         for (Block block : BlockInit.BLOCKS)
         {
-            if (block instanceof IHasModel)
+            if(block == BlockInit.CHICKEN_CHEST)
+            {
+                Main.LOGGER.debug("Registering TileEntities rendered...");
+                ClientRegistry.bindTileEntitySpecialRenderer(TileEntityChickenChest.class, new RenderChickenChest());
+                Main.LOGGER.debug("Model registered for : " + BlockInit.CHICKEN_CHEST.getLocalizedName());
+                Main.LOGGER.debug("Registered TileEntities rendered.");
+            }
+            else if (block instanceof IHasModel)
             {
                 ((IHasModel)block).registerModels();
                 Main.LOGGER.debug("Model registered for : " + block.getLocalizedName());
@@ -240,6 +251,40 @@ public class RegistryHandler
         {
             player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 5, 3, false, false));
             player.capabilities.allowFlying = true;
+        }
+    }
+
+    @SubscribeEvent
+    public static void onExplosion(ExplosionEvent.Detonate event)
+    {
+        event.getAffectedBlocks().removeIf(pos -> event.getWorld().getBlockState(pos).getBlock() == BlockInit.CHICKEN_DIAMOND_ORE);
+        event.getAffectedBlocks().removeIf(pos -> event.getWorld().getBlockState(pos).getBlock() == BlockInit.CHICKEN_ORE);
+        event.getAffectedBlocks().removeIf(pos -> event.getWorld().getBlockState(pos).getBlock() == BlockInit.CHICKEN_DIAMOND_BLOCK);
+        event.getAffectedBlocks().removeIf(pos -> event.getWorld().getBlockState(pos).getBlock() == BlockInit.CHICKEN_BLOCK);
+        event.getAffectedBlocks().removeIf(pos -> event.getWorld().getBlockState(pos).getBlock() == BlockInit.ULTIMATE_BLOCK);
+        event.getAffectedEntities().removeIf(entity -> entity instanceof EntityKikiChicken);
+    }
+
+    @SideOnly(Side.CLIENT)
+    @SubscribeEvent
+    public static void onShowTooltip(ItemTooltipEvent event)
+    {
+        Item eventItem = event.getItemStack().getItem();
+
+        for (Item item : ItemInit.ITEMS)
+        {
+            if(eventItem == item)
+            {
+                if(!Keyboard.isKeyDown(Keyboard.KEY_LSHIFT))
+                    event.getToolTip().add("Press Left Shift for more informations.");
+                if(Keyboard.isKeyDown(Keyboard.KEY_LSHIFT))
+                {
+                    if(item == Item.getItemFromBlock(BlockInit.CHICKEN_FURNACE))
+                    {
+                        event.getToolTip().add("This block doesn't correctly work.");
+                    }
+                }
+            }
         }
     }
 

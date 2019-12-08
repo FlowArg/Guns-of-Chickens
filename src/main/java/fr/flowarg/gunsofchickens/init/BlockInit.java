@@ -36,9 +36,9 @@ public class BlockInit
     public static final Block CHICKEN_DIAMOND_ORE = new ChickenDiamondOre("chicken_diamond_ore");
     public static final Block CHICKEN_LADDER = new ChickenLadder("chicken_ladder");
     public static final Block CHICKEN_DIAMOND_BLOCK = new BlockBase.ChickenBlocks("chicken_diamond_block", Material.ROCK, 2000.0f, 100f, "pickaxe", 2);
-    public static final Block CHICKEN_WOOD = new BlockBase("chicken_wood", Material.WOOD, 10.0f, 5.0f, "axe", 1);
+    public static final Block CHICKEN_WOOD = new BlockBase.ChickenWood();
     public static final Block CHICKEN_FURNACE = new ChickenFurnace("chicken_furnace");
     public static final Block ULTIMATE_BLOCK = new BlockBase.ChickenBlocks("ultimate_block", Material.ROCK, Float.MAX_VALUE, Float.MAX_VALUE, "pickaxe", 6);
     public static final Block CHICKEN_CHEST = new ChickenChest("chicken_chest");
-    public static final Block CHICKEN_DIRT = new BlockBase("chicken_dirt", Material.CLAY, 5f, 2f, "shovel", 1);
+    public static final Block CHICKEN_DIRT = new BlockBase.ChickenDirt();
 }

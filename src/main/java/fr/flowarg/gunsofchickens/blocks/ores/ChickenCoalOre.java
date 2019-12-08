@@ -1,5 +1,6 @@
 package fr.flowarg.gunsofchickens.blocks.ores;
 
+import fr.flowarg.gunsofchickens.Main;
 import fr.flowarg.gunsofchickens.init.BlockInit;
 import fr.flowarg.gunsofchickens.init.ItemInit;
 import fr.flowarg.gunsofchickens.templates.BlockBase;
@@ -61,4 +62,9 @@ public class ChickenCoalOre extends BlockBase
         return 0;
     }
 
+    @Override
+    public void registerModels()
+    {
+        Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0);
+    }
 }

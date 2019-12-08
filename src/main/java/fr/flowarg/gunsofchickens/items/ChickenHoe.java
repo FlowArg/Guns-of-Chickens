@@ -5,6 +5,7 @@ import fr.flowarg.gunsofchickens.Main;
 import fr.flowarg.gunsofchickens.init.ItemInit;
 import fr.flowarg.gunsofchickens.utils.IHasModel;
 import net.minecraft.item.ItemHoe;
+import net.minecraft.item.ItemStack;
 
 public class ChickenHoe extends ItemHoe implements IHasModel
 {
@@ -24,5 +25,11 @@ public class ChickenHoe extends ItemHoe implements IHasModel
     @Override
     public void registerModels() {
         Main.proxy.registerItemRenderer(this, 0);
+    }
+
+    @Override
+    public boolean hasEffect(ItemStack stack)
+    {
+        return UtilObjects.isStackEqualToAnotherStack(stack, UtilObjects.UtilItems.getItemStackFromItem(ItemInit.ULTIMATE_HOE));
     }
 }

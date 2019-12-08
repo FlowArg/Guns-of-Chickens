@@ -295,11 +295,11 @@ public class ChunkGeneratorChickenDimension implements IChunkGenerator
         this.ar = this.lperlinNoise1.generateNoiseOctaves(this.ar, x, y, z, xSize, ySize, zSize, 684.412D, 2053.236D, 684.412D);
         this.br = this.lperlinNoise2.generateNoiseOctaves(this.br, x, y, z, xSize, ySize, zSize, 684.412D, 2053.236D, 684.412D);
         int i = 0;
-        double[] adouble = new double[ySize];
+        double[] aDouble = new double[ySize];
 
         for (int j = 0; j < ySize; ++j)
         {
-            adouble[j] = Math.cos((double)j * Math.PI * 6.0D / (double)ySize) * 2.0D;
+            aDouble[j] = Math.cos((double)j * Math.PI * 6.0D / (double)ySize) * 2.0D;
             double d2 = (double)j;
 
             if (j > ySize / 2)
@@ -310,7 +310,7 @@ public class ChunkGeneratorChickenDimension implements IChunkGenerator
             if (d2 < 4.0D)
             {
                 d2 = 4.0D - d2;
-                adouble[j] -= d2 * d2 * d2 * 10.0D;
+                aDouble[j] -= d2 * d2 * d2 * 10.0D;
             }
         }
 
@@ -322,7 +322,7 @@ public class ChunkGeneratorChickenDimension implements IChunkGenerator
 
                 for (int k = 0; k < ySize; ++k)
                 {
-                    double d4 = adouble[k];
+                    double d4 = aDouble[k];
                     double d5 = this.ar[i] / 512.0D;
                     double d6 = this.br[i] / 512.0D;
                     double d7 = (this.pnr[i] / 10.0D + 1.0D) / 2.0D;

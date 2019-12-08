@@ -5,15 +5,14 @@ itemGroup.modtabutils=Guns of Chickens : Utils
 key.categories.gunsofchickens=Guns of Chickens
 
 container.chicken_furnace=Chicken Furnace
+container.test_furnace=Test Furnace
 container.chicken_chest=Chicken Chest
 
 logo.key=Show Logo
-modversion.key=Show Mod Version
+gocmodversion.key=Show Mod Version
 hour.key=Show Hour
 
 entity.chicken_kiki.name=KiKi
-
-enchantment.chicken_enchant=Chicken Enchant
 
 item.chicken_launcher_black.name=Black Chicken Launcher
 item.chicken_with_tnt.name=Chicken With TNT

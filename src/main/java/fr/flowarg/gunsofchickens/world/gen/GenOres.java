@@ -15,7 +15,7 @@ import java.util.Random;
 
 public class GenOres implements IWorldGenerator
 {
-    private WorldGenerator chicken_ore, chicken_coal_ore;
+    private final WorldGenerator chicken_ore, chicken_coal_ore;
 
     public GenOres()
     {
@@ -29,10 +29,10 @@ public class GenOres implements IWorldGenerator
         switch (world.provider.getDimension())
         {
             case -1:
-                runGenerator(chicken_coal_ore, world, random, chunkX, chunkZ, 60, 11, 39);
+                runGenerator(this.chicken_coal_ore, world, random, chunkX, chunkZ, 60, 11, 39);
                 break;
             case 0:
-                runGenerator(chicken_ore, world, random, chunkX, chunkZ, 30, 2, 21);
+                runGenerator(this.chicken_ore, world, random, chunkX, chunkZ, 30, 2, 21);
                 break;
         }
     }

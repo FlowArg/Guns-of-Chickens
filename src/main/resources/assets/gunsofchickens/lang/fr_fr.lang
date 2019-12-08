@@ -8,7 +8,7 @@ container.chicken_furnace=Four en poulet
 container.chicken_chest=Coffre en Poulet
 
 logo.key=Afficher le Logo
-modversion.key=Afficher la Version du Mod
+gocmodversion.key=Afficher la Version du Mod
 hour.key=Afficher l'heure
 
 entity.chicken_kiki.name=KiKi
@@ -77,3 +77,17 @@ tile.chicken_diamond_block.name=Block de Poulet en Diamant
 tile.chicken_wood.name=Bois de Poulet
 tile.chicken_furnace.name=Four en poulet
 tile.chicken_chest.name=Chest en POulet
+
+item.ultimate_ingot.name=Ultimate Ingot
+item.ultimate_helmet.name=Ultimate Helmet
+item.ultimate_chestplate.name=Ultimate Chestplate
+item.ultimate_leggings.name=Ultimate Leggings
+item.ultimate_boots.name=Ultimate Boots
+item.ultimate_sword.name=Ultimate Sword
+item.ultimate_pickaxe.name=Ultimate Pickaxe
+item.ultimate_hoe.name=Ultimate Hoe
+item.ultimate_shovel.name=Ultimate Shovel
+item.ultimate_axe.name=Ultimate Axe
+tile.ultimate_block.name=Ultimate Block
+tile.dimension_changer.name=Dimension Changer
+tile.chicken_dirt.name=Chicken Dirt

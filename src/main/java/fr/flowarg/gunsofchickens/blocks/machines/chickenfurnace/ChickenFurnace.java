@@ -16,6 +16,7 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.Container;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -123,9 +124,26 @@ public class ChickenFurnace extends BlockBase implements ITileEntityProvider
     @Override
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
     {
-        TileEntityChickenFurnace tileEntity = (TileEntityChickenFurnace)worldIn.getTileEntity(pos);
-        InventoryHelper.dropInventoryItems(worldIn, pos, tileEntity);
+        TileEntity tileEntity = worldIn.getTileEntity(pos);
+
+        if(tileEntity instanceof TileEntityChickenFurnace)
+        {
+            InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityChickenFurnace)tileEntity);
+            worldIn.updateComparatorOutputLevel(pos, this);
+        }
         super.breakBlock(worldIn, pos, state);
+    }
+
+    @Override
+    public boolean hasComparatorInputOverride(IBlockState state)
+    {
+        return true;
+    }
+
+    @Override
+    public int getComparatorInputOverride(IBlockState blockState, World worldIn, BlockPos pos)
+    {
+        return Container.calcRedstone(worldIn.getTileEntity(pos));
     }
 
     @Override
@@ -164,5 +182,11 @@ public class ChickenFurnace extends BlockBase implements ITileEntityProvider
     public int getMetaFromState(IBlockState state)
     {
         return ((EnumFacing)state.getValue(FACING)).getIndex();
+    }
+
+    @Override
+    public void registerModels()
+    {
+        Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0);
     }
 }

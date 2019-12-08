@@ -12,7 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-public class BlockBase extends Block implements IHasModel
+public abstract class BlockBase extends Block implements IHasModel
 {
     public BlockBase(String name, Material materialIn, float resistance, float hardness, String harvestType, int harvestLevel)
     {
@@ -40,11 +40,6 @@ public class BlockBase extends Block implements IHasModel
         UtilObjects.UtilBlocks.registerBlock(BlockInit.BLOCKS, ItemInit.ITEMS, this);
     }
 
-    @Override
-    public void registerModels() {
-        Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0);
-    }
-
     public static class ChickenBlocks extends BlockBase
     {
         public ChickenBlocks(String name, Material materialIn, float resistance, float hardness, String harvestType, int harvestLevel)
@@ -61,6 +56,40 @@ public class BlockBase extends Block implements IHasModel
         public boolean isBeaconBase(IBlockAccess worldObj, BlockPos pos, BlockPos beacon)
         {
             return true;
+        }
+
+        @Override
+        public void registerModels() {
+            Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0);
+        }
+    }
+
+    public static class ChickenWood extends BlockBase
+    {
+        public ChickenWood()
+        {
+            super("chicken_wood", Material.WOOD, 10.0f, 5.0f, "axe", 1);
+            this.setSoundType(SoundType.WOOD);
+        }
+
+        @Override
+        public void registerModels() {
+            Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0);
+        }
+    }
+
+    public static class ChickenDirt extends BlockBase
+    {
+        public ChickenDirt()
+        {
+            super("chicken_dirt", Material.GROUND, 5f, 2f, "shovel", 1);
+            this.setSoundType(SoundType.GROUND);
+        }
+
+        @Override
+        public void registerModels()
+        {
+            Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0);
         }
     }
 }

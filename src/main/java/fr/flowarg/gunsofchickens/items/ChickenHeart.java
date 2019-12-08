@@ -15,13 +15,12 @@ public class ChickenHeart extends ItemBase
         super(name);
         setCreativeTab(Main.MOD_TAB_UTILS);
         setMaxStackSize(20);
-        setMaxDamage(0);
     }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
     {
-        playerIn.getHeldItemMainhand().damageItem(1, playerIn);
+        playerIn.getHeldItemMainhand().shrink(1);
         return super.onItemRightClick(worldIn, playerIn, handIn);
     }
 }

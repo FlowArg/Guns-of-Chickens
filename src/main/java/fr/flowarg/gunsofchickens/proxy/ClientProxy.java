@@ -1,5 +1,10 @@
 package fr.flowarg.gunsofchickens.proxy;
 
+import com.leviathanstudio.craftstudio.client.registry.CSRegistryHelper;
+import com.leviathanstudio.craftstudio.client.registry.CraftStudioLoader;
+import com.leviathanstudio.craftstudio.client.util.EnumRenderType;
+import com.leviathanstudio.craftstudio.client.util.EnumResourceType;
+import fr.flowarg.flowutils.UtilClient;
 import fr.flowarg.gunsofchickens.gui.ShowLogo;
 import fr.flowarg.gunsofchickens.utils.handlers.RegistryHandler;
 import net.minecraft.client.Minecraft;
@@ -38,6 +43,7 @@ public class ClientProxy extends CommonProxy
     {
         super.preInit(event);
         Display.setTitle(DISPLAY_TITLE);
+        UtilClient.addOBJCompatibility(MODID);
     }
 
     @Override
@@ -64,7 +70,7 @@ public class ClientProxy extends CommonProxy
         MinecraftForge.EVENT_BUS.register(this);
 
         this.keyBindLogo = new KeyBinding("logo.key", Keyboard.KEY_K, "key.categories.gunsofchickens");
-        this.keyBindModVersion = new KeyBinding("modversion.key", Keyboard.KEY_M, "key.categories.gunsofchickens");
+        this.keyBindModVersion = new KeyBinding("gocmodversion.key", Keyboard.KEY_M, "key.categories.gunsofchickens");
         this.keyBindHour = new KeyBinding("hour.key", Keyboard.KEY_H, "key.categories.gunsofchickens");
 
         this.registerKeys(keyBindLogo);
@@ -72,6 +78,14 @@ public class ClientProxy extends CommonProxy
         this.registerKeys(keyBindHour);
     }
 
+    @CraftStudioLoader
+    public static void registerCraftStudioAssets()
+    {
+        CSRegistryHelper registry = new CSRegistryHelper(MODID);
+        registry.register(EnumResourceType.MODEL, EnumRenderType.BLOCK, "ultimate_totem");
+    }
+
+    @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void onKeyInputEvent(InputEvent.KeyInputEvent event)
     {
@@ -79,6 +93,7 @@ public class ClientProxy extends CommonProxy
             Minecraft.getMinecraft().displayGuiScreen(new ShowLogo());
     }
 
+    @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void onOverlay(RenderGameOverlayEvent.Text event)
     {
@@ -89,7 +104,7 @@ public class ClientProxy extends CommonProxy
             this.cdc = NAME + " : " + VERSION;
             event.getLeft().add(cdc);
         }
-        else if(this.keyBindHour.isKeyDown())
+        if(this.keyBindHour.isKeyDown())
         {
             this.cdc = new Date().toString();
             event.getRight().add(cdc);

@@ -1,14 +1,10 @@
 package fr.flowarg.gunsofchickens.world.biomes;
 
-import com.google.common.collect.Lists;
 import fr.flowarg.flowutils.UtilObjects;
 import fr.flowarg.gunsofchickens.init.BlockInit;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.world.biome.Biome;
-
-import java.util.List;
 
 public class BiomeChicken extends Biome
 {

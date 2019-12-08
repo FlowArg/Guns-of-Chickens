@@ -5,10 +5,10 @@ import fr.flowarg.gunsofchickens.Main;
 import fr.flowarg.gunsofchickens.init.ItemInit;
 import fr.flowarg.gunsofchickens.utils.IHasModel;
 import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemStack;
 
 public class ChickenPickaxe extends ItemPickaxe implements IHasModel
 {
-
     public ChickenPickaxe(String name, ToolMaterial material)
     {
         super(material);
@@ -24,5 +24,11 @@ public class ChickenPickaxe extends ItemPickaxe implements IHasModel
     @Override
     public void registerModels() {
         Main.proxy.registerItemRenderer(this, 0);
+    }
+
+    @Override
+    public boolean hasEffect(ItemStack stack)
+    {
+        return UtilObjects.isStackEqualToAnotherStack(stack, UtilObjects.UtilItems.getItemStackFromItem(ItemInit.ULTIMATE_PICKAXE));
     }
 }

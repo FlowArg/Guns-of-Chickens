@@ -4,6 +4,7 @@ import fr.flowarg.flowutils.UtilObjects;
 import fr.flowarg.gunsofchickens.Main;
 import fr.flowarg.gunsofchickens.init.ItemInit;
 import fr.flowarg.gunsofchickens.utils.IHasModel;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 
 public class ChickenSword extends ItemSword implements IHasModel
@@ -24,5 +25,11 @@ public class ChickenSword extends ItemSword implements IHasModel
     public void registerModels()
     {
         Main.proxy.registerItemRenderer(this, 0);
+    }
+
+    @Override
+    public boolean hasEffect(ItemStack stack)
+    {
+        return UtilObjects.isStackEqualToAnotherStack(stack, UtilObjects.UtilItems.getItemStackFromItem(ItemInit.ULTIMATE_SWORD));
     }
 }

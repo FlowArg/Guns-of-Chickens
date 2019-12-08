@@ -1,6 +1,5 @@
 package fr.flowarg.gunsofchickens.utils.handlers;
 
-import fr.flowarg.gunsofchickens.Main;
 import fr.flowarg.gunsofchickens.utils.References;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -32,23 +31,9 @@ public class ConfigHandler
 
     public static void registerConfig(FMLPreInitializationEvent event)
     {
-        Main.LOGGER.debug("Registering config...");
-        Main.LOGGER.debug("Creating config directory...");
         configFile = new File(event.getModConfigurationDirectory() + "/" + References.MODID);
-        if (!configFile.canRead())
-        {
-            configFile.setReadable(true);
-        }
-        if (!configFile.canWrite())
-        {
-            configFile.setWritable(true);
-        }
         configFile.mkdirs();
-        Main.LOGGER.debug("Created config directory.");
-        Main.LOGGER.debug("Creating config file...");
         syncConfig(new File(configFile.getPath(), References.MODID + ".cfg"));
-        Main.LOGGER.debug("Created config file.");
-        Main.LOGGER.debug("Registered config.");
     }
 
     public static Configuration getConfig()
@@ -59,7 +44,6 @@ public class ConfigHandler
     {
         config = new Configuration(file);
         config.load();
-        Main.LOGGER.debug("Synchronising config...");
         String category;
 
         category = "Locations";

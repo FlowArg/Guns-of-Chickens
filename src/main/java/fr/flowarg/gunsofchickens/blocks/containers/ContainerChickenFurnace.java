@@ -8,8 +8,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IContainerListener;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -39,6 +41,14 @@ public class ContainerChickenFurnace extends Container
         {
             this.addSlotToContainer(new Slot(playerInv, x, 8 + x * 18, 142));
         }
+    }
+
+    @Override
+    public void onContainerClosed(EntityPlayer playerIn)
+    {
+        World world = playerIn.getEntityWorld();
+        InventoryHelper.dropInventoryItems(world, this.tileentity.getPos(), this.tileentity);
+        super.onContainerClosed(playerIn);
     }
 
     @Override

@@ -4,7 +4,6 @@ import fr.flowarg.gunsofchickens.blocks.machines.chickenfurnace.ChickenFurnace;
 import fr.flowarg.gunsofchickens.blocks.machines.chickenfurnace.ChickenFurnaceRecipes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,7 +21,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class TileEntityChickenFurnace extends TileEntity implements IInventory,ITickable
 {
-    private NonNullList<ItemStack> inventory = NonNullList.<ItemStack>withSize(4, ItemStack.EMPTY);
+    private NonNullList<ItemStack> inventory = NonNullList.withSize(4, ItemStack.EMPTY);
     private String customName;
     private int burnTime;
     private int currentBurnTime;
@@ -71,7 +70,7 @@ public class TileEntityChickenFurnace extends TileEntity implements IInventory,I
     @Override
     public ItemStack getStackInSlot(int index)
     {
-        return (ItemStack)this.inventory.get(index);
+        return this.inventory.get(index);
     }
 
     @Override
@@ -89,15 +88,15 @@ public class TileEntityChickenFurnace extends TileEntity implements IInventory,I
     @Override
     public void setInventorySlotContents(int index, ItemStack stack)
     {
-        ItemStack itemStack = (ItemStack)this.inventory.get(index);
-        boolean flag = !stack.isEmpty() && stack.isItemEqual(itemStack) && ItemStack.areItemStacksEqualUsingNBTShareTag(stack, itemStack);
+        ItemStack itemStack = this.inventory.get(index);
+        boolean flag = !stack.isEmpty() && stack.isItemEqual(itemStack) && ItemStack.areItemStacksEqual(stack, itemStack);
         this.inventory.set(index, stack);
 
         if (stack.getCount() > this.getInventoryStackLimit()) stack.setCount(this.getInventoryStackLimit());
 
         if (index == 0 && !flag)
         {
-            ItemStack stack1 = (ItemStack)this.inventory.get(index + 1);
+            ItemStack stack1 = this.inventory.get(index + 1);
             this.totalCookTime = this.getCookTime(stack, stack1);
             this.cookTime = 0;
             this.markDirty();
@@ -108,12 +107,12 @@ public class TileEntityChickenFurnace extends TileEntity implements IInventory,I
     public void readFromNBT(NBTTagCompound compound)
     {
         super.readFromNBT(compound);
-        this.inventory = NonNullList.<ItemStack>withSize(this.getSizeInventory(), ItemStack.EMPTY);
+        this.inventory = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
         ItemStackHelper.loadAllItems(compound, this.inventory);
         this.burnTime = compound.getInteger("BurnTime");
         this.cookTime = compound.getInteger("CookTime");
         this.totalCookTime = compound.getInteger("TotalCookTime");
-        this.currentBurnTime = getItemBurnTime((ItemStack)this.inventory.get(2));
+        this.currentBurnTime = getItemBurnTime(this.inventory.get(2));
 
         if (compound.hasKey("CustomChickenFurnaceName", 8)) this.setCustomName(compound.getString("CustomChickenFurnaceName"));
     }
@@ -163,9 +162,9 @@ public class TileEntityChickenFurnace extends TileEntity implements IInventory,I
 
         if (!this.world.isRemote)
         {
-            ItemStack fuel = (ItemStack)this.inventory.get(2);
+            ItemStack fuel = this.inventory.get(2);
 
-            if (this.isBurning() || !fuel.isEmpty() && ((((ItemStack)this.inventory.get(0)).isEmpty()) || ((ItemStack)this.inventory.get(1)).isEmpty()))
+            if (this.isBurning() || !fuel.isEmpty() && ((this.inventory.get(0).isEmpty()) || this.inventory.get(1).isEmpty()))
             {
                 if (!this.isBurning() && this.canSmelt())
                 {
@@ -189,35 +188,39 @@ public class TileEntityChickenFurnace extends TileEntity implements IInventory,I
                         }
                     }
                 }
-                if (this.isBurning() && this.canSmelt() && this.cookTime > 0)
+
+                if (this.isBurning() && this.canSmelt())
                 {
-                    this.cookTime++;
+                    ++this.cookTime;
 
                     if (this.cookTime == this.totalCookTime)
                     {
                         this.cookTime = 0;
-                        this.totalCookTime = this.getCookTime((ItemStack)this.inventory.get(0), (ItemStack)this.inventory.get(2));
-                        System.out.println("update : do smelt");
+                        this.totalCookTime = this.getCookTime(this.inventory.get(0), this.inventory.get(2));
                         this.smeltItem();
-                        System.out.println("update : doed smelt");
                         flag1 = true;
                     }
                 }
-                else this.cookTime = 0;
+                else
+                {
+                    this.cookTime = 0;
+                }
             }
             else if (!this.isBurning() && this.cookTime > 0)
             {
                 this.cookTime = MathHelper.clamp(this.cookTime - 2, 0, this.totalCookTime);
             }
+
             if (flag != this.isBurning())
             {
                 flag1 = true;
                 ChickenFurnace.setState(this.isBurning(), this.world, this.pos);
             }
-            if (flag1)
-            {
-                this.markDirty();
-            }
+        }
+
+        if (flag1)
+        {
+            this.markDirty();
         }
     }
 
@@ -228,18 +231,19 @@ public class TileEntityChickenFurnace extends TileEntity implements IInventory,I
 
     private boolean canSmelt()
     {
-        if (((ItemStack)this.inventory.get(0)).isEmpty() || ((ItemStack)this.inventory.get(1)).isEmpty()) return false;
+        if (this.inventory.get(0).isEmpty() || this.inventory.get(1).isEmpty()) return false;
+        if(this.inventory.get(0).isEmpty() && this.inventory.get(1).isEmpty()) return false;
         else
         {
-            ItemStack result = ChickenFurnaceRecipes.getInstance().getSmeltingResult((ItemStack)this.inventory.get(0), (ItemStack)this.inventory.get(1));
+            ItemStack result = ChickenFurnaceRecipes.getInstance().getSmeltingResult(this.inventory.get(0), this.inventory.get(1));
             if (result.isEmpty()) return false;
             else
             {
-                ItemStack output = (ItemStack)this.inventory.get(3);
+                ItemStack output = this.inventory.get(3);
                 if (output.isEmpty()) return true;
-                if (!output.isItemEqual(result)) return false;
-                int res = output.getCount() + result.getCount();
-                return res <= this.getInventoryStackLimit() && res <= output.getMaxStackSize();
+                else if (!output.isItemEqual(result)) return false;
+                else if (output.getCount() + result.getCount() <= this.getInventoryStackLimit() && output.getCount() + result.getCount() <= output.getMaxStackSize()) return true;
+                else return output.getCount() + result.getCount() <= result.getMaxStackSize();
             }
         }
     }
@@ -249,11 +253,11 @@ public class TileEntityChickenFurnace extends TileEntity implements IInventory,I
         System.out.println("smeltitem ?");
         if (this.canSmelt())
         {
-            System.out.println("Method called : cansmelt");
-            ItemStack input1 = (ItemStack)this.inventory.get(0);
-            ItemStack input2 = (ItemStack)this.inventory.get(1);
+            System.out.println("Method called : can smelt");
+            ItemStack input1 = this.inventory.get(0);
+            ItemStack input2 = this.inventory.get(1);
             ItemStack result = ChickenFurnaceRecipes.getInstance().getSmeltingResult(input1, input2);
-            ItemStack output = (ItemStack)this.inventory.get(3);
+            ItemStack output = this.inventory.get(3);
 
             System.out.println("smelting...");
             if (output.isEmpty()) this.inventory.set(3, result.copy());
@@ -281,7 +285,14 @@ public class TileEntityChickenFurnace extends TileEntity implements IInventory,I
     @Override
     public boolean isUsableByPlayer(EntityPlayer player)
     {
-        return getWorld().getTileEntity(this.pos) != this ? false : player.getDistanceSq((double)getPos().getX() + 0.5d, (double)getPos().getY() + 0.5d, (double)getPos().getZ() + 0.5d) <= 64;
+        if (this.world.getTileEntity(this.pos) != this)
+        {
+            return false;
+        }
+        else
+        {
+            return player.getDistanceSq((double)this.pos.getX() + 0.5D, (double)this.pos.getY() + 0.5D, (double)this.pos.getZ() + 0.5D) <= 64.0D;
+        }
     }
 
     @Override
@@ -293,7 +304,7 @@ public class TileEntityChickenFurnace extends TileEntity implements IInventory,I
     @Override
     public void closeInventory(EntityPlayer player)
     {
-        InventoryHelper.dropInventoryItems(this.getWorld(), this.getPos(), this);
+
     }
 
     @Override
@@ -338,7 +349,6 @@ public class TileEntityChickenFurnace extends TileEntity implements IInventory,I
                 break;
             case 3:
                 this.totalCookTime = value;
-                break;
         }
     }
 
